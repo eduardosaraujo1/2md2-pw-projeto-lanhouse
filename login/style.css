@@ -55,6 +55,13 @@ body {
     align-self: stretch;
 }
 
+@media only screen and (max-width: 768px) {
+    .login-field {
+        align-items: center;
+        padding: 0;
+    }
+}
+
 .login-field .wrapper {
     display: flex;
     flex-direction: column;

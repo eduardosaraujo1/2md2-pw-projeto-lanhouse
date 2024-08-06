@@ -1,0 +1,121 @@
+@font-face {
+    font-family: Inter;
+    src: url('../fonts/Inter-VariableFont.ttf');
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+}
+
+:root {
+    --background-color: #031730;
+    --btn-color: #038c8c;
+    --input-border-color: var(--btn-color);
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    gap: 24px;
+}
+
+.decorator-image {
+    display: flex;
+    width: 49%;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.decorator-image {
+    background: url('./assets/logo.png') lightgray 50% / cover no-repeat;
+}
+
+@media only screen and (max-width: 768px) {
+    .decorator-image {
+        display: none;
+    }
+}
+
+.login-field {
+    display: flex;
+    padding: 0 64px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    align-self: stretch;
+}
+
+.login-field .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    flex: 1;
+}
+
+.title > * {
+    color: white;
+    user-select: none;
+}
+.title h1 {
+    font-size: 2em;
+}
+.title h2 {
+    font-size: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 32px;
+    width: 100%;
+}
+form * {
+    font-size: 1.1rem;
+}
+
+form .fields {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+
+form input {
+    padding: 12px 4px 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--input-border-color, #038c8c);
+    background: white;
+}
+
+#btn-login {
+    display: flex;
+    padding: 12px 48px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+    color: white;
+}
+
+#btn-login {
+    border-radius: 12px;
+    background: var(--btn-color, #038c8c);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

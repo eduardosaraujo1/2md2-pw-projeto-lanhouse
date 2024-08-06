@@ -15,38 +15,52 @@
                         <h1>Entrar</h1>
                         <h2>Digite suas credenciais para continuar</h2>
                     </div>
-                    <form action="../fornecedor/" method="post">
+                    <form action="" method="post">
                         <div class="fields">
                             <input
-                                name="id"
+                                name="txtId"
                                 id="txtId"
+                                type="text"
                                 placeholder="Registro numérico"
-                                onkeypress="return filterNumbers(event);"
                             />
                             <input
-                                name="senha"
+                                name="txtSenha"
+                                id="txtSenha"
                                 type="password"
                                 placeholder="Senha"
                             />
                         </div>
-                        <button id="btn-login">Entrar</button>
+                        <button type="button" id="btn-login" onclick="login();">
+                            Entrar
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
         <script>
-            function filterNumbers(e) {
-                var charCode = e.charCode ? e.charCode : e.keyCode;
-                // charCode 8 = backspace
-                // charCode 9 = tab
-                if (charCode != 8 && charCode != 9) {
-                    // charCode 48 equivale a 0
-                    // charCode 57 equivale a 9
-                    if (charCode < 48 || charCode > 57) {
-                        return false;
+            function login() {
+                const txtId = document.getElementById('txtId');
+
+                if (isNaN(txtId.value)) {
+                    alert('Registro numérico inválido');
+                    return;
+                }
+
+                location.href = '../fornecedor/';
+            }
+
+            function filterNumericKeyPress(e) {
+                const key = e.key;
+
+                if (key != 'Backspace' && key != 'Tab') {
+                    // isNaN checks if the key pressed is a number
+                    if (isNaN(key)) {
+                        e.preventDefault();
                     }
                 }
             }
+            const txtId = document.getElementById('txtId');
+            txtId.addEventListener('keypress', filterNumericKeyPress);
         </script>
     </body>
 </html>

@@ -7,71 +7,142 @@
         <link rel="stylesheet" href="./css/funcionario.css" />
     </head>
     <body>
-        <div class="container">
-            <header>
-                <nav>
-                    <ul>
-                        <li><a href="#">Cadastros</a></li>
-                        <li><a href="#">Login</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <main>
+        <header class="navbar">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./images/LogoSimplificada_cropped.png" alt="" />
+                </a>
+            </div>
+            <nav class="nav-buttons">
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="#">Cadastros</a></li>
+                </ul>
+            </nav>
+            <div class="account-panel">
+                <div class="profile-pic">
+                    <img src="./images/userProfilePic.jpg" alt="" />
+                </div>
+                <div class="panel-text">
+                    <span class="username">Usuário</span>
+                    <a href="./login.html" class="sair">Sair</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h1 class="form-title">Cadastro de Funcionário</h1>
                 <form class="cadastro-form">
-                    <h1>Cadastro de Funcionário</h1>
-                    <br />
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            id="nome"
-                            name="nome"
-                            placeholder="Nome"
-                        /><br />
-                        <input
-                            type="text"
-                            id="sobrenome"
-                            name="sobrenome"
-                            placeholder="Sobrenome"
-                        />
-                        <input
-                            type="date"
-                            id="data-nascimento"
-                            name="data-nascimento"
-                            placeholder="Data De Nascimento"
-                        />
+                    <div class="input-fields">
+                        <div class="form-group">
+                            <div class="input">
+                                <label class="input-label" for="nome"
+                                    >Nome</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="nome"
+                                    name="nome"
+                                />
+                            </div>
+                            <div class="input">
+                                <label for="sobrenome" class="input-label"
+                                    >Sobrenome</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="sobrenome"
+                                    name="sobrenome"
+                                />
+                            </div>
+                            <div class="input">
+                                <label
+                                    for="data-nascimento"
+                                    class="input-label"
+                                    for=""
+                                    >Data de Nascimento</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="date"
+                                    id="data-nascimento"
+                                    name="data-nascimento"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                                <label for="email" class="input-label"
+                                    >E-mail</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                                <label for="cargo" class="input-label"
+                                    >Cargo</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="cargo"
+                                    name="cargo"
+                                />
+                            </div>
+                            <div class="input">
+                                <label for="salario" class="input-label"
+                                    >Salário</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="salario"
+                                    name="salario"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                                <label for="senha" class="input-label"
+                                    >Senha</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="password"
+                                    id="senha"
+                                    name="senha"
+                                />
+                            </div>
+                            <div class="input">
+                                <label for="confirmSenha" class="input-label"
+                                    >Confirmar senha</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="password"
+                                    id="confirmSenha"
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            id="cargo"
-                            name="cargo"
-                            placeholder="Cargo"
-                        />
-                        <input
-                            type="text"
-                            id="salario"
-                            name="salario"
-                            placeholder="Salário"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <input
-                            type="password"
-                            id="senha"
-                            name="senha"
-                            placeholder="Senha"
-                        />
-                        <input
-                            type="password"
-                            id="confirmar-senha"
-                            name="confirmar-senha"
-                            placeholder="Confirmar Senha"
-                        />
-                    </div>
-                    <button type="submit">Entrar</button>
+                    <button
+                        type="button"
+                        class="primary-button"
+                        onclick="location.href = './home.html'"
+                    >
+                        Entrar
+                    </button>
                 </form>
-            </main>
-        </div>
+            </div>
+        </main>
         <script>
             function allowOnlyCurrency(e) {
                 const key = e.key;

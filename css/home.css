@@ -1,5 +1,11 @@
 @import url('style.css');
 @import url('navbar.css');
+
 a {
     color: white;
+}
+
+ul {
+    color: white;
+    padding: 2rem;
 }

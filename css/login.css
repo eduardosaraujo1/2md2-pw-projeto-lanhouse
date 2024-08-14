@@ -86,43 +86,10 @@ form .fields {
     width: 100%;
 }
 
-form input {
-    padding: 12px 4px 12px 16px;
-    border-radius: 4px;
-    border: none;
-    background: white;
-    font-weight: 400;
-    font-size: 1.1rem;
-}
-
 input#txtEmail {
     width: 100%;
 }
 
 form a {
     text-decoration: none;
-}
-
-#btn-login {
-    display: flex;
-    padding: 12px 48px;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    border: none;
-    color: white;
-}
-
-#btn-login {
-    border-radius: 12px;
-    background: var(--button-cyan);
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.1rem;
-    line-height: normal;
-    cursor: pointer;
-}
-
-#btn-login:hover {
-    background: var(--button-cyan-hover);
 }

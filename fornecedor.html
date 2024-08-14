@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cadastrar Funcionário - Sistema Lanhouse</title>
+        <link rel="stylesheet" href="./css/fornecedor.css" />
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./images/LogoSimplificada_cropped.png" alt="" />
+                </a>
+            </div>
+            <nav class="nav-buttons">
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="#">Cadastros</a></li>
+                </ul>
+            </nav>
+            <div class="account-panel">
+                <div class="profile-pic">
+                    <img src="./images/userProfilePic.jpg" alt="" />
+                </div>
+                <div class="panel-text">
+                    <span class="username">Usuário</span>
+                    <a href="./login.html" class="sair">Sair</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h1 class="form-title">Cadastro de Fornecedor</h1>
+                <form class="cadastro-form">
+                    <div class="input-fields">
+                        <div class="form-group">
+                            <div class="input">
+                                <label class="input-label" for="nome"
+                                    >Nome</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="nome"
+                                    name="nome"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                                <label for="email" class="input-label"
+                                    >E-mail</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                                <label for="telefone" class="input-label"
+                                    >Telefone</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="tel"
+                                    id="telefone"
+                                    name="telefone"
+                                />
+                            </div>
+                            <div class="input">
+                                <label for="contato" class="input-label"
+                                    >Contato</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="contato"
+                                    name="contato"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                                <label for="endereco" class="input-label"
+                                    >Endereco</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="text"
+                                    id="endereco"
+                                    name="endereco"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        class="primary-button"
+                        onclick="location.href = './home.html'"
+                    >
+                        Entrar
+                    </button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

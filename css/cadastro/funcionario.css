@@ -1,5 +1,5 @@
-@import url('./style.css');
-@import url('./navbar.css');
+@import url('../style.css');
+@import url('../navbar.css');
 
 body {
     width: 100vw;
@@ -41,7 +41,7 @@ main {
     color: var(--ghost-white, #f8f8ff);
     text-align: center;
     font-family: Inter;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 

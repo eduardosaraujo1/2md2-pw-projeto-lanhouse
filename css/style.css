@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Inter;
+    src: url('../fonts/Inter/Inter-VariableFont.ttf');
+}
+
+:root {
+    --background-blue: #031730;
+    --background-navbar: #020f1f;
+    --button-cyan: #1ca7a7;
+    --button-cyan-hover: #268282;
+    --nav-button-cyan: #32c7c7e5;
+    --ghost-white: #f8f8ff;
+}
+
+:root {
+    background-color: var(--background-blue);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+}

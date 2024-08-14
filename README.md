@@ -3,6 +3,7 @@
 -   Eduardo Soares e Araújo
 -   Gian Pablo Benvive Torres
 
-# Tema
+# Sobre o Projeto
 
-Sistema para uma LanHouse
+-   Sistema para uma LanHouse
+-   Para encontrar o Banco de Dados, Logos e outros dados do projeto, acesse a pasta `ABOUT`

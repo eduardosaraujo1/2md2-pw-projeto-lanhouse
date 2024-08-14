@@ -1,32 +1,6 @@
 @import url('./style.css');
 @import url('./navbar.css');
 
-/* header {
-    background-color: #eaeaea;
-    background-color: black;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1px;
-}
-
-nav ul li {
-    flex: 1;
-    text-align: center;
-    background-color: #eaeaea;
-    padding: 1em 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-} */
-
 body {
     width: 100vw;
     height: 100vh;
@@ -95,20 +69,3 @@ main {
     min-width: 0;
 }
 /* TODO: Fazer inputs mais responsivos em mobile */
-
-/* button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #00a3e8;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #007bb5;
-} */

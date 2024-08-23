@@ -1,5 +1,5 @@
-@import url('../style.css');
-@import url('../navbar.css');
+@import url('style.css');
+@import url('navbar.css');
 
 body {
     width: 100vw;
@@ -9,7 +9,8 @@ body {
 }
 
 main {
-    flex: 1; /* height 100% */
+    flex: 1;
+    height: 100%;
     width: 100%;
 }
 

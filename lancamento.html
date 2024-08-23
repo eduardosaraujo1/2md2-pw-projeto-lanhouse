@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cadastrar Lançamento - Sistema Lanhouse</title>
+        <link rel="stylesheet" href="./css/lancamento.css" />
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./images/LogoSimplificada_cropped.png" alt="" />
+                </a>
+            </div>
+            <nav class="nav-buttons">
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="#">Cadastros</a></li>
+                </ul>
+            </nav>
+            <div class="account-panel">
+                <div class="profile-pic">
+                    <img src="./images/userProfilePic.jpg" alt="" />
+                </div>
+                <div class="panel-text">
+                    <span class="username">Usuário</span>
+                    <a href="./login.html" class="sair">Sair</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h1 class="form-title">Registrar Lançamento</h1>
+                <form class="cadastro-form">
+                    <div class="input-fields">
+                        <div class="form-group">
+                            <div class="input">
+                                <label for="categoria" class="input-label"
+                                    >Categoria</label
+                                >
+                                <select
+                                    name="categoria"
+                                    id="categoria"
+                                    class="textbox"
+                                >
+                                    <option value="selecione">Selecione</option>
+                                </select>
+                            </div>
+                            <div class="input">
+                                <label class="input-label" for="valor"
+                                    >Valor</label
+                                >
+                                <input
+                                    class="textbox"
+                                    type="number"
+                                    id="valor"
+                                    name="valor"
+                                />
+                            </div>
+                            <div class="input">
+                                <label class="input-label" for="tipoLanc"
+                                    >Tipo de lançamento</label
+                                >
+                                <div class="radio">
+                                    <label for="lucro" class="input-label">
+                                        <input
+                                            type="radio"
+                                            name="tipoLanc"
+                                            id="lucro"
+                                        />
+                                        Lucro</label
+                                    >
+                                    <label for="despeza" class="input-label">
+                                        <input
+                                            type="radio"
+                                            name="tipoLanc"
+                                            id="despeza"
+                                        />
+                                        Despeza</label
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group description">
+                            <div class="input" style="align-self: stretch">
+                                <label class="input-label" for="nome"
+                                    >Descrição</label
+                                >
+                                <textarea
+                                    class="textbox"
+                                    name="descricao"
+                                    id="descricao"
+                                    class="multilineTextbox"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        class="primary-button"
+                        onclick="location.href = './home.html'"
+                    >
+                        Cadastrar
+                    </button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

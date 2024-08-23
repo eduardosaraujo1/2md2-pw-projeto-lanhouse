@@ -27,7 +27,7 @@ main {
     gap: 64px;
     width: 62vw;
     height: 100%;
-    margin: 1rem 0;
+    padding: 1rem 0;
 }
 
 .cadastro-form {

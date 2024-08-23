@@ -23,7 +23,8 @@
     font-family: Inter;
 }
 
-input.textbox {
+input.textbox,
+textarea.textbox {
     padding: 12px;
     border-radius: 4px;
     border: none;

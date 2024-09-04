@@ -32,7 +32,7 @@
         <main>
             <div class="container">
                 <h1 class="form-title">Cadastro de Funcionário</h1>
-                <form class="cadastro-form">
+                <form class="cadastro-form" action="php/insert_funcionario.php" method="post">
                     <div class="input-fields">
                         <div class="form-group">
                             <div class="input">
@@ -134,9 +134,8 @@
                         </div>
                     </div>
                     <button
-                        type="button"
+                        type="submit"
                         class="primary-button"
-                        onclick="location.href = './home.html'"
                     >
                         Cadastrar
                     </button>
@@ -144,6 +143,7 @@
             </div>
         </main>
         <script>
+            // TODO: Verificar se a senha é igual a confirmSenha
             function allowOnlyCurrency(e) {
                 const key = e.key;
                 const inputField = e.target;

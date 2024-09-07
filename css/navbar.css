@@ -4,6 +4,8 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--background-navbar);
+    position: sticky;
+    top: 0;
 }
 
 .logo {
@@ -48,7 +50,7 @@
 }
 
 .nav-buttons ul li a {
-    transition: ease-in 0.2s;
+    transition: color ease-in 0.2s;
 }
 
 .nav-buttons ul li a:hover {

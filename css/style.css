@@ -6,11 +6,11 @@
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 3em;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 h3 {
@@ -55,4 +55,11 @@ h3 {
 
 .btn--primary:hover {
     background-color: var(--btn-primary-hover);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: white;
 }

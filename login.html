@@ -9,41 +9,38 @@
     <body>
         <div class="container">
             <div class="decorator-image"></div>
-            <div class="login-field">
-                <div class="wrapper">
+            <div class="login-container">
+                <form action="" method="post" novalidate>
                     <div class="title">
                         <h1>Entrar</h1>
-                        <h2>Digite suas credenciais para continuar</h2>
+                        <h3>Digite suas credenciais para continuar</h3>
                     </div>
-                    <form action="" method="post">
-                        <div class="fields">
-                            <input
-                                class="textbox"
-                                name="txtEmail"
-                                id="txtEmail"
-                                type="email"
-                                placeholder="E-mail"
-                            />
-                            <input
-                                class="textbox"
-                                name="txtSenha"
-                                id="txtSenha"
-                                type="password"
-                                placeholder="Senha"
-                            />
-                        </div>
-                        <a href="./home.html">
-                            <button
-                                class="primary-button"
-                                type="button"
-                                id="btn-login"
-                            >
-                                Entrar
-                            </button>
-                        </a>
-                    </form>
-                </div>
+                    <input
+                        class="textbox"
+                        name="txtEmail"
+                        id="txtEmail"
+                        type="email"
+                        placeholder="E-mail"
+                        required
+                    />
+                    <input
+                        class="textbox"
+                        name="txtSenha"
+                        id="txtSenha"
+                        type="password"
+                        placeholder="Senha"
+                        required
+                    />
+                    <button
+                        type="submit"
+                        class="btn btn--primary"
+                        id="btn-login"
+                    >
+                        Entrar
+                    </button>
+                </form>
             </div>
         </div>
+        <script src="js/login.js"></script>
     </body>
 </html>

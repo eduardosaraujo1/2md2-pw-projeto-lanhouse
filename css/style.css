@@ -1,56 +1,58 @@
+@import url('reset.css');
+
 @font-face {
     font-family: Inter;
     src: url('../fonts/Inter/Inter-VariableFont.ttf');
 }
 
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: 300;
+}
+
 :root {
-    --background-blue: #031730;
+    --background: #031730;
     --background-navbar: #020f1f;
-    --button-cyan: #1ca7a7;
-    --button-cyan-hover: #268282;
     --nav-button-cyan: #32c7c7e5;
+    --btn-primary: #1ca7a7;
+    --btn-primary-hover: #268282;
     --ghost-white: #f8f8ff;
 }
 
 :root {
-    background-color: var(--background-blue);
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Inter;
+    background-color: var(--background);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
 }
 
 .textbox {
-    padding: 12px;
+    padding: 0.75em;
     border-radius: 4px;
     border: none;
-    background: white;
-    font-weight: 400;
-    font-size: 1.1rem;
     resize: none;
 }
 
-.primary-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 12px 48px;
-}
-
-.primary-button {
-    color: white;
+.btn {
+    padding: 0.5em 1em;
     border: none;
-    border-radius: 12px;
-    background: var(--button-cyan);
-    font-weight: 500;
-    font-size: 1.1rem;
+    border-radius: 8px;
     cursor: pointer;
 }
 
-.primary-button:hover {
-    background: var(--button-cyan-hover);
+.btn--primary {
+    background-color: var(--btn-primary);
+    color: white;
+}
+
+.btn--primary:hover {
+    background-color: var(--btn-primary-hover);
 }

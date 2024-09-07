@@ -1,95 +1,60 @@
-@import url('./style.css');
+@import url('style.css');
+
+body {
+    height: 100vh;
+}
 
 .container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100%;
 }
 
 .decorator-image {
-    display: flex;
-    width: 50%;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    align-self: stretch;
-}
-
-.decorator-image {
-    /* background-image: url('../images/logo.png'); */
     background-image: url('../images/LogoCompleta.svg');
-    background-color: lightgray;
-    background-position: 50% center; /* or simply '50%' for horizontal centering */
-    background-size: cover;
+    background-color: #020f1f;
+    background-position: 50% center;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
-@media only screen and (max-width: 768px) {
-    .decorator-image {
-        display: none;
-    }
-}
-
-.login-field {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-    align-self: stretch;
-}
-
-@media only screen and (max-width: 768px) {
-    .login-field {
-        align-items: center;
-        padding: 0;
-    }
-}
-
-.login-field .wrapper {
+.login-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 64px;
-    flex: 1;
+    margin-left: 2rem;
 }
 
 .title > * {
     color: var(--ghost-white);
-    user-select: none;
-}
-.title h1 {
-    font-size: 3rem;
-    font-weight: 700;
-}
-.title h2 {
-    font-size: 1.3rem;
-    font-weight: 400;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 32px;
-    width: 100%;
-}
-
-form .fields {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    width: 100%;
 }
 
-input#txtEmail {
-    width: 100%;
+#txtEmail {
+    width: 25rem;
 }
 
-form a {
-    text-decoration: none;
+#txtSenha {
+    width: 20rem;
+}
+
+@media only screen and (width < 60rem) {
+    .decorator-image {
+        display: none;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .title {
+        margin-bottom: 3rem;
+    }
 }

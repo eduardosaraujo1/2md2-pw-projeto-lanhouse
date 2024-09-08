@@ -31,74 +31,72 @@
         </header>
         <main>
             <div class="container">
-                <h1 class="form-title">Registrar Lançamento</h1>
+                <h1 class="title">Registrar Lançamento</h1>
                 <form class="cadastro-form">
-                    <div class="input-fields">
-                        <div class="form-group">
-                            <div class="input">
-                                <label for="categoria" class="input-label"
-                                    >Categoria</label
+                    <div class="cadastro-form__inputs">
+                        <div class="input">
+                            <label class="input__label" for="tipoLanc"
+                                >Tipo de lançamento</label
+                            >
+                            <div class="radio">
+                                <label for="lucro" class="input__label">
+                                    <input
+                                        type="radio"
+                                        name="tipoLanc"
+                                        id="lucro"
+                                        value="lucro"
+                                        checked
+                                    />
+                                    Lucro</label
                                 >
-                                <select
-                                    name="categoria"
-                                    id="categoria"
-                                    class="textbox"
+                                <label for="despeza" class="input__label">
+                                    <input
+                                        type="radio"
+                                        name="tipoLanc"
+                                        id="despeza"
+                                        value="despeza"
+                                    />
+                                    Despeza</label
                                 >
-                                    <option value="selecione">Selecione</option>
-                                </select>
-                            </div>
-                            <div class="input">
-                                <label class="input-label" for="valor"
-                                    >Valor</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="number"
-                                    id="valor"
-                                    name="valor"
-                                />
-                            </div>
-                            <div class="input">
-                                <label class="input-label" for="tipoLanc"
-                                    >Tipo de lançamento</label
-                                >
-                                <div class="radio">
-                                    <label for="lucro" class="input-label">
-                                        <input
-                                            type="radio"
-                                            name="tipoLanc"
-                                            id="lucro"
-                                        />
-                                        Lucro</label
-                                    >
-                                    <label for="despeza" class="input-label">
-                                        <input
-                                            type="radio"
-                                            name="tipoLanc"
-                                            id="despeza"
-                                        />
-                                        Despeza</label
-                                    >
-                                </div>
                             </div>
                         </div>
-                        <div class="form-group description">
-                            <div class="input" style="align-self: stretch">
-                                <label class="input-label" for="nome"
-                                    >Descrição</label
-                                >
-                                <textarea
-                                    class="textbox"
-                                    name="descricao"
-                                    id="descricao"
-                                    class="multilineTextbox"
-                                ></textarea>
-                            </div>
+                        <div class="input">
+                            <label for="categoria" class="input__label"
+                                >Categoria</label
+                            >
+                            <select
+                                name="categoria"
+                                id="categoria"
+                                class="input__box"
+                            >
+                                <option value="selecione">Selecione</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <label class="input__label" for="valor"
+                                >Valor (R$)</label
+                            >
+                            <input
+                                class="input__box"
+                                type="text"
+                                id="valor"
+                                name="valor"
+                            />
+                        </div>
+                        <div class="input input--textarea">
+                            <label class="input__label" for="nome"
+                                >Descrição</label
+                            >
+                            <textarea
+                                class="input__box"
+                                name="descricao"
+                                id="descricao"
+                            ></textarea>
                         </div>
                     </div>
                     <button
                         type="button"
-                        class="primary-button"
+                        class="btn btn--primary"
                         onclick="location.href = './home.html'"
                     >
                         Cadastrar

@@ -31,112 +31,100 @@
         </header>
         <main>
             <div class="container">
-                <h1 class="form-title">Cadastro de Funcionário</h1>
-                <form class="cadastro-form" action="php/insert_funcionario.php" method="post">
-                    <div class="input-fields">
-                        <div class="form-group">
-                            <div class="input">
-                                <label class="input-label" for="nome"
-                                    >Nome</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="text"
-                                    id="nome"
-                                    name="nome"
-                                />
-                            </div>
-                            <div class="input">
-                                <label for="sobrenome" class="input-label"
-                                    >Sobrenome</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="text"
-                                    id="sobrenome"
-                                    name="sobrenome"
-                                />
-                            </div>
-                            <div class="input">
-                                <label
-                                    for="data-nascimento"
-                                    class="input-label"
-                                    for=""
-                                    >Data de Nascimento</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="date"
-                                    id="data-nascimento"
-                                    name="data-nascimento"
-                                />
-                            </div>
+                <h1 class="title">Cadastro de Funcionário</h1>
+                <form
+                    class="cadastro-form"
+                    action="php/insert_funcionario.php"
+                    method="post"
+                >
+                    <div class="cadastro-form__inputs">
+                        <div class="input col-span-2">
+                            <label class="input__label" for="nome">Nome</label>
+                            <input
+                                class="input__box"
+                                type="text"
+                                id="nome"
+                                name="nome"
+                            />
                         </div>
-                        <div class="form-group">
-                            <div class="input">
-                                <label for="email" class="input-label"
-                                    >E-mail</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                />
-                            </div>
+                        <div class="input col-span-2">
+                            <label for="sobrenome" class="input__label"
+                                >Sobrenome</label
+                            >
+                            <input
+                                class="input__box"
+                                type="text"
+                                id="sobrenome"
+                                name="sobrenome"
+                            />
                         </div>
-                        <div class="form-group">
-                            <div class="input">
-                                <label for="cargo" class="input-label"
-                                    >Cargo</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="text"
-                                    id="cargo"
-                                    name="cargo"
-                                />
-                            </div>
-                            <div class="input">
-                                <label for="salario" class="input-label"
-                                    >Salário</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="text"
-                                    id="salario"
-                                    name="salario"
-                                />
-                            </div>
+                        <div class="input col-span-2">
+                            <label for="data-nascimento" class="input__label"
+                                >Data de Nascimento</label
+                            >
+                            <input
+                                class="input__box"
+                                type="date"
+                                id="data-nascimento"
+                                name="data-nascimento"
+                            />
                         </div>
-                        <div class="form-group">
-                            <div class="input">
-                                <label for="senha" class="input-label"
-                                    >Senha</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="password"
-                                    id="senha"
-                                    name="senha"
-                                />
-                            </div>
-                            <div class="input">
-                                <label for="confirmSenha" class="input-label"
-                                    >Confirmar senha</label
-                                >
-                                <input
-                                    class="textbox"
-                                    type="password"
-                                    id="confirmSenha"
-                                />
-                            </div>
+                        <div class="input col-span-6">
+                            <label for="email" class="input__label"
+                                >E-mail</label
+                            >
+                            <input
+                                class="input__box"
+                                type="email"
+                                id="email"
+                                name="email"
+                            />
+                        </div>
+                        <div class="input col-span-3">
+                            <label for="cargo" class="input__label"
+                                >Cargo</label
+                            >
+                            <input
+                                class="input__box"
+                                type="text"
+                                id="cargo"
+                                name="cargo"
+                            />
+                        </div>
+                        <div class="input col-span-3">
+                            <label for="salario" class="input__label"
+                                >Salário</label
+                            >
+                            <input
+                                class="input__box"
+                                type="text"
+                                id="salario"
+                                name="salario"
+                            />
+                        </div>
+                        <div class="input col-span-3">
+                            <label for="senha" class="input__label"
+                                >Senha</label
+                            >
+                            <input
+                                class="input__box"
+                                type="password"
+                                id="senha"
+                                name="senha"
+                            />
+                        </div>
+                        <div class="input col-span-3">
+                            <label for="confirmSenha" class="input__label"
+                                >Confirmar senha</label
+                            >
+                            <input
+                                class="input__box"
+                                type="password"
+                                id="confirmSenha"
+                            />
                         </div>
                     </div>
-                    <button
-                        type="submit"
-                        class="primary-button"
-                    >
+                    <button type="submit" class="btn btn--primary">
                         Cadastrar
                     </button>
                 </form>

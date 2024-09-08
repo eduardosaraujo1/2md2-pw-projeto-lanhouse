@@ -5,19 +5,6 @@
     src: url('../fonts/Inter/Inter-VariableFont.ttf');
 }
 
-h1 {
-    font-size: 3em;
-}
-
-h2 {
-    font-size: 1.5em;
-}
-
-h3 {
-    font-size: 1em;
-    font-weight: 300;
-}
-
 :root {
     --background: #031730;
     --background-navbar: #020f1f;
@@ -34,18 +21,11 @@ h3 {
         sans-serif;
 }
 
-.textbox {
-    padding: 0.75em;
-    border-radius: 4px;
-    border: none;
-    resize: none;
-}
-
 .btn {
-    padding: 0.5em 1em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    padding: 0.5em 1em;
 }
 
 .btn--primary {
@@ -62,4 +42,11 @@ h3 {
     flex-direction: column;
     gap: 4px;
     color: white;
+}
+
+.input__box {
+    padding: 0.5em;
+    border-radius: 4px;
+    border: none;
+    resize: none;
 }

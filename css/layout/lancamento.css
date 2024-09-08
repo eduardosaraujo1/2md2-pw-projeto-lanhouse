@@ -1,6 +1,4 @@
-@import url('components.css');
 @import url('cadastro.css');
-@import url('navbar.css');
 
 .cadastro-form__inputs {
     display: grid;
@@ -10,4 +8,9 @@
 
 .input--textarea .input__box {
     min-height: 8rem;
+}
+
+.radio {
+    display: flex;
+    gap: 0.5em;
 }

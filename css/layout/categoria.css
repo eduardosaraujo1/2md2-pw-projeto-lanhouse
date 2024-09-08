@@ -1,6 +1,4 @@
-@import url('components.css');
 @import url('cadastro.css');
-@import url('navbar.css');
 
 .input--textarea .input__box {
     min-height: 8rem;

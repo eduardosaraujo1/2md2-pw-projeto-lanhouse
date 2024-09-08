@@ -1,3 +1,4 @@
+@import url('../base/base.css');
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -44,7 +45,6 @@
     /* padding: 0 16px; */
     text-decoration: none;
     color: var(--ghost-white);
-    font-family: Inter;
     text-align: center;
     font-weight: 700;
     font-size: 1.3em;

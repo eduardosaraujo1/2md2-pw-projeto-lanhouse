@@ -1,5 +1,17 @@
-@import url('components.css');
+/* Non-layout */
+.title > * {
+    color: var(--ghost-white);
+}
 
+.decorator-image {
+    background-image: url('../../images/LogoCompleta.svg');
+    background-color: #020f1f;
+    background-position: 50% center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Layout */
 body {
     height: 100vh;
 }
@@ -10,23 +22,11 @@ body {
     min-height: 100%;
 }
 
-.decorator-image {
-    background-image: url('../images/LogoCompleta.svg');
-    background-color: #020f1f;
-    background-position: 50% center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
 .login-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 2rem;
-}
-
-.title > * {
-    color: var(--ghost-white);
 }
 
 form {

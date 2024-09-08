@@ -35,9 +35,8 @@ async function dbInsertRequest(formdata, phpFile) {
  * @param {HTMLFormElement} form form element
  * @param {string} tableName table name for the insert
  */
-async function submitInsertForm(form, tableName, phpFile) {
+async function submitInsertForm(form, phpFile) {
     const formData = new FormData(form);
-    formData.append('table', tableName);
     const insertStatus = await dbInsertRequest(formData, phpFile);
     return insertStatus;
 }

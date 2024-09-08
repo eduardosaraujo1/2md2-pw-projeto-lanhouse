@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <script>
+        0
+    </script>
     <?php include 'navbar.php' ?>
     <main>
         <div class="container">
@@ -20,6 +23,7 @@
                     <div class="input col-span-2">
                         <label class="input__label" for="nome">Nome</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="nome"
@@ -28,6 +32,7 @@
                     <div class="input col-span-2">
                         <label for="email" class="input__label">E-mail</label>
                         <input
+                            required
                             class="input__box"
                             type="email"
                             id="email"
@@ -36,6 +41,7 @@
                     <div class="input">
                         <label for="telefone" class="input__label">Telefone</label>
                         <input
+                            required
                             class="input__box"
                             type="tel"
                             id="telefone"
@@ -44,6 +50,7 @@
                     <div class="input">
                         <label for="contato" class="input__label">Contato</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="contato"
@@ -52,6 +59,7 @@
                     <div class="input col-span-2">
                         <label for="endereco" class="input__label">Endereco</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="endereco"
@@ -59,14 +67,25 @@
                     </div>
                 </div>
                 <button
-                    type="button"
-                    class="btn btn--primary"
-                    onclick="location.href = './home.php'">
+                    type="submit"
+                    class="btn btn--primary">
                     Cadastrar
                 </button>
             </form>
         </div>
     </main>
+    <script src="./js/database.js"></script>
+    <script src="./js/formValidate.js"></script>
+    <!-- TODO: FORM VALIDATE PHONE NUMBER -->
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const res = submitInsertForm(form, 'insert_fornecedor.php');
+            console.log(res)
+        })
+    </script>
 </body>
 
 </html>

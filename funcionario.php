@@ -128,7 +128,7 @@
                 return;
             }
 
-            const res = submitInsertForm(form, 'tb_funcionario', 'insert_funcionario.php');
+            const res = submitInsertForm(form, 'insert_funcionario.php');
             console.log(res)
         })
     </script>

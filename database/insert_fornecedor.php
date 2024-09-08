@@ -8,18 +8,15 @@ if ($method !== 'POST') {
 
 // salvando dados do form
 $nome = $_POST['nome'];
-$sobrenome = $_POST["sobrenome"];
-$dt_nascimento = $_POST["dtNascimento"];
-$cargo = $_POST["cargo"];
-$salario = str_replace(',', '.', $_POST["salario"]);
-$dtAdmissao = date('Y-m-d');
+$contato = $_POST['contato'];
 $email = $_POST["email"];
-$senha = $_POST["senha"];
+$telefone = $_POST["telefone"];
+$endereco = $_POST["endereco"];
 
 // Inserindo dados
 $insert = $conn->prepare("
-    INSERT INTO tb_funcionario (nm_funcionario, nm_sobrenome, dt_nascimento, nm_cargo, nr_salario, dt_admissao, email, nm_senha)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+    INSERT INTO tb_fornecedor (nm_fornecedor, nm_contato, nm_email, nr_telefone, nm_endereco)
+    VALUES (?, ?, ?, ?, ?);
 ");
 if (!$insert) {
     $error = "Insert query failed: " . $conn->error;
@@ -29,15 +26,12 @@ if (!$insert) {
 // Bind parameters to the prepared statement (replace 's' and 'i' with correct types)
 // 's' = string, 'i' = integer, 'd' = double, 'b' = blob
 $insert->bind_param(
-    "ssssdsss",
+    "sssss",
     $nome,
-    $sobrenome,
-    $dt_nascimento,
-    $cargo,
-    $salario,
-    $dtAdmissao,
+    $contato,
     $email,
-    $senha
+    $telefone,
+    $endereco
 );
 
 if ($insert->execute()) {

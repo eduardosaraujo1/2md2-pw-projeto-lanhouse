@@ -1,16 +1,15 @@
 .navbar {
     display: flex;
-    padding: 4px 64px;
     justify-content: space-between;
     align-items: center;
     background-color: var(--background-navbar);
+    padding: 4px 64px;
     position: sticky;
     top: 0;
 }
 
 .logo {
-    padding: 4px 0;
-    width: 200px;
+    width: clamp(10rem, 15vw + 1rem, 13rem);
 }
 
 .logo a {
@@ -35,12 +34,14 @@
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 1rem;
+    padding: 0;
 }
 
 .nav-buttons ul li a {
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    /* padding: 0 16px; */
     text-decoration: none;
     color: var(--ghost-white);
     font-family: Inter;
@@ -60,22 +61,15 @@
 /* ACC PANEL */
 .account-panel {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 8px;
 }
 
-.account-panel .profile-pic {
-    width: 64px;
-    height: 64px;
+.profile-pic {
+    width: 4rem;
+    height: 4rem;
     border-radius: 100%;
-    overflow: hidden;
-}
-
-.profile-pic img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    overflow: clip;
 }
 
 .panel-text {
@@ -88,8 +82,8 @@
 
 .panel-text .username {
     color: white;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .panel-text .sair {
@@ -100,4 +94,30 @@
     font-weight: 400;
 }
 
-/* TODO: Fazer responsivo em mobile */
+@media only screen and (width < 45rem) {
+    .logo {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media only screen and (width < 35rem) {
+    .profile-pic {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .panel-text {
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-buttons ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

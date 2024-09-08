@@ -14,10 +14,10 @@ require_once('conexao.php'); // conectar c banco
 // inserir (TODO: ARRUMAR INSERT QUEBRADO DADOS NÃO TRATADOS CORRETAMENTE)
 $insert = "
 INSERT INTO tb_funcionario
-VALUES (NULL, '$nome', '$sobrenome', '$dt_nascimento', '$cargo', '$salario', '".date("Y-m-d")."', '$email', '$senha');";
+VALUES (NULL, '$nome', '$sobrenome', '$dt_nascimento', '$cargo', '$salario', '" . date("Y-m-d") . "', '$email', '$senha');";
 $resultado = $conn->query($insert);
 
 if ($resultado) {
-    // FAZER COM QUE VOLTE PARA home.html
+    // FAZER COM QUE VOLTE PARA home.php
     // APLIQUE ESSE PADRÃO PARA OUTRAS TELAS
 }

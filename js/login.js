@@ -9,5 +9,5 @@ form.addEventListener('submit', (event) => {
     }
 
     // temporario até lógica de login ser implementada
-    location.href = './home.html';
+    location.href = './home.php';
 });

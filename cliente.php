@@ -20,6 +20,7 @@
                     <div class="input">
                         <label for="nome" class="input__label">Nome</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="nome"
@@ -28,6 +29,7 @@
                     <div class="input">
                         <label for="sobrenome" class="input__label" for="">Sobrenome</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="sobrenome"
@@ -36,6 +38,7 @@
                     <div class="input col-span-2">
                         <label for="email" class="input__label">E-mail</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="email"
@@ -44,6 +47,7 @@
                     <div class="input">
                         <label for="telefone" class="input__label">Telefone</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="telefone"
@@ -52,6 +56,7 @@
                     <div class="input">
                         <label for="endereco" class="input__label">Endereço</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="endereco"
@@ -59,14 +64,20 @@
                     </div>
                 </div>
                 <button
-                    type="button"
-                    class="btn btn--primary"
-                    onclick="location.href = './home.php'">
+                    type="submit"
+                    class="btn btn--primary">
                     Cadastrar
                 </button>
             </form>
         </div>
     </main>
+    <script src="./js/database.js"></script>
+    <script src="./js/formValidate.js"></script>
+    <script>
+        const form = document.querySelector('form');
+        let validate = () => {};
+        setupCadastroSubmit(form, 'insert_cliente.php', validate);
+    </script>
 </body>
 
 </html>

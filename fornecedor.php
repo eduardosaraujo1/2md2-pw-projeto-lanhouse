@@ -79,12 +79,8 @@
     <!-- TODO: FORM VALIDATE PHONE NUMBER -->
     <script>
         const form = document.querySelector('form');
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const res = submitInsertForm(form, 'insert_fornecedor.php');
-            console.log(res)
-        })
+        let validate = () => {};
+        setupCadastroSubmit(form, 'insert_fornecedor.php', validate);
     </script>
 </body>
 

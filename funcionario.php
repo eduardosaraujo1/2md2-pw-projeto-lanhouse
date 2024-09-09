@@ -102,16 +102,14 @@
     <script src="./js/formValidate.js">
     </script>
     <script>
-        // const form = document.querySelector('.cadastro-form');
+        // keypress filter for salario
         const form = document.querySelector('form');
         const salario = form.querySelector('#salario');
         salario.addEventListener('input', currencyFilter);
-        form.addEventListener('submit', () => {
-            event.preventDefault();
 
-            // add custom validity for the salario field
-            const validsalario = validCurrency(salario.value);
-            if (!validsalario) {
+        // form validation
+        function validate() {
+            if (!validCurrency(salario.value)) {
                 salario.setCustomValidity('Salário não é válido')
             }
             // Verificar se a senha é igual a confirmSenha
@@ -120,17 +118,9 @@
             if (senha?.value !== confirmsenha?.value) {
                 confirmsenha.setCustomValidity('Senhas não são iguais')
             }
+        }
 
-            if (!form.reportValidity()) {
-                // previne form de ficar preso em invalido se uma unica invalidez ocforrer
-                salario.setCustomValidity('');
-                confirmsenha.setCustomValidity('');
-                return;
-            }
-
-            const res = submitInsertForm(form, 'insert_funcionario.php');
-            console.log(res)
-        })
+        setupCadastroSubmit(form, 'insert_funcionario.php', validate);
     </script>
 </body>
 

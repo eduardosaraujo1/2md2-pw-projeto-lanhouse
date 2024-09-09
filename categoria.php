@@ -20,6 +20,7 @@
                     <div class="input">
                         <label class="input__label" for="nome">Nome</label>
                         <input
+                            required
                             class="input__box"
                             type="text"
                             id="nome"
@@ -28,6 +29,7 @@
                     <div class="input input--textarea">
                         <label class="input__label" for="nome">Descrição</label>
                         <textarea
+                            required
                             class="input__box"
                             name="descricao"
                             id="descricao"
@@ -35,52 +37,19 @@
                     </div>
                 </div>
                 <button
-                    type="button"
-                    class="btn btn--primary"
-                    onclick="location.href = './home.php'">
+                    type="submit"
+                    class="btn btn--primary">
                     Cadastrar
                 </button>
             </form>
         </div>
     </main>
+    <script src="./js/database.js"></script>
+    <script src="./js/formValidate.js"></script>
     <script>
-        function allowOnlyCurrency(e) {
-            const key = e.key;
-            const inputField = e.target;
-            const currentValue = inputField.value;
-
-            // Permitir botões Tab e Apagar
-            if (key === 'Backspace' || key === 'Tab') {
-                return;
-            }
-
-            // BLOQUEAR digitar se já estiver completo o formato de salário
-            // REGEX: essa expressão verifica se o valor digitado termina com uma virgula (ou ponto) e duas casas decimais
-            // Se quiser entender mais, pergunte ao ChatGPT "Me explique o REGEX /[,.]\d{2}$/g"
-            if (/[,.]\d{2}$/g.test(currentValue)) {
-                e.preventDefault();
-                return;
-            }
-
-            // Permitir uma virgula ou ponto se não já estiver presente
-            if (key === ',' || key === '.') {
-                const temPonto = currentValue.includes('.');
-                const temVirgula = currentValue.includes(',');
-                if (!temPonto && !temVirgula) {
-                    return;
-                }
-            }
-
-            // Permitir números
-            if (!isNaN(key)) {
-                return;
-            }
-
-            e.preventDefault();
-        }
-        document
-            .getElementById('salario')
-            .addEventListener('keypress', allowOnlyCurrency);
+        const form = document.querySelector('form');
+        let validate = () => {};
+        setupCadastroSubmit(form, 'insert_categoria.php', validate);
     </script>
 </body>
 

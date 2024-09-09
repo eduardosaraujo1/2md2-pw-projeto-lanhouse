@@ -38,3 +38,28 @@ function validCurrency(value) {
     // Return false for all other cases (including commas)
     return false;
 }
+
+/**
+ *
+ * @param {HTMLFormElement} form Form to validate
+ * @param {Function} validateFunc Function that will return true or false, checking all values (optional)
+ */
+function setupCadastroSubmit(form, fileName, validateFunc = () => {}) {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        validateFunc();
+
+        if (!form.reportValidity()) {
+            // previne form de ficar preso em invalido. (Reset setCustomValidity)
+            const formInputs = form.querySelectorAll('input');
+            for (const input of formInputs) {
+                input.setCustomValidity('');
+            }
+            return;
+        }
+
+        const res = submitInsertForm(form, fileName);
+        console.log(res);
+    });
+}

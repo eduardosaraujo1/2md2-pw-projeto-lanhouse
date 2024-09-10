@@ -26,6 +26,7 @@ $cargo = mb_substr($cargo, 0, 30);
 $salario = str_replace(',', '.', $salario);
 $dtAdmissao = validateDate($dtAdmissao) ? $dtAdmissao : '1970-01-01';
 $email = mb_substr($email, 0, 100);
+$senha = password_hash($senha, PASSWORD_BCRYPT, array("cost" => 14));
 
 // Inserindo dados
 $insert = safe_insert_prepare("

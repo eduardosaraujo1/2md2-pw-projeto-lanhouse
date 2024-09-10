@@ -11,10 +11,10 @@ async function postFormData(url, formdata) {
             method: 'POST',
             body: formdata,
         });
+        const text = await response.text();
         try {
-            responseObject = await response.json();
+            responseObject = JSON.parse(text);
         } catch (error) {
-            const text = await response.text();
             responseObject = {
                 success: false,
                 content: '[Invalid JSON] - ' + text,

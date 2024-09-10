@@ -1,65 +1,34 @@
-function currencyFilter(event) {
-    const inputField = event.target;
-    let currentValue = inputField.value;
+const InputFilter = {
+    /**
+     * @param {HTMLInputElement} input Input for the filter
+     */
+    currency: function (input) {
+        let value = input.value;
 
-    // Ensure the value only contains valid characters (numbers, comma, or period)
-    const cleanedValue = currentValue.replace(/[^0-9,.]/g, '');
+        // Character filter
+        value = value.replace(',', '.');
+        value = value.replace(/[^0-9.]/g, '');
 
-    // Prevent more than 5 digits before the decimal point
-    const parts = cleanedValue.split(/[,.]/).slice(0, 2);
-    const wholePart = parts[0];
+        // Split price and decimals
+        let price = value.split('.').slice(0, 2);
 
-    if (wholePart.length > 5) {
-        // Limit to 5 digits before the decimal/comma
-        parts[0] = wholePart.slice(0, 5);
-    }
+        // limit to 5 digits the wholePart
+        price[0] = price[0].slice(0, 5);
 
-    // If there are more than two decimal digits, truncate them
-    if (parts.length > 1 && parts[1].length > 2) {
-        parts[1] = parts[1].slice(0, 2);
-    }
-
-    // Join the parts back together with the original separator (if any)
-    inputField.value = parts.join(cleanedValue.includes(',') ? ',' : '.');
-}
-
-function validCurrency(value) {
-    // Check if it's a number with up to 7 digits and no decimal or comma
-    const plainNumberRegex = /^\d{1,5}$/;
-
-    // Check if it's a number with exactly 2 decimal places (period as separator)
-    const decimalNumberRegex = /^\d{1,5}[,\.]\d{2}$/;
-
-    // Return true if it matches either condition (plain number or decimal with 2 places)
-    if (plainNumberRegex.test(value) || decimalNumberRegex.test(value)) {
-        return true;
-    }
-
-    // Return false for all other cases (including commas)
-    return false;
-}
-
-/**
- *
- * @param {HTMLFormElement} form Form to validate
- * @param {Function} validateFunc Function that will return true or false, checking all values (optional)
- */
-function setupCadastroSubmit(form, fileName, validateFunc = () => {}) {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        validateFunc();
-
-        if (!form.reportValidity()) {
-            // previne form de ficar preso em invalido. (Reset setCustomValidity)
-            const formInputs = form.querySelectorAll('input');
-            for (const input of formInputs) {
-                input.setCustomValidity('');
-            }
-            return;
+        // limit to 2 digits the decimal part
+        if (price.length > 1) {
+            price[1] = price[1].slice(0, 2);
         }
 
-        const res = submitInsertForm(form, fileName);
-        console.log(res);
-    });
-}
+        // join everything together
+        value = price.join('.');
+
+        // Blank decimal filter
+        if (value === '.') {
+            value = '';
+        }
+
+        // Assign
+        input.value = value;
+    },
+};

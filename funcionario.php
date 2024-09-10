@@ -18,12 +18,14 @@
     <main>
         <div class="container">
             <h1 class="title">Cadastro de Funcionário</h1>
+            <span class="submit-result"></span>
             <form class="cadastro-form">
                 <div class="cadastro-form__inputs">
                     <div class="input col-span-2">
                         <label class="input__label" for="nome">Nome</label>
                         <input
                             required
+                            maxlength="30"
                             class="input__box"
                             type="text"
                             id="nome"
@@ -33,6 +35,7 @@
                         <label for="sobrenome" class="input__label">Sobrenome</label>
                         <input
                             required
+                            maxlength="30"
                             class="input__box"
                             type="text"
                             id="sobrenome"
@@ -51,6 +54,7 @@
                         <label for="email" class="input__label">E-mail</label>
                         <input
                             required
+                            maxlength="100"
                             class="input__box"
                             type="email"
                             id="email"
@@ -59,6 +63,7 @@
                     <div class="input col-span-3">
                         <label for="cargo" class="input__label">Cargo</label>
                         <input
+                            maxlength="30"
                             required
                             class="input__box"
                             type="text"
@@ -98,29 +103,40 @@
             </form>
         </div>
     </main>
-    <script src="./js/database.js"></script>
-    <script src="./js/formValidate.js">
-    </script>
+    <script src="./js/cadastro.js"></script>
+    <script src="./js/formValidate.js"></script>
     <script>
-        // keypress filter for salario
         const form = document.querySelector('form');
-        const salario = form.querySelector('#salario');
-        salario.addEventListener('input', currencyFilter);
+        const button = form.querySelector('button');
+        const resultSpan = document.querySelector(".submit-result");
 
-        // form validation
-        function validate() {
-            if (!validCurrency(salario.value)) {
-                salario.setCustomValidity('Salário não é válido')
-            }
-            // Verificar se a senha é igual a confirmSenha
-            const senha = document.getElementById("senha");
-            const confirmsenha = document.getElementById("confirmSenha");
-            if (senha?.value !== confirmsenha?.value) {
-                confirmsenha.setCustomValidity('Senhas não são iguais')
-            }
-        }
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
 
-        setupCadastroSubmit(form, 'insert_funcionario.php', validate);
+            if (!form.reportValidity()) {
+                return;
+            }
+
+            button.disabled = true;
+            const formdata = new FormData(form);
+            const responseObject = await postFormData('database/insert/funcionario.php', formdata);
+            button.disabled = false;
+            displaySubmitResult(responseObject, resultSpan);
+        })
+
+        // salario validation
+        const salarioInput = document.querySelector("#salario");
+        salarioInput.addEventListener("input", (event) => {
+            InputFilter.currency(event.currentTarget);
+
+            const currencyRegex = /^\d{1,5}([,.]\d{2})?$/;
+            const valid = currencyRegex.test(salarioInput.value);
+            if (valid) {
+                salarioInput.setCustomValidity("");
+            } else {
+                salarioInput.setCustomValidity("Salário inválido");
+            }
+        })
     </script>
 </body>
 

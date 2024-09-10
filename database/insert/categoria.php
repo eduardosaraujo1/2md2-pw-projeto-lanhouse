@@ -26,6 +26,5 @@ $insert->bind_param(
     $nome,
     $descricao,
 );
-$success = safe_insert_execute($insert, $conn);
-
+safe_insert_execute($insert, $conn);
 endpoint_return("Insert success", true);

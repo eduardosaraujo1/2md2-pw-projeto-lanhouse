@@ -52,23 +52,8 @@
     <script src="./js/cadastro.js"></script>
     <script>
         const form = document.querySelector('form');
-        const button = form.querySelector('button');
         const resultSpan = document.querySelector(".submit-result");
-
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault();
-
-            if (!form.reportValidity()) {
-                return;
-            } else {
-                button.disabled = true;
-            }
-
-            const formdata = new FormData(form);
-            const responseObject = await postFormData('database/insert/categoria.php', formdata);
-            button.disabled = false;
-            displaySubmitResult(responseObject, resultSpan);
-        })
+        bootstrapFormSubmit(form, resultSpan, '<?php echo basename(__FILE__) ?>');
     </script>
 </body>
 

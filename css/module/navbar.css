@@ -51,7 +51,7 @@
 }
 
 .nav-buttons ul li a {
-    transition: color ease-in 0.2s;
+    transition: color ease-in 0.1s;
 }
 
 .nav-buttons ul li a:hover {

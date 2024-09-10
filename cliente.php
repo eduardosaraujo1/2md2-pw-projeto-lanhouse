@@ -15,12 +15,14 @@
     <main>
         <div class="container">
             <h1 class="title">Cadastro de Cliente</h1>
+            <span class="submit-result"></span>
             <form class="cadastro-form">
                 <div class="cadastro-form__inputs">
                     <div class="input">
                         <label for="nome" class="input__label">Nome</label>
                         <input
                             required
+                            maxlength="30"
                             class="input__box"
                             type="text"
                             id="nome"
@@ -30,6 +32,7 @@
                         <label for="sobrenome" class="input__label" for="">Sobrenome</label>
                         <input
                             required
+                            maxlength="30"
                             class="input__box"
                             type="text"
                             id="sobrenome"
@@ -39,6 +42,7 @@
                         <label for="email" class="input__label">E-mail</label>
                         <input
                             required
+                            maxlength="100"
                             class="input__box"
                             type="text"
                             id="email"
@@ -57,6 +61,7 @@
                         <label for="endereco" class="input__label">Endereço</label>
                         <input
                             required
+                            maxlength="100"
                             class="input__box"
                             type="text"
                             id="endereco"
@@ -71,12 +76,25 @@
             </form>
         </div>
     </main>
-    <script src="./js/database.js"></script>
+    <script src="./js/cadastro.js"></script>
     <script src="./js/formValidate.js"></script>
     <script>
         const form = document.querySelector('form');
-        let validate = () => {};
-        setupCadastroSubmit(form, 'insert_cliente.php', validate);
+        const resultSpan = document.querySelector(".submit-result");
+        bootstrapFormSubmit(form, resultSpan, '<?php echo basename(__FILE__) ?>');
+
+        // validate
+        const telefone = document.querySelector("#telefone");
+        telefone.addEventListener("input", (event) => {
+            InputFilter.telefone(telefone);
+
+            const full = fullTelefone(telefone.value)
+            if (full) {
+                telefone.setCustomValidity("");
+            } else {
+                telefone.setCustomValidity("Telefone inválido");
+            }
+        });
     </script>
 </body>
 

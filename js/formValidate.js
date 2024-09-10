@@ -31,4 +31,60 @@ const InputFilter = {
         // Assign
         input.value = value;
     },
+    telefone: function (input) {
+        let value = input.value;
+
+        // Remove any character that is not a digit
+        value = value.replace(/[^0-9]/g, '');
+
+        // If third number is a '9' (implies cellphone), max length is 11, otherwise max length is 10
+        if (value[2] === '9') {
+            value = value.slice(0, 11);
+        } else {
+            value = value.slice(0, 10);
+        }
+
+        // Separate phone number components
+        // sample: 11951490211 -> 11
+        let ddd = value.slice(0, 2);
+        let firsthalf, secondhalf;
+
+        if (value[2] === '9') {
+            // sample: 11951490211 -> 94149
+            firsthalf = value.slice(2, 7);
+            // sample: 11951490211 -> 0211
+            secondhalf = value.slice(7);
+        } else {
+            // sample: 1121490211 -> 2149
+            firsthalf = value.slice(2, 6);
+            // sample: 1121490311 -> 0311
+            secondhalf = value.slice(6);
+        }
+
+        value = ddd;
+        if (firsthalf) {
+            value += ' ' + firsthalf;
+        }
+        if (secondhalf !== '') {
+            value += '-' + secondhalf;
+        }
+
+        // Update the input value with the formatted phone number
+        input.value = value;
+    },
 };
+
+function fullCurrency(currency) {
+    const currencyRegex = /^\d{1,5}([,.]\d{2})?$/;
+    const valid = currencyRegex.test(currency);
+    return valid;
+}
+
+function fullTelefone(telefone) {
+    const numOnly = telefone.replace(/[^0-9]/g, '');
+    if (numOnly?.[2] === '9') {
+        return numOnly.length >= 11;
+    } else {
+        return numOnly.length >= 10;
+    }
+}

@@ -1,10 +1,5 @@
 <?php
-require_once('db_endpoint_init.php'); // conectar com o banco
-
-$method = $_SERVER['REQUEST_METHOD'];
-if ($method !== 'POST') {
-    endpoint_return("Invalid request method: $method", false);
-}
+require '_insert.php';
 
 // salvando dados do form
 $nome = $_POST["nome"];
@@ -13,17 +8,19 @@ $email = $_POST["email"];
 $telefone = $_POST["telefone"];
 $endereco = $_POST["endereco"];
 
+// Tratando dados
+$nome = mb_substr($nome, 0, 30);
+$sobrenome = mb_substr($sobrenome, 0, 30);
+$email = mb_substr($email, 0, 100);
+$telefone = mb_substr($telefone, 0, 11);
+$endereco = mb_substr($endereco, 0, 100);
+
 // Inserindo dados
-$insert = $conn->prepare("
+$insert = safe_insert_prepare("
     INSERT INTO tb_cliente (nm_cliente, nm_sobrenome, nm_email, nr_telefone, nm_endereco)
     VALUES (?, ?, ?, ?, ?);
-");
-if (!$insert) {
-    $error = "Insert query failed: " . $conn->error;
-    endpoint_return($error, false);
-}
+", $conn);
 
-// Bind parameters to the prepared statement (replace 's' and 'i' with correct types)
 // 's' = string, 'i' = integer, 'd' = double, 'b' = blob
 $insert->bind_param(
     "sssss",
@@ -33,9 +30,5 @@ $insert->bind_param(
     $telefone,
     $endereco
 );
-
-if ($insert->execute()) {
-    endpoint_return("Data inserted successfully", true);
-} else {
-    endpoint_return("Error executing query" . $insert->error, false);
-}
+safe_insert_execute($insert, $conn);
+endpoint_return("Insert success", true);

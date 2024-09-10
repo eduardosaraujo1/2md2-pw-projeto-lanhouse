@@ -15,6 +15,7 @@
     <main>
         <div class="container">
             <h1 class="title">Registrar Lançamento</h1>
+            <span class="submit-result"></span>
             <form class="cadastro-form">
                 <div class="cadastro-form__inputs">
                     <div class="input">
@@ -57,6 +58,7 @@
                     <div class="input input--textarea">
                         <label class="input__label" for="nome">Descrição</label>
                         <textarea
+                            maxlength="300"
                             class="input__box"
                             name="descricao"
                             id="descricao"></textarea>

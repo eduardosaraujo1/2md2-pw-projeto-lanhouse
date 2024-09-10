@@ -44,3 +44,23 @@ function displaySubmitResult(submitResponse, resultContainer) {
         resultContainer.innerHTML = '';
     }, 30000);
 }
+
+function bootstrapFormSubmit(form, resultSpan, endpointName) {
+    const button = form.querySelector('button');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+            return;
+        }
+
+        button.disabled = true;
+        const formdata = new FormData(form);
+        const responseObject = await postFormData(
+            `database/insert/${endpointName}`,
+            formdata
+        );
+        button.disabled = false;
+        displaySubmitResult(responseObject, resultSpan);
+    });
+}

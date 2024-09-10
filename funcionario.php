@@ -107,36 +107,35 @@
     <script src="./js/formValidate.js"></script>
     <script>
         const form = document.querySelector('form');
-        const button = form.querySelector('button');
         const resultSpan = document.querySelector(".submit-result");
-
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault();
-
-            if (!form.reportValidity()) {
-                return;
-            }
-
-            button.disabled = true;
-            const formdata = new FormData(form);
-            const responseObject = await postFormData('database/insert/funcionario.php', formdata);
-            button.disabled = false;
-            displaySubmitResult(responseObject, resultSpan);
-        })
+        bootstrapFormSubmit(form, resultSpan, '<?php echo basename(__FILE__) ?>');
 
         // salario validation
         const salarioInput = document.querySelector("#salario");
         salarioInput.addEventListener("input", (event) => {
             InputFilter.currency(event.currentTarget);
 
-            const currencyRegex = /^\d{1,5}([,.]\d{2})?$/;
-            const valid = currencyRegex.test(salarioInput.value);
-            if (valid) {
+            if (fullCurrency(salarioInput.value)) {
                 salarioInput.setCustomValidity("");
             } else {
                 salarioInput.setCustomValidity("Salário inválido");
             }
         })
+
+        // password check
+        const senha = document.querySelector("#senha");
+        const confirmsenha = document.querySelector("#confirmSenha");
+        const passHandler = (event) => {
+            if (senha.value === confirmsenha.value) {
+                senha.setCustomValidity("");
+                confirmsenha.setCustomValidity("");
+            } else {
+                senha.setCustomValidity("Senhas não coincidem");
+                confirmsenha.setCustomValidity("Senhas não coincidem");
+            }
+        }
+        senha.addEventListener("input", passHandler);
+        confirmsenha.addEventListener("input", passHandler);
     </script>
 </body>
 

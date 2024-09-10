@@ -62,5 +62,9 @@ function bootstrapFormSubmit(form, resultSpan, endpointName) {
         );
         button.disabled = false;
         displaySubmitResult(responseObject, resultSpan);
+        // TODO: Trazer lógica do displaySubmitResult para ca, para que o código abaixo não precise verificar o success duas vezes
+        if (responseObject.success) {
+            form.reset();
+        }
     });
 }

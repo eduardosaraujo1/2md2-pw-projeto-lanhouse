@@ -10,9 +10,11 @@
 
 # Roadmap
 
+-   APLICAR AS ALTERAÇÕES FEITAS EM categoria.php NOS OUTROS ARQUIVOS
 -   Adicionar validação de campos para cada formulário (filtros de teclas permitidas, adicionar campos `required`, etc)
     -   Falta validação de tamanho de cada campo
     -   **Falta validação de Telefone de fornecedor**
+-   Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (no momento, 24px no figma correspondem a 16px no html)
 -   Tentar remover ao máximo a repetição de código em todas as variações de insert_table, utilizando funções
     -   Se possível de qualquer forma, fazer um método com todos os inserts necessários
 -   Exibir para o usuário o sucesso ou falha dos cadastros.

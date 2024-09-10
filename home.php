@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <?php include 'navbar.php' ?>
+    <?php include 'components/navbar.php' ?>
     <main>
         <ul>
             <li><a href="./funcionario.php">FUNCIONARIO</a></li>

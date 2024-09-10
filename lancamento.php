@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <?php include 'navbar.php' ?>
+    <?php include 'components/navbar.php' ?>
     <main>
         <div class="container">
             <h1 class="title">Registrar Lançamento</h1>

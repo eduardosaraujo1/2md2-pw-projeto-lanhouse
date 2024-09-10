@@ -15,7 +15,7 @@
     color: white;
     text-wrap: balance;
     font-size: clamp(0.8rem, 3vw + 1rem, 3rem);
-    padding: 1.5rem 0;
+    /* padding: 1.5rem 0; */
 }
 
 .cadastro-form {
@@ -27,4 +27,26 @@
 
 .cadastro-form__inputs {
     align-self: stretch;
+}
+
+.submit-result {
+    display: inline-block;
+    line-height: 1;
+    padding: 1rem 0;
+    color: #98fb98;
+}
+
+.submit-result::before {
+    content: '\200b';
+}
+
+.submit-result--error {
+    color: #fb9898;
+}
+
+.submit-result--error::before {
+    content: '⚠';
+    inset: 0;
+    display: inline-block;
+    padding-right: 0.5rem;
 }

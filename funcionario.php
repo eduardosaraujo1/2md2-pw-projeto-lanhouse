@@ -14,7 +14,7 @@
     <script>
         0
     </script>
-    <?php include 'navbar.php' ?>
+    <?php include 'components/navbar.php' ?>
     <main>
         <div class="container">
             <h1 class="title">Cadastro de Funcionário</h1>

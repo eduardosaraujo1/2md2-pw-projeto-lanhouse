@@ -9,14 +9,6 @@ async function dbInsertRequest(formdata, phpFile) {
             body: formdata,
         });
 
-        // Check if the response is an HTTP error
-        if (!response.ok) {
-            // Provide more detailed error info based on response status
-            throw new Error(
-                `HTTP error! Status: ${response.status}, Message: ${response.statusText}`
-            );
-        }
-
         // Parse the JSON if no errors
         const data = await response.json();
         return data;
@@ -35,8 +27,8 @@ async function dbInsertRequest(formdata, phpFile) {
  * @param {HTMLFormElement} form form element
  * @param {string} tableName table name for the insert
  */
-async function submitInsertForm(form, phpFile) {
-    const formData = new FormData(form);
-    const insertStatus = await dbInsertRequest(formData, phpFile);
-    return insertStatus;
-}
+// async function submitInsertForm(form, phpFile) {
+//     const formData = new FormData(form);
+//     const insertStatus = await dbInsertRequest(formData, phpFile);
+//     return insertStatus;
+// }

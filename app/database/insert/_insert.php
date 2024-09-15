@@ -5,7 +5,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) === basename(__FILE__)) {
 }
 
 // Endpoint init
-require_once('../db_endpoint_init.php');
+require_once('../config/db.php');
 
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method !== 'POST') {

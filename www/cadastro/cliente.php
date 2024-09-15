@@ -4,14 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="..">
     <title>Cadastrar Cliente - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="css/base/base.css" />
-    <link rel="stylesheet" href="css/module/modules.css" />
-    <link rel="stylesheet" href="./css/layout/cliente.css" />
+    <link rel="stylesheet" href="assets/css/base/base.css" />
+    <link rel="stylesheet" href="assets/css/module/modules.css" />
+    <link rel="stylesheet" href="assets/css/layout/cliente.css" />
 </head>
 
 <body>
-    <?php include 'components/navbar.php' ?>
+    <script>
+        0
+    </script>
+    <?php include '../../app/components/navbar.php' ?>
     <main>
         <div class="container">
             <h1 class="title">Cadastro de Cliente</h1>

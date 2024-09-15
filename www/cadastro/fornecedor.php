@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="..">
     <title>Cadastrar Fornecedor - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="css/base/base.css" />
-    <link rel="stylesheet" href="css/module/modules.css" />
-    <link rel="stylesheet" href="./css/layout/fornecedor.css" />
+    <link rel="stylesheet" href="assets/css/base/base.css" />
+    <link rel="stylesheet" href="assets/css/module/modules.css" />
+    <link rel="stylesheet" href="assets/css/layout/fornecedor.css" />
 </head>
 
 <body>
     <script>
         0
     </script>
-    <?php include 'components/navbar.php' ?>
+    <?php include '../../app/components/navbar.php' ?>
     <main>
         <div class="container">
             <h1 class="title">Cadastro de Fornecedor</h1>

@@ -29,11 +29,14 @@ Sistema para uma Lan House onde é controlado os funcionarios, clientes, fornece
 
 # Roadmap
 
--   (GIAN) Fazer uma tela de home.php melhorada
--   (EDUARDO) Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (no momento, 24px no figma correspondem a 16px no html)
--   (EDUARDO) Refazer a lógica de validate.js para que seja mais simples as funções de validar
--   (EDUARDO) Refazer a lógica do bootstrapFormSubmit para que não esteja o evento todo (utilizar um callback para o método de validar que é diferente em cada arquivo)
--   (ESPERANDO FEEDBACK DO PROFESSOR) Fazer a tela de lancamento.php não foi possível pois requer os seguintes parametros:
-    -   Exibir as categorias que estão no banco de dados no campo "categoria"
-    -   Validação de funcionário atual que está cadastrando para preencher o campo fk_id_funcionário
--   ~~Tentar aplicar MVC (Model View Controller) ao projeto~~ (Fica dificil entender MVC, mas é legal para aprendizado futuro)
+1.  [ ] (GIAN) Fazer uma tela de home.php melhorada
+2.  [ ] (GIAN) Refazer conexão ao banco de dados funcionario.php
+3.  [ ] (EDUARDO) Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (no momento, 24px no figma correspondem a 16px no html)
+4.  [ ] (EDUARDO) Refazer a lógica de validate.js para que seja mais simples as funções de validar
+5.  [ ] (EDUARDO) Refazer a lógica do bootstrapFormSubmit para que não esteja o evento todo (utilizar um callback para o método de validar que é diferente em cada arquivo)
+6.  [ ] (ESPERANDO FEEDBACK DO PROFESSOR) Fazer a tela de lancamento.php não foi possível pois requer os seguintes parametros:
+
+    -   [ ] Exibir as categorias que estão no banco de dados no campo "categoria"
+    -   [ ] Validação de funcionário atual que está cadastrando para preencher o campo fk_id_funcionário
+
+7.  ~~Tentar aplicar MVC (Model View Controller) ao projeto~~ (Fica dificil entender MVC, mas é legal para aprendizado futuro)

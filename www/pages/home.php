@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="assets/css/base/base.css" />
-    <link rel="stylesheet" href="assets/css/module/modules.css" />
-    <link rel="stylesheet" href="assets/css/layout/home.css" />
+    <link rel="stylesheet" href="../static/css/base/base.css" />
+    <link rel="stylesheet" href="../static/css/module/modules.css" />
+    <link rel="stylesheet" href="../static/css/layout/home.css" />
 </head>
 
 <body>
-    <?php include '../app/components/navbar.php' ?>
+    <?php include '../components/navbar.php' ?>
     <main>
         <ul>
             <li><a href="cadastro/funcionario.php">FUNCIONARIO</a></li>

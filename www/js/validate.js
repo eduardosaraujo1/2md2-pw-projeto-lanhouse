@@ -1,3 +1,9 @@
+// TODO: Transition to class model
+class FormValidate {
+    static currency(input) {
+        // WIP
+    }
+}
 const InputFilter = {
     /**
      * @param {HTMLInputElement} input Input for the filter

@@ -5,40 +5,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="..">
-    <title>Cadastrar Fornecedor - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="assets/css/base/base.css" />
-    <link rel="stylesheet" href="assets/css/module/modules.css" />
-    <link rel="stylesheet" href="assets/css/layout/fornecedor.css" />
+    <title>Cadastrar Cliente - Sistema Lanhouse</title>
+    <link rel="stylesheet" href="../static/css/base/base.css" />
+    <link rel="stylesheet" href="../static/css/module/modules.css" />
+    <link rel="stylesheet" href="../static/css/layout/cliente.css" />
 </head>
 
 <body>
-    <script>
-        0
-    </script>
-    <?php include '../../app/components/navbar.php' ?>
+
+    <?php include '../../components/navbar.php' ?>
     <main>
         <div class="container">
-            <h1 class="title">Cadastro de Fornecedor</h1>
+            <h1 class="title">Cadastro de Cliente</h1>
             <span class="submit-result"></span>
             <form class="cadastro-form">
                 <div class="cadastro-form__inputs">
-                    <div class="input col-span-2">
-                        <label class="input__label" for="nome">Nome</label>
+                    <div class="input">
+                        <label for="nome" class="input__label">Nome</label>
                         <input
                             required
-                            maxlength="50"
+                            maxlength="30"
                             class="input__box"
                             type="text"
                             id="nome"
                             name="nome" />
                     </div>
+                    <div class="input">
+                        <label for="sobrenome" class="input__label" for="">Sobrenome</label>
+                        <input
+                            required
+                            maxlength="30"
+                            class="input__box"
+                            type="text"
+                            id="sobrenome"
+                            name="sobrenome" />
+                    </div>
                     <div class="input col-span-2">
                         <label for="email" class="input__label">E-mail</label>
                         <input
                             required
-                            maxlength="50"
+                            maxlength="100"
                             class="input__box"
-                            type="email"
+                            type="text"
                             id="email"
                             name="email" />
                     </div>
@@ -47,22 +55,12 @@
                         <input
                             required
                             class="input__box"
-                            type="tel"
+                            type="text"
                             id="telefone"
                             name="telefone" />
                     </div>
                     <div class="input">
-                        <label for="contato" class="input__label">Contato</label>
-                        <input
-                            required
-                            maxlength="30"
-                            class="input__box"
-                            type="text"
-                            id="contato"
-                            name="contato" />
-                    </div>
-                    <div class="input col-span-2">
-                        <label for="endereco" class="input__label">Endereco</label>
+                        <label for="endereco" class="input__label">Endereço</label>
                         <input
                             required
                             maxlength="100"
@@ -80,8 +78,8 @@
             </form>
         </div>
     </main>
-    <script src="./js/cadastro.js"></script>
-    <script src="./js/formValidate.js"></script>
+    <script src="../js/cadastro.js"></script>
+    <script src="../js/validate.js"></script>
     <script>
         const form = document.querySelector('form');
         const resultSpan = document.querySelector(".submit-result");

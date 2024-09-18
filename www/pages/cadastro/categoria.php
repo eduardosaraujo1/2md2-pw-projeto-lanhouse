@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="..">
     <title>Cadastrar Categoriqa - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="assets/css/base/base.css" />
-    <link rel="stylesheet" href="assets/css/module/modules.css" />
-    <link rel="stylesheet" href="assets/css/layout/categoria.css" />
+    <link rel="stylesheet" href="../static/css/base/base.css" />
+    <link rel="stylesheet" href="../static/css/module/modules.css" />
+    <link rel="stylesheet" href="../static/css/layout/categoria.css" />
 </head>
 
 <body>
-    <script>
-        0
-    </script>
-    <?php include '../../app/components/navbar.php' ?>
+    <?php include '../../components/navbar.php' ?>
     <main>
         <div class="container">
             <h1 class="title">Cadastro de Categoria</h1>
@@ -49,7 +46,7 @@
             </form>
         </div>
     </main>
-    <script src="js/cadastro.js"></script>
+    <script src="../js/cadastro.js"></script>
     <script>
         const form = document.querySelector('form');
         const resultSpan = document.querySelector(".submit-result");

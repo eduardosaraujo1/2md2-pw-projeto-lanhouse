@@ -1,4 +1,10 @@
 <?php
+// Credenciais ao 
+$server = 'localhost';
+$user = 'root';
+$pass = 'root';
+$db = 'bd_empresa';
+
 // Bloquear acesso direto
 if (basename($_SERVER['SCRIPT_FILENAME']) === basename(__FILE__)) {
   die('Direct access not allowed');
@@ -19,12 +25,6 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
   $error = "Error: [$errno] $errstr in $errfile on line $errline";
   endpoint_return($error, false);
 });
-
-// Conectar ao banco
-$server = 'localhost';
-$user = 'root';
-$pass = 'root';
-$db = 'bd_empresa';
 
 // Start connection
 $conn = new mysqli($server, $user, $pass, $db);

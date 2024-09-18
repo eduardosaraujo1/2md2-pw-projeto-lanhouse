@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="..">
     <title>Cadastrar Lançamento - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="assets/css/base/base.css" />
-    <link rel="stylesheet" href="assets/css/module/modules.css" />
-    <link rel="stylesheet" href="assets/css/layout/lancamento.css" />
+    <link rel="stylesheet" href="../static/css/base/base.css" />
+    <link rel="stylesheet" href="../static/css/module/modules.css" />
+    <link rel="stylesheet" href="../static/css/layout/lancamento.css" />
 </head>
 
 <body>
-    <script>
-        0
-    </script>
-    <?php include '../../app/components/navbar.php' ?>
+
+    <?php include '../../components/navbar.php' ?>
     <main>
         <div class="container">
             <h1 class="title">Registrar Lançamento</h1>

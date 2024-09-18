@@ -57,7 +57,7 @@ function bootstrapFormSubmit(form, resultSpan, endpointName) {
         button.disabled = true;
         const formdata = new FormData(form);
         const responseObject = await postFormData(
-            `../app/database/insert/${endpointName}`,
+            `../database/insert/${endpointName}`,
             formdata
         );
         button.disabled = false;

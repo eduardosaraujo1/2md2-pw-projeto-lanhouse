@@ -5,16 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="assets/css/base/base.css" />
-    <link rel="stylesheet" href="assets/css/module/modules.css" />
-    <link rel="stylesheet" href="assets/css/layout/login.css" />
+    <link rel="stylesheet" href="../static/css/base/base.css" />
+    <link rel="stylesheet" href="../static/css/module/modules.css" />
+    <link rel="stylesheet" href="../static/css/layout/login.css" />
 </head>
 
 <body>
     <div class="container">
         <div class="decorator-image"></div>
         <div class="login-container">
-            <form action="" method="post" novalidate>
+            <form method="post" novalidate>
                 <div class="title">
                     <h1>Entrar</h1>
                     <h3>Digite suas credenciais para continuar</h3>
@@ -42,7 +42,7 @@
             </form>
         </div>
     </div>
-    <script src="js/login.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 
 </html>

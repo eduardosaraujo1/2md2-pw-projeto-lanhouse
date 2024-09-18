@@ -30,41 +30,43 @@ async function postFormData(url, formdata) {
     return responseObject;
 }
 
-function displaySubmitResult(submitResponse, resultContainer) {
-    if (submitResponse.success) {
-        resultContainer.innerHTML = 'Cadastro concluido com sucesso!';
+function displaySubmitResult(form, success) {
+    const message_success = 'Cadastro concluido com sucesso!';
+    const message_fail = 'Ocorreu um erro! tente novamente mais tarde';
+    const message_timeout = 30000;
+    const resultSpan = document.querySelector('.submit-result');
+
+    if (success) {
+        resultSpan.innerHTML = message_success;
+        form.reset();
     } else {
-        resultContainer.innerHTML =
-            'Ocorreu um erro! tente novamente mais tarde';
-        console.error(submitResponse?.content);
-        resultContainer.classList.add('submit-result--error');
+        resultSpan.innerHTML = message_fail;
+        resultSpan.classList.add('submit-result--error');
+        console.error(response?.content);
     }
     setTimeout(() => {
-        resultContainer.classList.remove('submit-result--error');
-        resultContainer.innerHTML = '';
-    }, 30000);
+        resultSpan.classList.remove('submit-result--error');
+        resultSpan.innerHTML = '';
+    }, message_timeout);
 }
 
-function bootstrapFormSubmit(form, resultSpan, endpointName) {
+/**
+ * Envia os dados do form para o endpoint especificado
+ * @param {HTMLFormElement} form Formulário que terá o envio
+ * @param {string} endpointName Nome do endpoint que receberá os dados (e.g. fornecedor.php)
+ * @returns
+ */
+async function cadastroFormSubmit(form, endpointName) {
     const button = form.querySelector('button');
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    let response;
 
-        if (!form.reportValidity()) {
-            return;
-        }
+    button.disabled = true;
+    response = await postFormData(
+        `../database/insert/${endpointName}`,
+        new FormData(form)
+    );
+    button.disabled = false;
+    displaySubmitResult(form, response.success);
 
-        button.disabled = true;
-        const formdata = new FormData(form);
-        const responseObject = await postFormData(
-            `../database/insert/${endpointName}`,
-            formdata
-        );
-        button.disabled = false;
-        displaySubmitResult(responseObject, resultSpan);
-        // TODO: Trazer lógica do displaySubmitResult para ca, para que o código abaixo não precise verificar o success duas vezes
-        if (responseObject.success) {
-            form.reset();
-        }
-    });
+    return response;
 }

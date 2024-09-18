@@ -75,6 +75,9 @@
             </form>
         </div>
     </main>
+    <script>
+        // TODO: Ver quando será possível adicionar conexão ao banco de dados aqui
+    </script>
 </body>
 
 </html>

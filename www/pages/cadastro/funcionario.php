@@ -106,8 +106,18 @@
     <script src="../js/validate.js"></script>
     <script>
         const form = document.querySelector('form');
-        const resultSpan = document.querySelector(".submit-result");
-        bootstrapFormSubmit(form, resultSpan, '<?php echo basename(__FILE__) ?>');
+        const endpointName = '<?php echo basename(__FILE__) ?>';
+
+        // Form submit handle
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (!form.reportValidity()) {
+                return;
+            }
+
+            await cadastroFormSubmit(form, endpointName)
+        });
 
         // salario validation
         const salarioInput = document.querySelector("#salario");

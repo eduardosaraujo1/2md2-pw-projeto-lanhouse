@@ -12,7 +12,7 @@ $endereco = $_POST["endereco"];
 $nome = mb_substr($nome, 0, 50);
 $contato = mb_substr($contato, 0, 30);
 $email = mb_substr($email, 0, 50);
-$telefone = preg_replace('/\D/', '', $telefone);
+$telefone = preg_replace('/\D/', '', $telefone); // Deixar apenas números no telefone
 $telefone = mb_substr($telefone, 0, 11);
 $endereco = mb_substr($endereco, 0, 100);
 

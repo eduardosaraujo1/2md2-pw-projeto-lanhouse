@@ -12,11 +12,11 @@ const InputFilter = {
         let value = input.value;
 
         // Character filter
-        value = value.replace(',', '.');
+        value = value.replace('.', ',');
         value = value.replace(/[^0-9.]/g, '');
 
         // Split price and decimals
-        let price = value.split('.').slice(0, 2);
+        let price = value.split(',').slice(0, 2);
 
         // limit to 5 digits the wholePart
         price[0] = price[0].slice(0, 5);
@@ -27,10 +27,10 @@ const InputFilter = {
         }
 
         // join everything together
-        value = price.join('.');
+        value = price.join(',');
 
         // Blank decimal filter
-        if (value === '.') {
+        if (value === ',') {
             value = '';
         }
 

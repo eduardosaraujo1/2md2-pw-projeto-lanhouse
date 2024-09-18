@@ -122,9 +122,10 @@
         // salario validation
         const salarioInput = document.querySelector("#salario");
         salarioInput.addEventListener("input", (event) => {
-            InputFilter.currency(event.currentTarget);
+            CurrencyValidate.inputFilter(salarioInput)
+            // InputFilter.currency(event.currentTarget);
 
-            if (fullCurrency(salarioInput.value)) {
+            if (CurrencyValidate.validate(salarioInput.value)) {
                 salarioInput.setCustomValidity("");
             } else {
                 salarioInput.setCustomValidity("Salário inválido");

@@ -94,12 +94,12 @@
             await cadastroFormSubmit(form, endpointName)
         });
 
-        // validate
+        // validate telefone
         const telefone = document.querySelector("#telefone");
         telefone.addEventListener("input", (event) => {
-            InputFilter.telefone(telefone);
+            TelefoneValidate.inputFilter(telefone);
 
-            const full = fullTelefone(telefone.value)
+            const full = TelefoneValidate.validate(telefone.value)
             if (full) {
                 telefone.setCustomValidity("");
             } else {

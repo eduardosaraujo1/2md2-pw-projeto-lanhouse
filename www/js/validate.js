@@ -1,43 +1,33 @@
 // TODO: Transition to class model
-class FormValidate {
-    static currency(input) {
-        // WIP
+class Validate {
+    /**
+     * Filters the specified input value so it is in the correct track to become a propper element
+     * @param {HTMLInputElement} input Input element to be filtered
+     */
+    static inputFilter(input) {
+        throw new Error('Not Implemented Exception');
+    }
+    /**
+     *
+     * @param {string} text Text to validate in the function
+     */
+    static validate(text) {
+        throw new Error('Not Implemented Exception');
     }
 }
-const InputFilter = {
-    /**
-     * @param {HTMLInputElement} input Input for the filter
-     */
-    currency: function (input) {
-        let value = input.value;
 
-        // Character filter
-        value = value.replace('.', ',');
-        value = value.replace(/[^0-9.]/g, '');
-
-        // Split price and decimals
-        let price = value.split(',').slice(0, 2);
-
-        // limit to 5 digits the wholePart
-        price[0] = price[0].slice(0, 5);
-
-        // limit to 2 digits the decimal part
-        if (price.length > 1) {
-            price[1] = price[1].slice(0, 2);
+class TelefoneValidate extends Validate {
+    static validate(text) {
+        const numOnly = text.replace(/[^0-9]/g, '');
+        if (numOnly?.[2] === '9') {
+            return numOnly.length >= 11;
+        } else {
+            return numOnly.length >= 10;
         }
+    }
 
-        // join everything together
-        value = price.join(',');
-
-        // Blank decimal filter
-        if (value === ',') {
-            value = '';
-        }
-
-        // Assign
-        input.value = value;
-    },
-    telefone: function (input) {
+    static inputFilter(input) {
+        // Uses a length attribute instead of endPos
         let value = input.value;
 
         // Remove any character that is not a digit
@@ -77,20 +67,42 @@ const InputFilter = {
 
         // Update the input value with the formatted phone number
         input.value = value;
-    },
-};
-
-function fullCurrency(currency) {
-    const currencyRegex = /^\d{1,5}([,.]\d{2})?$/;
-    const valid = currencyRegex.test(currency);
-    return valid;
+    }
 }
 
-function fullTelefone(telefone) {
-    const numOnly = telefone.replace(/[^0-9]/g, '');
-    if (numOnly?.[2] === '9') {
-        return numOnly.length >= 11;
-    } else {
-        return numOnly.length >= 10;
+class CurrencyValidate extends Validate {
+    static inputFilter(input) {
+        let value = input.value;
+
+        // Character filter
+        value = value.replace('.', ',');
+        value = value.replace(/[^0-9.]/g, '');
+
+        // Split price and decimals
+        let price = value.split(',').slice(0, 2);
+
+        // limit to 5 digits the wholePart
+        price[0] = price[0].slice(0, 5);
+
+        // limit to 2 digits the decimal part
+        if (price.length > 1) {
+            price[1] = price[1].slice(0, 2);
+        }
+
+        // join everything together
+        value = price.join(',');
+
+        // Blank decimal filter
+        if (value === ',') {
+            value = '';
+        }
+
+        // Assign
+        input.value = value;
+    }
+    static validate(text) {
+        const currencyRegex = /^\d{1,5}([,.]\d{2})?$/;
+        const valid = currencyRegex.test(text);
+        return valid;
     }
 }

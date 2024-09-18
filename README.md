@@ -32,7 +32,7 @@ Sistema para uma Lan House onde é controlado os funcionarios, clientes, fornece
 -   [ ] (GIAN) Fazer uma tela de home.php melhorada
 -   [ ] (GIAN) Refazer conexão ao banco de dados funcionario.php
 -   [ ] (EDUARDO) Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (no momento, 24px no figma correspondem a 16px no html)
--   [ ] (EDUARDO) Refazer a lógica de validate.js para que seja mais simples as funções de validar
+-   [x] (EDUARDO) Refazer a lógica de validate.js para que seja mais simples as funções de validar
 -   [x] (EDUARDO) Decoplar a lógica de form submit do método bootstrapFormSubmit
 -   [ ] (EDUARDO) Navbar menu dropdown para cadastros
 -   [ ] (EDUARDO) Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) no projeto

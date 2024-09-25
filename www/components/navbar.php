@@ -1,7 +1,7 @@
 <header class="navbar">
     <div class="logo">
         <a href="login.php">
-            <img src="../static/images/LogoSimplificada_cropped.png" alt="" />
+            <img src="../assets/images/LogoSimplificada_cropped.png" alt="" />
         </a>
     </div>
     <nav class="nav-buttons">
@@ -12,7 +12,7 @@
     </nav>
     <div class="account-panel">
         <div class="profile-pic">
-            <img src="../static/images/userProfilePic.jpg" alt="" />
+            <img src="../assets/images/userProfilePic.jpg" alt="" />
         </div>
         <div class="panel-text">
             <span class="username">Usuário</span>

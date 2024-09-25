@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="..">
     <title>Cadastrar Fornecedor - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="../static/css/base/base.css" />
-    <link rel="stylesheet" href="../static/css/module/modules.css" />
-    <link rel="stylesheet" href="../static/css/layout/fornecedor.css" />
+    <link rel="stylesheet" href="../css/base/base.css" />
+    <link rel="stylesheet" href="../css/module/modules.css" />
+    <link rel="stylesheet" href="../css/layout/fornecedor.css" />
 </head>
 
 <body>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="../static/css/base/base.css" />
-    <link rel="stylesheet" href="../static/css/module/modules.css" />
-    <link rel="stylesheet" href="../static/css/layout/home.css" />
+    <link rel="stylesheet" href="../css/base/base.css" />
+    <link rel="stylesheet" href="../css/module/modules.css" />
+    <link rel="stylesheet" href="../css/layout/home.css" />
 </head>
 
 <body>

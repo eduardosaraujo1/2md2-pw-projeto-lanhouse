@@ -5,14 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="../static/css/base/base.css" />
-    <link rel="stylesheet" href="../static/css/module/modules.css" />
-    <link rel="stylesheet" href="../static/css/layout/login.css" />
+    <link rel="stylesheet" href="../css/base/base.css" />
+    <link rel="stylesheet" href="../css/module/modules.css" />
+    <link rel="stylesheet" href="../css/layout/login.css" />
 </head>
 
 <body>
     <div class="container">
-        <div class="decorator-image"></div>
+        <div class="decorator-image">
+            <!-- TODO: Fazer assim, tirando do CSS a imagem -->
+            <!-- <img src="../assets/images/LogoCompleta.svg" alt=""> -->
+        </div>
         <div class="login-container">
             <form method="post" novalidate>
                 <div class="title">

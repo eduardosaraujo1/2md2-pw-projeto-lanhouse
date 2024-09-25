@@ -32,9 +32,9 @@ Sistema para uma Lan House onde é controlado os funcionarios, clientes, fornece
 -   [ ] (GIAN) Fazer uma tela de home.php melhorada
 -   [ ] (GIAN) Refazer conexão ao banco de dados funcionario.php
 -   [ ] (EDUARDO) Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (no momento, 24px no figma correspondem a 16px no html)
--   [x] (EDUARDO) Refazer a lógica de validate.js para que seja mais simples as funções de validar
--   [x] (EDUARDO) Decoplar a lógica de form submit do método bootstrapFormSubmit
 -   [ ] (EDUARDO) Navbar menu dropdown para cadastros
+-   [ ] (EDUARDO) Tirar a estrutura SMACSS do projeto, ficou muito complexa. Apenas arquivo reset.css, components.css para navbar, botões, inputs, afins, theme.css para cores e variaveis, pasta cadastros para o layout das páginas (possívelmente esse layout esteja apenas no html também?)
+    - [ ] Font-family para títulos vai ser Inter, mas para textos menores usaremos system-ui (será Segoe UI)
 -   [ ] (EDUARDO) Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) no projeto
 -   [ ] (ESPERANDO FEEDBACK DO PROFESSOR) Fazer a tela de lancamento.php não foi possível pois requer os seguintes parametros:
 

@@ -3,6 +3,10 @@
     color: var(--ghost-white);
 }
 
+.title {
+    font-size: 1.25rem;
+}
+
 .decorator-image {
     background-image: url('../../assets/images/LogoCompleta.svg');
     background-color: #020f1f;
@@ -52,9 +56,5 @@ form {
     .container {
         grid-template-columns: 1fr;
         place-items: center;
-    }
-
-    .title {
-        margin-bottom: 3rem;
     }
 }

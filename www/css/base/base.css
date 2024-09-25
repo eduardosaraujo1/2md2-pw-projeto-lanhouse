@@ -5,3 +5,7 @@
     font-family: Inter;
     src: url('../../assets/fonts/Inter/Inter-VariableFont.ttf');
 }
+
+.sub-heading {
+    font-weight: 300;
+}

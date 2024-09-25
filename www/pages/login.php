@@ -17,7 +17,7 @@
             <form method="post" novalidate>
                 <div class="title">
                     <h1>Entrar</h1>
-                    <h3>Digite suas credenciais para continuar</h3>
+                    <h4 class="sub-heading">Digite suas credenciais para continuar</h4>
                 </div>
                 <input
                     class="input__box"

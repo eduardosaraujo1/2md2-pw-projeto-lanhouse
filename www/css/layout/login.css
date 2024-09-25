@@ -4,7 +4,7 @@
 }
 
 .decorator-image {
-    background-image: url('../../images/LogoCompleta.svg');
+    background-image: url('../../assets/images/LogoCompleta.svg');
     background-color: #020f1f;
     background-position: 50% center;
     background-size: contain;
@@ -19,7 +19,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 100%;
+    height: 100%;
 }
 
 .login-container {

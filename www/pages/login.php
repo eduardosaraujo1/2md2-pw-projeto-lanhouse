@@ -12,10 +12,7 @@
 
 <body>
     <div class="container">
-        <div class="decorator-image">
-            <!-- TODO: Fazer assim, tirando do CSS a imagem -->
-            <!-- <img src="../assets/images/LogoCompleta.svg" alt=""> -->
-        </div>
+        <div class="decorator-image"></div>
         <div class="login-container">
             <form method="post" novalidate>
                 <div class="title">

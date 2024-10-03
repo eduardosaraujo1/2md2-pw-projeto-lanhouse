@@ -27,17 +27,36 @@ Sistema para uma Lan House onde é controlado os funcionarios, clientes, fornece
 -   Eduardo Soares e Araújo
 -   Gian Pablo Benvive Torres
 
+# Especificações
+
+-   Para o Figma, o tamanho das fontes é sempre o dobro das utilizadas
+-   Tamanhos de fontes;
+    -   Title: 2em -> 32px -> 64 figma pt
+    -   Navbar = 1.25em -> 20px -> 40 figma pt
+    -   Regular: 1em ->
+-   CSS do projeto:
+    -   reset.css para redefinir alguns padrões
+    -   themes.css para tamanhos de fontes e variaveis de cores
+    -   components.css para componentes como navbar, botões, inputs, dropdown
+    -   pasta layouts para css de cada pagina individual (note que )
+
 # Roadmap
 
 -   [ ] (GIAN) Fazer uma tela de home.php melhorada
 -   [ ] (GIAN) Refazer conexão ao banco de dados funcionario.php
--   [ ] (EDUARDO) Tirar a estrutura SMACSS do projeto, ficou muito complexa. Apenas arquivo reset.css, components.css para navbar, botões, inputs, afins, theme.css para cores e variaveis, pasta cadastros para o layout das páginas (possívelmente esse layout esteja apenas no html também?).
+-   [ ] (EDUARDO) Tirar a estrutura SMACSS do projeto, ficou muito complexa. Inclua apenas:
+    -   reset.css para redefinir alguns padrões
+    -   themes.css para tamanhos de fontes e variaveis de cores
+    -   components.css para componentes como navbar, botões, inputs, dropdown
+    -   pasta layouts para css de cada pagina individual
 -   [ ] (EDUARDO) Pense mais sobre o tamanho de fontes que o projeto vai ter
-    - Header, Sub-header, normal text, navigation bar
+    -   Header (2rem)
+    -   Navitem (1.25rem)
+    -   Normal (1rem)
 -   [ ] (EDUARDO) Font-family para títulos vai ser Inter, mas para textos menores usaremos system-ui (será Segoe UI)
--   [ ] (EDUARDO) Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (no momento, 24px no figma correspondem a 16px no html)
+-   [x] (EDUARDO) Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (RESOLVIDO: A tela fica muito pequena, utilize a escala 1920x1080 mas corte o tamanho da fonte pela metade passando para HTML)
 -   [ ] (EDUARDO) Navbar menu dropdown para cadastros
--   [ ] (EDUARDO) Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) no projeto
+-   [ ] (EDUARDO) Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) e ver ES-Lint no projeto
 -   [ ] (ESPERANDO FEEDBACK DO PROFESSOR) Fazer a tela de lancamento.php não foi possível pois requer os seguintes parametros:
 
     -   [ ] Exibir as categorias que estão no banco de dados no campo "categoria"

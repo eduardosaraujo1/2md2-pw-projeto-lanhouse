@@ -31,25 +31,35 @@ Sistema para uma Lan House onde é controlado os funcionarios, clientes, fornece
 
 -   Para o Figma, o tamanho das fontes é sempre o dobro das utilizadas
 -   Tamanhos de fontes;
-    -   Title: 2em -> 32px -> 64 figma pt
-    -   Navbar = 1.25em -> 20px -> 40 figma pt
-    -   Regular: 1em ->
--   CSS do projeto:
-    -   reset.css para redefinir alguns padrões
-    -   themes.css para tamanhos de fontes e variaveis de cores
-    -   components.css para componentes como navbar, botões, inputs, dropdown
-    -   pasta layouts para css de cada pagina individual (note que )
+    -   Label: 0.75em -> 12px -> 24 figma pt
+    -   Regular: 1em -> 16px -> 32 figma pt
+    -   Heading: 2em -> 32px -> 64 figma pt
+    -   Display: 3em -> 48px -> 96 figma pt
+-   Estrutura CSS:
+
+(Quando tiver tempo, arrume as linhas para conectarem nos arquivos também)
+
+```
+css
+│   categoria.css
+│   cliente.css
+│   fornecedor.css
+│   funcionario.css
+│   lancamento.css
+│
+└───common
+        components.css -- Navbar, botões, inputs, etc
+        layout.css -- Estrutura genérica de cada página
+        reset.css -- Redefinição de valores padrão
+        themes.css -- Classes e variáveis para cores, fontes e afins
+```
 
 # Roadmap
 
 -   [ ] (GIAN) Fazer uma tela de home.php melhorada
 -   [ ] (GIAN) Refazer conexão ao banco de dados funcionario.php
 -   [ ] (EDUARDO) Enquanto altere a estrutura do projeto (abaixo), aplique as alterações do figma (fontes, cores, telas de cadastro) no projeto
--   [ ] (EDUARDO) Tirar a estrutura SMACSS do projeto, ficou muito complexa. Inclua apenas:
-    -   reset.css para redefinir alguns padrões
-    -   themes.css para tamanhos de fontes e variaveis de cores
-    -   components.css para componentes como navbar, botões, inputs, dropdown
-    -   pasta layouts para css de cada pagina individual
+-   [ ] (EDUARDO) Tirar a estrutura SMACSS do projeto, ficou muito complexa.
 -   [ ] (EDUARDO) Navbar menu dropdown para cadastros PRONTO NO FIGMA
 -   [x] (EDUARDO) Pense mais sobre o tamanho de fontes que o projeto vai ter
     -   (Copiado de Material You 3)

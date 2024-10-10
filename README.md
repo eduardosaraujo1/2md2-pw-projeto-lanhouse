@@ -44,18 +44,19 @@ Sistema para uma Lan House onde é controlado os funcionarios, clientes, fornece
 
 -   [ ] (GIAN) Fazer uma tela de home.php melhorada
 -   [ ] (GIAN) Refazer conexão ao banco de dados funcionario.php
+-   [ ] (EDUARDO) Enquanto altere a estrutura do projeto (abaixo), aplique as alterações do figma (fontes, cores, telas de cadastro) no projeto
 -   [ ] (EDUARDO) Tirar a estrutura SMACSS do projeto, ficou muito complexa. Inclua apenas:
     -   reset.css para redefinir alguns padrões
     -   themes.css para tamanhos de fontes e variaveis de cores
     -   components.css para componentes como navbar, botões, inputs, dropdown
     -   pasta layouts para css de cada pagina individual
--   [ ] (EDUARDO) Pense mais sobre o tamanho de fontes que o projeto vai ter
+-   [ ] (EDUARDO) Navbar menu dropdown para cadastros PRONTO NO FIGMA
+-   [x] (EDUARDO) Pense mais sobre o tamanho de fontes que o projeto vai ter
+    -   (Copiado de Material You 3)
+    -   Display (3rem)
     -   Header (2rem)
-    -   Navitem (1.25rem)
     -   Normal (1rem)
--   [ ] (EDUARDO) Font-family para títulos vai ser Inter, mas para textos menores usaremos system-ui (será Segoe UI)
--   [x] (EDUARDO) Figma: Reduzir tamanho das telas para que os tamanhos das fontes correspondam (RESOLVIDO: A tela fica muito pequena, utilize a escala 1920x1080 mas corte o tamanho da fonte pela metade passando para HTML)
--   [ ] (EDUARDO) Navbar menu dropdown para cadastros
+    -   Label (.75rem)
 -   [ ] (EDUARDO) Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) e ver ES-Lint no projeto
 -   [ ] (ESPERANDO FEEDBACK DO PROFESSOR) Fazer a tela de lancamento.php não foi possível pois requer os seguintes parametros:
 

@@ -41,17 +41,16 @@ Sistema para uma Lan House onde é controlado os funcionarios, clientes, fornece
 
 ```
 css
-│   categoria.css
-│   cliente.css
-│   fornecedor.css
-│   funcionario.css
-│   lancamento.css
-│
+├───categoria.css
+├───cliente.css
+├───fornecedor.css
+├───funcionario.css
+├───lancamento.css
 └───common
-        components.css -- Navbar, botões, inputs, etc
-        layout.css -- Estrutura genérica de cada página
-        reset.css -- Redefinição de valores padrão
-        themes.css -- Classes e variáveis para cores, fontes e afins
+    ├───components.css -- Navbar, botões, inputs, etc
+    ├───layout.css -- Estrutura genérica para cada página
+    ├───reset.css
+    └───themes.css -- Classes e variáveis para cores, fontes e afins
 ```
 
 # Roadmap

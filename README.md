@@ -56,7 +56,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [ ] (EDUARDO) #3 Adicione no CSS refatorado as fontes e cores do projeto
 -   [ ] (EDUARDO) #4 Implemente as melhorias de navbar (dropdown e user control)
 -   [ ] (EDUARDO) #5 No arquivo Figma, altere os frames para 1200x675 com containers de 1140px (Tela XL do bootstrap)
--   [ ] (EDUARDO) #6 Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) para separar funcionalidades como validação de formulario
+-   [ ] (EDUARDO) #6 Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) para separar funcionalidades como validação de formulario. (Isso deve corrigir o problema de que o salario não está suportando casas decimais)
 -   [ ] (EDUARDO) #7 Em uma aplicação real, o banco de dados não estaria no mesmo diretorio que o website (www), então talvez seja ideal tirar a pasta `database` de dentro da `www`? Não tenho certeza pois nunca desenvolvi um back-end que faz delivery do front-end. Aprendendo o uso de Node.js para ambientes de desenvolvimento front-end tem sido legal
 -   [ ] (EDUARDO) #8 A string de conexão atualmente é hardcoded no sistema (em init.php), por isso o banco de dados precisa ser local estar na porta 3306 e possuir usuario e senha root. Faça um arquivo settings.json e deixe esses parametros mais facil de alterar
 -   [ ] (N/A) #9 A tela lancamentos.php não foi conectada ao banco pois:

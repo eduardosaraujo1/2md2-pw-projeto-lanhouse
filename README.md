@@ -52,7 +52,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 # Roadmap
 
 -   [ ] (GIAN) #1 Fazer uma tela de home.php melhorada
--   [ ] (EDUARDO) #2 Refatore o CSS do projeto seguindo a documentação atual
+-   [ ] (EDUARDO) #2 Refatore o CSS do projeto seguindo a arquitetura atual e o projeto Figma
 -   [ ] (EDUARDO) #3 Adicione no CSS refatorado as fontes e cores do projeto
 -   [ ] (EDUARDO) #4 Implemente as melhorias de navbar (dropdown e user control)
 -   [ ] (EDUARDO) #5 No arquivo Figma, altere os frames para 1200x675 com containers de 1140px (Tela XL do bootstrap)

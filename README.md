@@ -5,8 +5,6 @@
 
 # Como utilizar (XAMPP)
 
-[//]: # "TODO: Remover a dica de alterar a raiz do projeto. É mais facil só falar pra pessoa seguir até o caminho http://localhost:80/2md2-pw-projeto-lanhouse/www"
-
 1.  Crie o Schema descrito em [script.sql](project-data/banco-de-dados/script.sql) em seu DBMS. Certifique-se que o banco é acessado utilizando os seguintes parametros:
     -   `Host: localhost`
     -   `Port: 3306`
@@ -37,16 +35,18 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
     ```
     css
+    ├───login.css
     ├───categoria.css
     ├───cliente.css
     ├───fornecedor.css
     ├───funcionario.css
     ├───lancamento.css
     └───common
-        ├───components.css -- Navbar, botões, inputs, etc
-        ├───layout.css -- Estrutura genérica para cada página
+        ├───components.css -- Navbar, botões, inputs, etc.
+        ├───layout.css -- Utilizado por todas as páginas (sitewide)
         ├───reset.css
-        └───themes.css -- Classes e variáveis para cores, fontes e afins
+        ├───utilities.css -- Classes utilitarias como .hide ou .col-span-n
+        └───theme.css -- Classes e variáveis para cores, fontes e afins
     ```
 
 # Roadmap

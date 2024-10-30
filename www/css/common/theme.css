@@ -7,8 +7,8 @@
     --navel-regular: #031730;
     --navel-dark: #020c18;
     --neutral-50: #f7fbff;
-    --error: #ffb4b4;
-    --success: #b4ffb4;
+    --color-error: #ffb4b4;
+    --color-success: #b4ffb4;
 }
 
 /* Fonts */

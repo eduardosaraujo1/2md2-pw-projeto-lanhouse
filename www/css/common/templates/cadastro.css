@@ -1,78 +1,45 @@
 /* CSS Genérico para as telas de cadastro */
 .container {
-    padding: 0 20vw;
-    margin-inline: auto;
-    padding-top: 2rem;
+    display: grid;
+    padding: 2rem 15vw;
+    gap: 0.25rem;
 }
 
-@media only screen and (width < 45rem) {
+@media only screen and (width < 768px) {
     .container {
-        padding-inline: 1rem;
+        padding-inline: 2rem;
     }
 }
 
-.title {
-    color: white;
-    text-wrap: balance;
-    font-size: clamp(0.8rem, 3vw + 1rem, 3rem);
-    /* padding: 1.5rem 0; */
+.cadastro__result--success {
+    color: var(--color-success);
 }
 
-.cadastro-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
+.cadastro__result--error {
+    color: var(--color-error);
 }
 
-.cadastro-form__inputs {
-    align-self: stretch;
-}
-
-.submit-result {
-    display: inline-block;
-    line-height: 1;
-    padding: 1rem 0;
-    color: #98fb98;
-}
-
-.submit-result::before {
-    content: '\200b';
-}
-
-.submit-result--error {
-    color: #fb9898;
-}
-
-.submit-result--error::before {
+.cadastro__result--error::before {
     content: '⚠';
     inset: 0;
     display: inline-block;
     padding-right: 0.5rem;
 }
 
-/* 
-.container {
-    display: grid;
-    gap: 0.25rem;
-    margin-inline: 30px;
-    padding-inline: clamp(0.325rem, 15vw - 1rem, 20rem);
-}
-
-.form {
+.cadastro__form {
     display: flex;
     flex-direction: column;
-    align-items: end;
-    padding-block: 1rem;
+    align-items: flex-end;
     gap: 0.5rem;
 }
 
-.form__inputs {
+.cadastro__inputs {
     width: 100%;
+    gap: 0.25rem;
 }
 
-.form-row {
+.cadastro__row {
     display: flex;
-    gap: 4px;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }
-*/

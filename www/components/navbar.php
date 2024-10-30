@@ -31,7 +31,7 @@
         <button class="currentuser__profile" aria-controls="currentuser__menu">
             <img class="currentuser__avatar" src="../assets/images/UserProfile.png" alt="" />
         </button>
-        <div class="currentuser__menu" id="currentuser__menu" tabindex="3">
+        <div class="currentuser__menu" id="currentuser__menu" tabindex="-1">
             <div class="currentuser__info">
                 <img class="currentuser__avatar" src="../assets/images/UserProfile.png" alt="">
                 <span class="currentuser_name">Usuário</span>

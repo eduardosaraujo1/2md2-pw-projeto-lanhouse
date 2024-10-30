@@ -26,6 +26,7 @@
     .navbar {
         padding: 4px 10px;
         gap: 0.5rem;
+        justify-content: space-between;
     }
     .navbar__navs {
         flex: unset;
@@ -49,7 +50,7 @@
 }
 
 .navbar__nav-link:hover,
-.navbar__nav-link:focus {
+.dropdown .navbar__nav-link:focus {
     color: var(--cyan-light);
 }
 

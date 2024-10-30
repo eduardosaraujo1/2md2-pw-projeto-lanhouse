@@ -1,0 +1,26 @@
+@font-face {
+    font-family: Inter;
+    src: url('../../assets/fonts/Inter/Inter-VariableFont.ttf');
+}
+/* Colors */
+:root {
+    --cyan-light: #32c7c7;
+    --cyan-regular: #1ca7a7;
+    --cyan-dark: #268282;
+    --navel-light: #052348;
+    --navel-regular: #031730;
+    --navel-dark: #020c18;
+    --neutral-50: #f7fbff;
+    --error: #ffb4b4;
+    --success: #b4ffb4;
+}
+
+/* Fonts */
+:root {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
+    --font-size-uitext: 1.25em;
+    --font-size-headline: 2em;
+    --font-size-heading1: 3em;
+}

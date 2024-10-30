@@ -1,0 +1,13 @@
+.font-heading {
+    font-size: var(--font-size-heading1);
+}
+.font-uitext {
+    font-size: var(--font-size-uitext);
+}
+.font-headline {
+    font-size: var(--font-size-headline);
+}
+.font-regular {
+    font-size: 1rem;
+    font-weight: 400;
+}

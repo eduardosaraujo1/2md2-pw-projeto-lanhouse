@@ -11,3 +11,8 @@ body {
     background-color: var(--navel-regular);
     color: var(--neutral-50);
 }
+
+.container {
+    margin-top: 1rem;
+    margin-inline: 30px;
+}

@@ -1,12 +1,12 @@
 /* CSS Genérico para as telas de cadastro */
-.container {
+.cadastro {
     display: grid;
     padding: 2rem 15vw;
     gap: 0.25rem;
 }
 
 @media only screen and (width < 768px) {
-    .container {
+    .cadastro {
         padding-inline: 2rem;
     }
 }
@@ -42,4 +42,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem;
+}
+
+.cadastro__row > * {
+    flex: 1;
 }

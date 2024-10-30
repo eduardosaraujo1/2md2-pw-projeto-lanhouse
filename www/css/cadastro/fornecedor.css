@@ -1,20 +1,2 @@
-@import url('cadastro.css');
-
-.cadastro-form__inputs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-}
-
-.col-span-2 {
-    grid-column: span 2;
-}
-
-@media screen and (width < 35rem) {
-    .cadastro-form__inputs {
-        grid-template-columns: 1fr;
-    }
-    .col-span-2 {
-        grid-column: revert;
-    }
-}
+@import url('../common/common.css');
+@import url('../common/templates/cadastro.css');

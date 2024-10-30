@@ -11,88 +11,79 @@
 <body>
 
     <?php include '../components/navbar.php' ?>
-    <div class="container cadastro">
+    <div class="cadastro">
         <h1 class="cadastro__title">Cadastro de funcionário</h1>
         <span class="cadastro__result"></span>
         <form class="cadastro__form">
             <div class="cadastro__inputs">
-                <div class="input-group">
-                    <label class="input__label" for="nome">Nome</label>
-                    <input
-                        type="text"
-                        class="input__box"
-                        id="nome"
-                        name="nome"
-                        required
-                        maxlength="30" />
+                <div class="cadastro__row">
+                    <div class="input-group">
+                        <label class="input__label" for="nome">Nome</label>
+                        <input type="text" class="input__box" id="nome" name="nome" maxlength="30" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="sobrenome" class="input__label">Sobrenome</label>
+                        <input type="text" class="input__box" id="sobrenome" name="sobrenome" maxlength="30" required />
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="sobrenome" class="input__label">Sobrenome</label>
-                    <input
-                        type="text"
-                        class="input__box"
-                        id="sobrenome"
-                        name="sobrenome"
-                        required
-                        maxlength="30" />
+                <div class="cadastro__row">
+                    <div class="input-group">
+                        <label for="dtNascimento" class="input__label">Data de Nascimento</label>
+                        <input required class="input__box" type="date" id="dtNascimento" name="dtNascimento" />
+                    </div>
+                    <div class="input-group">
+                        <label for="email" class="input__label">E-mail</label>
+                        <input
+                            required
+                            maxlength="100"
+                            class="input__box"
+                            type="email"
+                            id="email"
+                            name="email" />
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="dtNascimento" class="input__label">Data de Nascimento</label>
-                    <input
-                        required
-                        class="input__box"
-                        type="date"
-                        id="dtNascimento"
-                        name="dtNascimento" />
+                <div class="cadastro__row">
+                    <div class="input-group">
+                        <label for="cargo" class="input__label">Cargo</label>
+                        <input
+                            maxlength="30"
+                            required
+                            class="input__box"
+                            type="text"
+                            id="cargo"
+                            name="cargo" />
+                    </div>
+                    <div class="input-group">
+                        <label for="salario" class="input__label">Salário (R$)</label>
+                        <input
+                            required
+                            class="input__box"
+                            type="text"
+                            id="salario"
+                            name="salario" />
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="email" class="input__label">E-mail</label>
-                    <input
-                        required
-                        maxlength="100"
-                        class="input__box"
-                        type="email"
-                        id="email"
-                        name="email" />
-                </div>
-                <div class="input-group">
-                    <label for="cargo" class="input__label">Cargo</label>
-                    <input
-                        maxlength="30"
-                        required
-                        class="input__box"
-                        type="text"
-                        id="cargo"
-                        name="cargo" />
-                </div>
-                <div class="input-group">
-                    <label for="salario" class="input__label">Salário (R$)</label>
-                    <input
-                        required
-                        class="input__box"
-                        type="text"
-                        id="salario"
-                        name="salario" />
-                </div>
-                <div class="input-group">
-                    <label for="senha" class="input__label">Senha</label>
-                    <input
-                        required
-                        class="input__box"
-                        type="password"
-                        id="senha"
-                        name="senha" />
-                </div>
-                <div class="input-group">
-                    <label for="confirmSenha" class="input__label">Confirmar senha</label>
-                    <input
-                        required
-                        class="input__box"
-                        type="password"
-                        id="confirmSenha" />
+                <div class="cadastro__row">
+                    <div class="input-group">
+                        <label for="senha" class="input__label">Senha</label>
+                        <input
+                            required
+                            class="input__box"
+                            type="password"
+                            id="senha"
+                            name="senha" />
+                    </div>
+                    <div class="input-group">
+                        <label for="confirmSenha" class="input__label">Confirmar senha</label>
+                        <input
+                            required
+                            class="input__box"
+                            type="password"
+                            id="confirmSenha" />
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn--primary cadastro__button" id="cadastro__button">
+            <button type="submit" class="btn btn--primary" id="cadastro__button">
                 Cadastrar
             </button>
         </form>

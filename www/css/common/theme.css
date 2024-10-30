@@ -1,7 +1,3 @@
-@font-face {
-    font-family: Inter;
-    src: url('../../assets/fonts/Inter/Inter-VariableFont.ttf');
-}
 /* Colors */
 :root {
     --cyan-light: #32c7c7;
@@ -22,5 +18,5 @@
         sans-serif;
     --font-size-uitext: 1.25em;
     --font-size-headline: 2em;
-    --font-size-heading1: 3em;
+    --font-size-heading: 3em;
 }

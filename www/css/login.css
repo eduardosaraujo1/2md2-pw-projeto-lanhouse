@@ -1,60 +1,43 @@
 /* Non-layout */
-.title > * {
-    color: var(--ghost-white);
-}
-
-.title {
-    font-size: 1.25rem;
-}
-
+@import url(common/common.css);
 .decorator-image {
-    background-image: url('../../assets/images/LogoCompleta.svg');
+    background-image: url('../assets/images/LogoCompleta.svg');
     background-color: #020f1f;
     background-position: 50% center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-/* Layout */
-body {
-    height: 100vh;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100%;
-}
-
-.login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 2rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-#txtEmail {
-    width: 25rem;
-}
-
-#txtSenha {
-    width: 20rem;
-}
-
-@media only screen and (width < 60rem) {
+@media only screen and (width < 768px) {
     .decorator-image {
         display: none;
     }
 
-    .container {
+    body {
         grid-template-columns: 1fr;
         place-items: center;
     }
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.form-container {
+    display: grid;
+    align-content: center;
+    margin-left: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.input__box {
+    width: 320px;
 }

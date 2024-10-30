@@ -6,12 +6,12 @@
 }
 
 .btn--primary {
-    background-color: var(--btn-primary);
-    color: white;
+    color: var(--neutral-50);
+    background-color: var(--cyan-regular);
 }
 
 .btn--primary:hover {
-    background-color: var(--btn-primary-hover);
+    background-color: var(--cyan-dark);
 }
 
 .btn:disabled {
@@ -19,16 +19,47 @@
     opacity: 0.7;
 }
 
-.input {
+.input-group {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    color: white;
 }
 
 .input__box {
-    padding: 0.5em;
-    border-radius: 4px;
+    background-color: white;
+    padding: 0.375em;
     border: none;
+    outline: none;
+    border-radius: 0.25em;
+}
+
+textarea.input__box {
     resize: none;
+    flex: 1;
+}
+
+.input__label,
+.radio__label {
+    color: var(--neutral-50);
+    line-height: 150%;
+}
+
+.radio {
+    accent-color: var(--cyan-dark);
+}
+
+.radio__options {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5em;
+}
+
+/* Necessario para não quebrar linha em pequenas telas */
+.radio__options div {
+    display: flex;
+    gap: 0.25em;
+}
+
+.radio__button {
+    width: 1em;
+    height: 1em;
 }

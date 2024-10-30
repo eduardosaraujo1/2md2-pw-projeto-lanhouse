@@ -5,20 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Categoria - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="../css/base/base.css" />
-    <link rel="stylesheet" href="../css/module/modules.css" />
-    <link rel="stylesheet" href="../css/layout/categoria.css" />
+    <link rel="stylesheet" href="../css/cadastro/categoria.css" />
 </head>
 
 <body>
-    <?php include '../../components/navbar.php' ?>
+    <?php include '../components/navbar.php' ?>
     <main>
-        <div class="container">
-            <h1 class="title">Cadastro de Categoria</h1>
-            <span class="submit-result"></span>
-            <form class="cadastro-form">
-                <div class="cadastro-form__inputs">
-                    <div class="input">
+        <div class="cadastro">
+            <h1 class="cadastro__title">Cadastro de Categoria</h1>
+            <span class="cadastro__result"></span>
+            <form class="cadastro__form">
+                <div class="cadastro__inputs">
+                    <div class="input-group">
                         <label class="input__label" for="nome">Nome</label>
                         <input
                             required
@@ -28,10 +26,11 @@
                             id="nome"
                             name="nome" />
                     </div>
-                    <div class="input input--textarea">
+                    <div class="input-group">
                         <label class="input__label" for="nome">Descrição</label>
                         <textarea
                             maxlength="120"
+                            rows="8"
                             class="input__box"
                             name="descricao"
                             id="descricao"></textarea>
@@ -39,7 +38,8 @@
                 </div>
                 <button
                     type="submit"
-                    class="btn btn--primary">
+                    class="btn btn--primary"
+                    id="cadastro__button">
                     Cadastrar
                 </button>
             </form>

@@ -43,10 +43,6 @@ textarea.input__box {
     line-height: 150%;
 }
 
-.radio {
-    accent-color: var(--cyan-dark);
-}
-
 .radio__options {
     display: flex;
     flex-wrap: nowrap;
@@ -61,4 +57,5 @@ textarea.input__box {
 .radio__button {
     width: 1em;
     height: 1em;
+    accent-color: var(--cyan-dark);
 }

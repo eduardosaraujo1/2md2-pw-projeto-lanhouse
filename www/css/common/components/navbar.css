@@ -1,122 +1,159 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: var(--background-navbar);
-    padding: 4px 64px;
     position: sticky;
     top: 0;
+    background-color: var(--navel-dark);
+    padding: 4px 30px;
 }
 
-.logo {
-    width: clamp(10rem, 15vw + 1rem, 13rem);
+.navbar__brand {
+    width: 192px;
 }
 
-.logo a {
-    display: block;
-}
-
-.logo img {
-    width: 100%;
-}
-
-/* NAVBAR BUTTONS */
-.nav-buttons {
+.navbar__navs {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    flex: 1;
+}
+
+@media screen and (width < 576px) {
+    .navbar__brand {
+        display: none;
+    }
+    .navbar {
+        padding: 4px 10px;
+        gap: 0.5rem;
+    }
+    .navbar__navs {
+        flex: unset;
+    }
+}
+
+.navbar__nav-item,
+.navbar__nav-link {
+    display: flex;
+    align-items: center;
     align-self: stretch;
 }
 
-.nav-buttons * {
-    height: 100%;
-}
-
-.nav-buttons ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 1rem;
-    padding: 0;
-}
-
-.nav-buttons ul li a {
-    display: flex;
-    align-items: center;
-    /* padding: 0 16px; */
+.navbar__nav-link {
+    padding-inline: 0.5rem;
+    font-size: var(--font-size-uitext);
+    font-weight: 600;
     text-decoration: none;
-    color: var(--ghost-white);
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.5em;
+    transition: color 0.1s linear;
+    color: var(--neutral-50);
 }
 
-.nav-buttons ul li a {
-    transition: color ease-in 0.1s;
+.navbar__nav-link:hover,
+.navbar__nav-link:focus {
+    color: var(--cyan-light);
 }
 
-.nav-buttons ul li a:hover {
-    color: var(--nav-button-cyan);
+/* DROPDOWN */
+.navbar__nav-item-dropdown {
+    position: relative;
 }
 
-/* ACC PANEL */
-.account-panel {
+.navbar__dropdown-container {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s linear;
+    transform: translateY(100%);
+}
+
+/* Dropdown apenas visivel quando item é clicado */
+.navbar__nav-item-dropdown:focus-within .navbar__dropdown-container {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.dropdown {
+    font-size: var(--font-size-uitext);
+}
+
+.dropdown-item {
+    background-color: var(--navel-dark);
+}
+.dropdown-item:hover {
+    background-color: var(--navel-light);
+}
+
+.dropdown-link {
+    display: inline-block;
+    padding: 0.5em;
+    text-decoration: none;
+    width: 100%;
+    color: var(--neutral-50);
+}
+
+/* USER */
+.currentuser {
+    position: relative;
+    line-height: 0;
+}
+
+.currentuser:focus-within .currentuser__menu {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.currentuser__profile {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 48px;
+    cursor: pointer;
+}
+
+.currentuser__menu {
+    position: absolute;
+    top: 0;
+    right: calc(100% - 0.25rem);
+    padding: 0.25rem;
+    width: max-content;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s linear;
+    background-color: var(--navel-dark);
+    line-height: normal;
+}
+
+.currentuser__info {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--neutral-50);
 }
 
-.profile-pic {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 100%;
-    overflow: clip;
+.currentuser__avatar {
+    border-radius: 50%;
+    width: 48px;
 }
 
-.panel-text {
+.currentuser_name {
+    font-size: var(--font-size-uitext);
+    font-weight: 500;
+}
+
+.currentuser__action {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 4px 0;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--font-size-uitext);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--neutral-50);
 }
 
-.panel-text .username {
-    color: white;
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-
-.panel-text .sair {
-    color: #ff8080;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-
-@media only screen and (width < 45rem) {
-    .logo {
-        display: none;
-    }
-
-    .navbar {
-        padding: 0;
-        padding: 0.5rem 1rem;
-    }
-}
-
-@media only screen and (width < 35rem) {
-    .profile-pic {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .panel-text {
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .nav-buttons ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.currentuser__action-icon {
+    width: 24px;
 }

@@ -1,8 +1,10 @@
-a {
-    color: white;
+@import url(common/common.css);
+
+.container {
+    margin-top: 1rem;
+    margin-inline: 30px;
 }
 
-main ul {
-    color: white;
-    padding: 2rem;
+.welcome {
+    max-width: clamp(200px, 40%, 100%);
 }

@@ -1,22 +1,49 @@
-<header class="navbar">
-    <div class="logo">
-        <a href="login.php">
-            <img src="../assets/images/LogoSimplificada_cropped.png" alt="" />
-        </a>
-    </div>
-    <nav class="nav-buttons">
-        <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="#">Cadastros</a></li>
-        </ul>
-    </nav>
-    <div class="account-panel">
-        <div class="profile-pic">
-            <img src="../assets/images/userProfilePic.jpg" alt="" />
+<nav class="navbar">
+    <a class="navbar__brand" href="login.php">
+        <img src="../assets/images/LogoSimplificada_cropped.png" alt="" />
+    </a>
+    <ul class="navbar__navs">
+        <li class="navbar__nav-item">
+            <a class="navbar__nav-link" href="home.php">Home</a>
+        </li>
+        <li class="navbar__nav-item navbar__nav-item-dropdown">
+            <a class="navbar__nav-link" href="#">Cadastros</a>
+            <ul class="navbar__dropdown-container dropdown">
+                <li class="dropdown-item">
+                    <a href="funcionario.php" class="dropdown-link">Funcionario</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="fornecedor.php" class="dropdown-link">Fornecedor</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="cliente.php" class="dropdown-link">Cliente</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="categoria.php" class="dropdown-link">Categoria</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="lancamento.php" class="dropdown-link">Lançamento</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="currentuser">
+        <button class="currentuser__profile" aria-controls="currentuser__menu">
+            <img class="currentuser__avatar" src="../assets/images/UserProfile.png" alt="" />
+        </button>
+        <div class="currentuser__menu" id="currentuser__menu" tabindex="3">
+            <div class="currentuser__info">
+                <img class="currentuser__avatar" src="../assets/images/UserProfile.png" alt="">
+                <span class="currentuser_name">Usuário</span>
+            </div>
+            <ul class="currentuser__actions dropdown">
+                <li class="dropdown-item">
+                    <button class="currentuser__action dropdown-link" id="action__sair">
+                        <img src="../assets/icons/sair.svg" alt="" class="currentuser__action-icon">
+                        <span class="currentuser__action-text">Sair</span>
+                    </button>
+                </li>
+            </ul>
         </div>
-        <div class="panel-text">
-            <span class="username">Usuário</span>
-            <a href="login.php" class="sair">Sair</a>
-        </div>
     </div>
-</header>
+</nav>

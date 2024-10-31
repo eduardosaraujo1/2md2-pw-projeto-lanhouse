@@ -1,0 +1,13 @@
+@import url('../common/common.css');
+@import url('../common/templates/cadastro.css');
+/* 
+.cadastro__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (width < 576px) {
+    .cadastro__inputs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+} */

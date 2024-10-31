@@ -1,0 +1,5 @@
+@import url(common/common.css);
+
+.welcome {
+    max-width: clamp(200px, 40%, 100%);
+}

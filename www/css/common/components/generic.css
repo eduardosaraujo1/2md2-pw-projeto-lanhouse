@@ -1,0 +1,61 @@
+.btn {
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0.5em 1em;
+}
+
+.btn--primary {
+    color: var(--neutral-50);
+    background-color: var(--cyan-regular);
+}
+
+.btn--primary:hover {
+    background-color: var(--cyan-dark);
+}
+
+.btn:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input__box {
+    background-color: white;
+    padding: 0.5em;
+    border: none;
+    outline: none;
+    border-radius: 0.25em;
+}
+
+textarea.input__box {
+    resize: none;
+    flex: 1;
+}
+
+.input__label,
+.radio__label {
+    color: var(--neutral-50);
+    line-height: 150%;
+}
+
+.radio__options {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5em;
+}
+
+.radio__options div {
+    display: flex;
+    gap: 0.25em;
+}
+
+.radio__button {
+    width: 1em;
+    height: 1em;
+    accent-color: var(--cyan-dark);
+}

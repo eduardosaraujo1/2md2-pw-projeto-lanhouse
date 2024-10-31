@@ -1,0 +1,160 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--navel-dark);
+    padding: 4px 30px;
+}
+
+.navbar__brand {
+    width: 192px;
+}
+
+.navbar__navs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    flex: 1;
+}
+
+@media screen and (width < 576px) {
+    .navbar__brand {
+        display: none;
+    }
+    .navbar {
+        padding: 4px 10px;
+        gap: 0.5rem;
+        justify-content: space-between;
+    }
+    .navbar__navs {
+        flex: unset;
+    }
+}
+
+.navbar__nav-item,
+.navbar__nav-link {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+}
+
+.navbar__nav-link {
+    padding-inline: 0.5rem;
+    font-size: var(--font-size-uitext);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.1s linear;
+    color: var(--neutral-50);
+}
+
+.navbar__nav-link:hover,
+.dropdown .navbar__nav-link:focus {
+    color: var(--cyan-light);
+}
+
+/* DROPDOWN */
+.navbar__nav-item-dropdown {
+    position: relative;
+}
+
+.navbar__dropdown-container {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s linear;
+    transform: translateY(100%);
+}
+
+/* Dropdown apenas visivel quando item é clicado */
+.navbar__nav-item-dropdown:focus-within .navbar__dropdown-container {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.dropdown {
+    font-size: var(--font-size-uitext);
+}
+
+.dropdown-item {
+    background-color: var(--navel-dark);
+}
+.dropdown-item:hover {
+    background-color: var(--navel-light);
+}
+
+.dropdown-link {
+    display: inline-block;
+    padding: 0.5em;
+    text-decoration: none;
+    width: 100%;
+    color: var(--neutral-50);
+}
+
+/* USER */
+.currentuser {
+    position: relative;
+    line-height: 0;
+}
+
+.currentuser:focus-within .currentuser__menu {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.currentuser__profile {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 48px;
+    cursor: pointer;
+}
+
+.currentuser__menu {
+    position: absolute;
+    top: 0;
+    right: calc(100% - 0.25rem);
+    padding: 0.25rem;
+    width: max-content;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s linear;
+    background-color: var(--navel-dark);
+    line-height: normal;
+}
+
+.currentuser__info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--neutral-50);
+}
+
+.currentuser__avatar {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.currentuser_name {
+    font-size: var(--font-size-uitext);
+    font-weight: 500;
+}
+
+.currentuser__action {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--font-size-uitext);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--neutral-50);
+}
+
+.currentuser__action-icon {
+    width: 24px;
+}

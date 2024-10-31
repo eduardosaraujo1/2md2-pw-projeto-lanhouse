@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "username": "root",
+    "password": "root",
+    "database": "bd_empresa",
+    "port": "3306"
+}

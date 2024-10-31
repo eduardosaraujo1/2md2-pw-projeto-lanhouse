@@ -1,0 +1,17 @@
+@import url('../common/common.css');
+@import url('../common/templates/cadastro.css');
+
+.cadastro-form__inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.input--textarea .input__box {
+    min-height: 8rem;
+}
+
+.radio {
+    display: flex;
+    gap: 0.5em;
+}

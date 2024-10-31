@@ -5,22 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Sistema Lanhouse</title>
-    <link rel="stylesheet" href="../css/base/base.css" />
-    <link rel="stylesheet" href="../css/module/modules.css" />
-    <link rel="stylesheet" href="../css/layout/home.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <script>
+        0
+    </script>
 </head>
 
 <body>
     <?php include '../components/navbar.php' ?>
-    <main>
-        <ul>
-            <li><a href="cadastro/funcionario.php">FUNCIONARIO</a></li>
-            <li><a href="cadastro/fornecedor.php">FORNECEDOR</a></li>
-            <li><a href="cadastro/cliente.php">CLIENTE</a></li>
-            <li><a href="cadastro/categoria.php">CATEGORIA</a></li>
-            <li><a href="cadastro/lancamento.php">LANCAMENTO</a></li>
-        </ul>
-    </main>
+    <div class="container">
+        <div class="welcome">
+            <h1 class="font-headline">Bem-vindo Usuário! </h1>
+            <p class="font-regular">
+                Para começar, porque não cadastrar um lançamento? Clique em <b>Cadastros</b> na barra de navegação para começar.
+            </p>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ try {
 
     // validação de entrada
     if (!isset($nome, $sobrenome, $dt_nascimento, $cargo, $salario, $email, $senha)) {
-        throw new Exception("Missing required parameter");
+        throw new Exception("Missing required parameter - received '" .  arrayParaString($_POST) . "'");
     }
 
     if (!validarData($dt_nascimento)) {

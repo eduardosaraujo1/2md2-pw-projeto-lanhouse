@@ -1,5 +1,6 @@
 <?php
 
+// string utils
 function truncate($str, $length)
 {
     return mb_substr($str, 0, $length);
@@ -17,11 +18,10 @@ function arrayParaString($array)
 // validation utils
 function validarTelefone($phone_number)
 {
-    $num_only = preg_replace("/\D/", '', $phone_number);
-    if (strlen($num_only) >= 3 && $num_only[2] === '9') {
-        return strlen($num_only) === 11;
+    if (strlen($phone_number) >= 3 && $phone_number[2] === '9') {
+        return strlen($phone_number) === 11;
     } else {
-        return strlen($num_only) === 10;
+        return strlen($phone_number) === 10;
     }
 }
 

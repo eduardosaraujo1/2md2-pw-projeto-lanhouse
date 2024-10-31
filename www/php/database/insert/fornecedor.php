@@ -8,9 +8,7 @@ $response = array('status' => 'success', 'content' => '');
 try {
     // validar tipo de request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        //TEMPORARIO para debug
-        // throw new Exception("Invalid request method - Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
-        $_POST = $_GET;
+        throw new Exception("Invalid request method - Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
     }
 
     // dados
@@ -21,6 +19,7 @@ try {
     $endereco = $_POST["endereco"];
 
     // validação de entrada
+    $telefone = preg_replace("/\D/", '', $telefone);
     if (!isset($nome, $contato, $email, $telefone, $endereco)) {
         throw new Exception("Missing required parameter - received '" .  arrayParaString($_POST) . "'");
     }

@@ -17,7 +17,7 @@ try {
 
     // validação de entrada
     if (!isset($nome)) {
-        throw new Exception("Missing required parameter - \$nome");
+        throw new Exception("Missing required parameter - received '" .  arrayParaString($_POST) . "'");
     } else {
         $nome = truncate($nome, 50);
     }

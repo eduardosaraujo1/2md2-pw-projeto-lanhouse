@@ -41,11 +41,11 @@ function phoneInputHook(event) {
     input.value = resultado;
 }
 function phoneValidateString(str) {
-    const numOnly = str.replace(/[^0-9]/g, '');
+    const numOnly = str.replace(/\D/g, '');
     if (numOnly?.[2] === '9') {
-        return numOnly.length >= 11;
+        return numOnly.length === 11;
     } else {
-        return numOnly.length >= 10;
+        return numOnly.length === 10;
     }
 }
 

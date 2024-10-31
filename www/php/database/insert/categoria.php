@@ -1,5 +1,6 @@
 <?php
 require '../header.php';
+require '../utilities.php';
 require '../connection.php';
 
 $response = array('status' => 'success', 'content' => '');

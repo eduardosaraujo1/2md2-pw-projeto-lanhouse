@@ -1,36 +1,66 @@
 <?php
-throw new Exception("Not Implemented New Framework");
-// require '_insert.php';
+require '../header.php';
+require '../utilities.php';
+require '../connection.php';
 
-// // salvando dados do form
-// $nome = $_POST['nome'];
-// $contato = $_POST['contato'];
-// $email = $_POST["email"];
-// $telefone = $_POST["telefone"];
-// $endereco = $_POST["endereco"];
+$response = array('status' => 'success', 'content' => '');
 
-// // Tratando dados
-// $nome = mb_substr($nome, 0, 50);
-// $contato = mb_substr($contato, 0, 30);
-// $email = mb_substr($email, 0, 50);
-// $telefone = preg_replace('/\D/', '', $telefone); // Deixar apenas números no telefone
-// $telefone = mb_substr($telefone, 0, 11);
-// $endereco = mb_substr($endereco, 0, 100);
+try {
+    // validar tipo de request
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        //TEMPORARIO para debug
+        // throw new Exception("Invalid request method - Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
+        $_POST = $_GET;
+    }
 
-// // Inserindo dados
-// $insert = safe_insert_prepare("
-//     INSERT INTO tb_fornecedor (nm_fornecedor, nm_contato, nm_email, nr_telefone, nm_endereco)
-//     VALUES (?, ?, ?, ?, ?);
-// ", $conn);
+    // dados
+    $nome = $_POST['nome'];
+    $contato = $_POST['contato'];
+    $email = $_POST["email"];
+    $telefone = $_POST["telefone"];
+    $endereco = $_POST["endereco"];
 
-// // 's' = string, 'i' = integer, 'd' = double, 'b' = blob
-// $insert->bind_param(
-//     "sssss",
-//     $nome,
-//     $contato,
-//     $email,
-//     $telefone,
-//     $endereco
-// );
-// safe_insert_execute($insert, $conn);
-// endpoint_return("Insert success", true);
+    // validação de entrada
+    if (!isset($nome, $contato, $email, $telefone, $endereco)) {
+        throw new Exception("Missing required parameter - received '" .  arrayParaString($_POST) . "'");
+    }
+
+    if (!validarTelefone($telefone)) {
+        throw new Exception("Invalid Parameter - $telefone is not a valid phone number");
+    }
+
+    $nome = truncate($nome, 50);
+    $contato = truncate($contato, 30);
+    $email = truncate($email, 50);
+    $telefone = truncate(preg_replace("/\D/", '', $telefone), 11);
+    $endereco = truncate($endereco, 100);
+
+    // conexão
+    $conn = criarConexao("../../../../database.json");
+
+    // montar query
+    $query =
+        "INSERT INTO tb_fornecedor (nm_fornecedor, nm_contato, nm_email, nr_telefone, nm_endereco) VALUES (?, ?, ?, ?, ?) ";
+    $types = "sssss";
+    $params = array(
+        $nome,
+        $contato,
+        $email,
+        $telefone,
+        $endereco
+    );
+
+    // executar query
+    $result = executarQuery($conn, $query, $types, $params);
+    if (!$result) {
+        throw new Exception("Query error - " . $conn->error);
+    }
+
+    // montar resposta
+    $response['content'] = "Successful Insert";
+} catch (Throwable $err) {
+    $response['status'] = 'error';
+    $response['content'] = $err->getMessage();
+}
+
+echo json_encode($response);

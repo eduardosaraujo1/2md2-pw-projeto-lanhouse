@@ -1,5 +1,6 @@
 <?php
 require '../header.php';
+require '../utilities.php';
 require '../connection.php';
 
 $response = array('status' => 'success', 'content' => '');
@@ -21,7 +22,6 @@ try {
     $senha = $_POST["senha"];
 
     // validação de entrada
-
     if (!isset($nome, $sobrenome, $dt_nascimento, $cargo, $salario, $email, $senha)) {
         throw new Exception("Missing required parameter");
     }

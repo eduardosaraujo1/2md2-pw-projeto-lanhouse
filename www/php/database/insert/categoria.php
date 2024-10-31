@@ -2,14 +2,19 @@
 require '../header.php';
 require '../connection.php';
 
-$result = array('status' => 'success', 'content' => '');
+$response = array('status' => 'success', 'content' => '');
 
 try {
+    // validar tipo de request
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        throw new Exception("Invalid request method - Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
+    }
+
     // dados
     $nome = $_POST['nome'];
     $descricao = $_POST['descricao'];
 
-    // validação
+    // validação de entrada
     if (!isset($nome)) {
         throw new Exception("Missing required parameter - \$nome");
     } else {
@@ -25,20 +30,22 @@ try {
     // conexão
     $conn = criarConexao("../../../../database.json");
 
-    // query
+    // montar query
     $query = 'INSERT INTO tb_categoria (nome, descricao) VALUES (?, ?)';
     $types = "ss";
     $params = array($nome, $descricao);
 
-    // executar
-    $query_result = executarQuery($conn, $query, $types, $params);
-    if (!$query_result) {
+    // executar query
+    $result = executarQuery($conn, $query, $types, $params);
+    if (!$result) {
         throw new Exception("Query error - " . $conn->error);
     }
-    $result['content'] = $query_result;
+
+    // montar resposta
+    $response['content'] = "Successful Insert";
 } catch (Throwable $err) {
-    $result['status'] = 'error';
-    $result['content'] = $err->getMessage();
+    $response['status'] = 'error';
+    $response['content'] = $err->getMessage();
 }
 
-echo json_encode($result);
+echo json_encode($response);

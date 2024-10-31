@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <?php include '../components/navbar.php' ?>
     <div class="cadastro">
         <h1 class="cadastro__title">Cadastro de funcionário</h1>
@@ -31,8 +30,8 @@
                 </div>
                 <div class="cadastro__row">
                     <div class="input-group">
-                        <label for="dtNascimento" class="input__label">Data de Nascimento</label>
-                        <input required class="input__box" type="date" id="dtNascimento" name="dtNascimento" />
+                        <label for="dt_nascimento" class="input__label">Data de Nascimento</label>
+                        <input required class="input__box" type="date" id="dt_nascimento" name="dt_nascimento" />
                     </div>
                     <div class="input-group">
                         <label for="email" class="input__label">E-mail</label>
@@ -58,7 +57,7 @@
                             name="cargo" />
                     </div>
                     <div class="input-group">
-                        <label for="salario" class="input__label">Salário (R$)</label>
+                        <label for="salario" class="input__label">Salário </label>
                         <input
                             required
                             placeholder="R$ 99999,99"

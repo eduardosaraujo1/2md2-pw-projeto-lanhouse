@@ -19,20 +19,20 @@ try {
     $endereco = $_POST["endereco"];
 
     // validação de entrada
-    $telefone = preg_replace("/\D/", '', $telefone);
     if (!isset($nome, $contato, $email, $telefone, $endereco)) {
-        throw new Exception("Missing required parameter - received '" .  arrayParaString($_POST) . "'");
+        throw new Exception("Missing required parameter - received '" .  assocArrayStringify($_POST) . "'");
     }
 
-    if (!validarTelefone($telefone)) {
-        throw new Exception("Invalid Parameter - $telefone is not a valid phone number");
-    }
 
     $nome = truncate($nome, 50);
     $contato = truncate($contato, 30);
     $email = truncate($email, 50);
-    $telefone = truncate(preg_replace("/\D/", '', $telefone), 11);
+    $telefone = formatarTelefone($telefone);
     $endereco = truncate($endereco, 100);
+
+    if (!validarTelefone($telefone)) {
+        throw new Exception("Invalid Parameter - $telefone is not a valid phone number");
+    }
 
     // conexão
     $conn = criarConexao("../../../../database.json");
@@ -50,10 +50,7 @@ try {
     );
 
     // executar query
-    $result = executarQuery($conn, $query, $types, $params);
-    if (!$result) {
-        throw new Exception("Query error - " . $conn->error);
-    }
+    executarQuery($conn, $query, $types, $params);
 
     // montar resposta
     $response['content'] = "Successful Insert";

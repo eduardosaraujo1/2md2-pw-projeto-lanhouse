@@ -23,7 +23,7 @@ try {
 
     // validação de entrada
     if (!isset($nome, $sobrenome, $dt_nascimento, $cargo, $salario, $email, $senha)) {
-        throw new Exception("Missing required parameter - received '" .  arrayParaString($_POST) . "'");
+        throw new Exception("Missing required parameter - received '" .  assocArrayStringify($_POST) . "'");
     }
 
     if (!validarData($dt_nascimento)) {
@@ -37,7 +37,8 @@ try {
     $nome = truncate($nome, 30);
     $sobrenome = truncate($sobrenome, 30);
     $cargo = truncate($cargo, 30);
-    $salario = sqlDecimalConstraint((float) $salario, 7, 2);
+    $salario = formatarDecimal($salario);
+    $salario = sqlDecimalConstraint($salario, 7, 2);
     $email = truncate($email, 100);
     $senha = password_hash($senha, PASSWORD_BCRYPT, array("cost" => 14));
 
@@ -60,10 +61,8 @@ try {
     );
 
     // executar query
-    $result = executarQuery($conn, $query, $types, $params);
-    if (!$result) {
-        throw new Exception("Query error - " . $conn->error);
-    }
+    executarQuery($conn, $query, $types, $params);
+
 
     // montar resposta
     $response['content'] = "Successful Insert";

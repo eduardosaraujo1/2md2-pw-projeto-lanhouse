@@ -35,40 +35,41 @@ function criarConexao($path)
 }
 
 /**
- * Executa uma query MySQL sem retorno de resultado, utilizando parametros para segurança de entrada
+ * Executa uma query MySQL, utilizando parametros para segurança de entrada
  * 
  * @param \mysqli $conn Objeto de conexão MySQLi
  * @param string $query Consulta SQL em formato de string
  * @param string|null $types Tipo de cada parâmetro em $params ("i" para inteiro, "d" para double, "s" para string, "b" para blob)
  * @param array|null $params Parâmetros para vincular à consulta, prevenindo SQL Injection
  * 
- * @return bool Retorna se a operação foi um sucesso ou uma falha
+ * @return \mysqli_result Result que pode ser lido utilizando .fetch_assoc.
  * @link https://www.php.net/manual/en/mysqli-stmt.bind-param.php
+ * @link https://phpdelusions.net/mysqli_examples/prepared_select
  */
 function executarQuery($conn, $query, $types = null, $params = null)
 {
     // Certifica que ambos ou nenhum dos parâmetros $types e $params estão definidos
     if (($types && !$params) || (!$types && $params)) {
-        return false;
+        throw new Exception("Query error - " . $conn->error);
     }
 
     // Prepara a declaração e retorna false em caso de falha
     if (!$stmt = $conn->prepare($query)) {
-        return false;
+        throw new Exception("Query error - " . $conn->error);
     }
 
     // Vincula parâmetros, se fornecidos
     if ($types && $params) {
         if (!$stmt->bind_param($types, ...$params)) {
-            return false;
+            throw new Exception("Query error - " . $conn->error);
         }
     }
 
     // Executa a declaração e retorna o resultado ou false em caso de erro
     if (!$stmt->execute()) {
-        return false;
+        throw new Exception("Query error - " . $conn->error);
     }
 
     // Se tudo correr bem, retorne verdadeiro
-    return true;
+    return $stmt->get_result();
 }

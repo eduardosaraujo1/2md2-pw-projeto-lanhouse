@@ -17,7 +17,7 @@ try {
 
     // validação de entrada
     if (!isset($nome)) {
-        throw new Exception("Missing required parameter - received '" .  arrayParaString($_POST) . "'");
+        throw new Exception("Missing required parameter - received '" .  assocArrayStringify($_POST) . "'");
     } else {
         $nome = truncate($nome, 50);
     }
@@ -37,10 +37,8 @@ try {
     $params = array($nome, $descricao);
 
     // executar query
-    $result = executarQuery($conn, $query, $types, $params);
-    if (!$result) {
-        throw new Exception("Query error - " . $conn->error);
-    }
+    executarQuery($conn, $query, $types, $params);
+
 
     // montar resposta
     $response['content'] = "Successful Insert";

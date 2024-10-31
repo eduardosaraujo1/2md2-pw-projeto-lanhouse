@@ -6,7 +6,7 @@ function truncate($str, $length)
     return mb_substr($str, 0, $length);
 }
 
-function arrayParaString($array)
+function assocArrayStringify($array)
 {
     $result = [];
     foreach ($array as $key => $value) {
@@ -18,6 +18,7 @@ function arrayParaString($array)
 // validation utils
 function validarTelefone($phone_number)
 {
+    $phone_number = preg_replace("/\D/", '', $phone_number);
     if (strlen($phone_number) >= 3 && $phone_number[2] === '9') {
         return strlen($phone_number) === 11;
     } else {
@@ -38,6 +39,10 @@ function validarDecimal($str)
     return !preg_match("/[^\d.,]/i", $str);
 }
 
+function isUnsignedInt($str)
+{
+    return (is_string($str) && preg_match("/^\d+$/", $str));
+}
 
 /**
  * Aplica a restrição que o tipo de dado MySQL DECIMAL(size, precision) colocaria em um número,
@@ -64,4 +69,15 @@ function sqlDecimalConstraint($num, $size, $precision)
     $num = (float) "$inteira.$decimal";
 
     return $num;
+}
+
+// formatters
+function formatarTelefone($telefone)
+{
+    return truncate(preg_replace("/\D/", '', $telefone), 11);
+}
+
+function formatarDecimal($decimal)
+{
+    return (float) str_replace(',', '.', $decimal);
 }

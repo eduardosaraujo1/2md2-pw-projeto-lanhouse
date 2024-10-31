@@ -49,7 +49,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    IF NOT EXISTS `bd_empresa`.`tb_lancamentos` (
+    IF NOT EXISTS `bd_empresa`.`tb_lancamento` (
         `id_lancamento` INT NOT NULL AUTO_INCREMENT,
         `valor` DECIMAL(8, 2) NOT NULL,
         `tipo` TINYINT NOT NULL,

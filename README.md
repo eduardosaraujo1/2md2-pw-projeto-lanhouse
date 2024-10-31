@@ -29,10 +29,10 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 # Roadmap
 
 -   [ ] (GIAN) #1 Fazer uma tela de home.php melhorada
--   [ ] (EDUARDO) #2 Refatore o CSS do projeto seguindo o projeto Figma e a nova Navbar. O plano de reescrever o CSS do zero foi alterado para corrigir o CSS atual.
+-   [x] (EDUARDO) #2 Refatore o CSS do projeto seguindo o projeto Figma e a nova Navbar. O plano de reescrever o CSS do zero foi alterado para corrigir o CSS atual.
     -   Editar o CSS para as especificações se encaixarem às do figma.
     -   Alterar o HTML para que ele invoque o CSS corretamente (os passos acima e esse feitos simultaneamente)
--   [ ] (EDUARDO) #3 Implemente as melhorias de navbar (dropdown e user control)
+-   [x] (EDUARDO) #3 Implemente as melhorias de navbar (dropdown e user control)
 -   [x] (EDUARDO) #4 No arquivo Figma, altere os frames para 1200x675 com containers de 1140px (Tela XL do bootstrap)
 -   [ ] (EDUARDO) #5 Utilizar [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) para separar funcionalidades como validação de formulario. (Isso deve corrigir o problema de que o salario não está suportando casas decimais)
 -   [ ] (EDUARDO) #6 A string de conexão atualmente é hardcoded no sistema (em init.php), por isso o banco de dados precisa ser local estar na porta 3306 e possuir usuario e senha root. Faça um arquivo settings.json e deixe esses parametros mais facil de alterar

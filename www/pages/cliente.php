@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Cliente - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/cliente.css" />
+
+    <script>
+        0
+    </script>
 </head>
 
 <body>
@@ -40,6 +44,7 @@
                 <div class="input-group">
                     <label for="email" class="input__label">E-mail</label>
                     <input
+                        placeholder="name@example.com"
                         required
                         maxlength="100"
                         class="input__box"
@@ -51,6 +56,7 @@
                     <div class="input-group">
                         <label for="telefone" class="input__label">Telefone</label>
                         <input
+                            placeholder="(00) 00000-0000"
                             required
                             class="input__box"
                             type="text"
@@ -77,8 +83,9 @@
             </button>
         </form>
     </div>
-    <script src="../js/cadastro.js"></script>
-    <script src="../js/validate.js"></script>
+    <script type="module" src="../js/cliente.js"></script>
+    <!-- <script src="../js/cadastro.js"></script>
+    <script src="../js/validate.js"></script> -->
     <script>
         const form = document.querySelector('form');
         const endpointName = '<?php echo basename(__FILE__) ?>';
@@ -91,19 +98,6 @@
             }
 
             await cadastroFormSubmit(form, endpointName)
-        });
-
-        // validate telefone
-        const telefone = document.querySelector("#telefone");
-        telefone.addEventListener("input", (event) => {
-            TelefoneValidate.inputFilter(telefone);
-
-            const full = TelefoneValidate.validate(telefone.value)
-            if (full) {
-                telefone.setCustomValidity("");
-            } else {
-                telefone.setCustomValidity("Telefone inválido");
-            }
         });
     </script>
 </body>

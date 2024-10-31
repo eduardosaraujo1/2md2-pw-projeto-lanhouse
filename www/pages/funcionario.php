@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Funcionário - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/funcionario.css" />
+    <script>
+        0
+    </script>
 </head>
 
 <body>
@@ -35,6 +38,7 @@
                         <label for="email" class="input__label">E-mail</label>
                         <input
                             required
+                            placeholder="name@example.com"
                             maxlength="100"
                             class="input__box"
                             type="email"
@@ -57,6 +61,8 @@
                         <label for="salario" class="input__label">Salário (R$)</label>
                         <input
                             required
+                            placeholder="R$ 99999,99"
+                            data-currency-limit="5"
                             class="input__box"
                             type="text"
                             id="salario"
@@ -88,9 +94,10 @@
             </button>
         </form>
     </div>
-    <script src="../js/cadastro.js"></script>
-    <script src="../js/validate.js"></script>
-    <script>
+    <script type="module" src="../js/funcionario.js"></script>
+    <!-- <script src="../js/cadastro.js"></script>
+    <script src="../js/validate.js"></script> -->
+    <!-- <script>
         const form = document.querySelector('form');
         const endpointName = '<?php echo basename(__FILE__) ?>';
 
@@ -104,19 +111,6 @@
 
             await cadastroFormSubmit(form, endpointName)
         });
-
-        // salario validation
-        const salarioInput = document.querySelector("#salario");
-        salarioInput.addEventListener("input", (event) => {
-            CurrencyValidate.inputFilter(salarioInput)
-            // InputFilter.currency(event.currentTarget);
-
-            if (CurrencyValidate.validate(salarioInput.value)) {
-                salarioInput.setCustomValidity("");
-            } else {
-                salarioInput.setCustomValidity("Salário inválido");
-            }
-        })
 
         // password check
         const senha = document.querySelector("#senha");
@@ -132,7 +126,7 @@
         }
         senha.addEventListener("input", passHandler);
         confirmsenha.addEventListener("input", passHandler);
-    </script>
+    </script> -->
 </body>
 
 </html>

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Fornecedor - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/fornecedor.css" />
+    <script>
+        0
+    </script>
 </head>
 
 <body>
@@ -29,6 +32,7 @@
                     <label for="email" class="input__label">E-mail</label>
                     <input
                         required
+                        placeholder="name@example.com"
                         maxlength="50"
                         class="input__box"
                         type="email"
@@ -40,6 +44,7 @@
                         <label for="telefone" class="input__label">Telefone</label>
                         <input
                             required
+                            placeholder="(00) 00000-0000"
                             class="input__box"
                             type="tel"
                             id="telefone"
@@ -72,9 +77,10 @@
             </button>
         </form>
     </div>
-    <script src="../js/cadastro.js"></script>
-    <script src="../js/validate.js"></script>
-    <script>
+    <script type="module" src="../js/fornecedor.js"></script>
+    <!-- <script src="../js/cadastro.js"></script>
+    <script src="../js/validate.js"></script> -->
+    <!-- <script>
         const form = document.querySelector('form');
         const endpointName = '<?php echo basename(__FILE__) ?>';
         // Form submit handle
@@ -87,20 +93,7 @@
 
             await cadastroFormSubmit(form, endpointName)
         });
-
-        // validate telefone
-        const telefone = document.querySelector("#telefone");
-        telefone.addEventListener("input", (event) => {
-            TelefoneValidate.inputFilter(telefone);
-
-            const full = TelefoneValidate.validate(telefone.value)
-            if (full) {
-                telefone.setCustomValidity("");
-            } else {
-                telefone.setCustomValidity("Telefone inválido");
-            }
-        });
-    </script>
+    </script> -->
 </body>
 
 </html>

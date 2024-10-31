@@ -1,5 +1,5 @@
 <?php
-require '_insert.php';
+throw new Exception("Not Implemented New Framework");
 
 // ! NÃO É POSSÍVEL CRIAR O ENDPOINT POIS O FORM NÃO FUNCIONA AINDA
 // ! O FORM NÃO FUNCIONA AINDA POIS É NECESSÁRIO UMA FORMA DE DETECTAR QUAL É O USUÁRIO ATUAL PARA QUE O fk_id_funcionario SEJA DEFINIDO

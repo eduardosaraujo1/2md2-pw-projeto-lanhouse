@@ -38,13 +38,6 @@ function createFormSubmitSubject(form) {
         // Prevent submit
         event.preventDefault();
 
-        // Remove custom validities (may not be needed)
-        // const form = event.target;
-        // const inputs = form.querySelectorAll('input');
-        // for (const input of inputs) {
-        //     input.setCustomValidity('');
-        // }
-
         // Notifica os observers que houve um submit
         notifyAll(event);
     }

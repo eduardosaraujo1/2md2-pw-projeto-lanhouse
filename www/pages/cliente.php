@@ -83,22 +83,6 @@
         </form>
     </div>
     <script type="module" src="../js/cliente.js"></script>
-    <!-- <script src="../js/cadastro.js"></script>
-    <script src="../js/validate.js"></script> -->
-    <script>
-        const form = document.querySelector('form');
-        const endpointName = '<?php echo basename(__FILE__) ?>';
-        // Form submit handle
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            if (!form.reportValidity()) {
-                return;
-            }
-
-            await cadastroFormSubmit(form, endpointName);
-        });
-    </script>
 </body>
 
 </html>

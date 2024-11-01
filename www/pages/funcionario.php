@@ -115,38 +115,6 @@
         </form>
     </div>
     <script type="module" src="../js/funcionario.js"></script>
-    <!-- <script src="../js/cadastro.js"></script>
-    <script src="../js/validate.js"></script> -->
-    <!-- <script>
-        const form = document.querySelector('form');
-        const endpointName = '<?php echo basename(__FILE__) ?>';
-
-        // Form submit handle
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            if (!form.reportValidity()) {
-                return;
-            }
-
-            await cadastroFormSubmit(form, endpointName)
-        });
-
-        // password check
-        const senha = document.querySelector("#senha");
-        const confirmsenha = document.querySelector("#confirmSenha");
-        const passHandler = (event) => {
-            if (senha.value === confirmsenha.value) {
-                senha.setCustomValidity("");
-                confirmsenha.setCustomValidity("");
-            } else {
-                senha.setCustomValidity("Senhas não coincidem");
-                confirmsenha.setCustomValidity("Senhas não coincidem");
-            }
-        }
-        senha.addEventListener("input", passHandler);
-        confirmsenha.addEventListener("input", passHandler);
-    </script> -->
 </body>
 
 </html>

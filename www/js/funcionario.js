@@ -33,6 +33,10 @@ async function cadastrarFuncionario(event) {
         cadastroResult,
         result['status'] === 'success'
     );
+    // limpar form quando subject sucesso
+    if (result['status'] === 'success') {
+        form.reset();
+    }
 }
 
 function passwordSubmitHook(event) {

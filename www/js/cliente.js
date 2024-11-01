@@ -27,6 +27,10 @@ async function cadastrarCliente(event) {
         cadastroResult,
         result['status'] === 'success'
     );
+    // limpar form quando subject sucesso
+    if (result['status'] === 'success') {
+        form.reset();
+    }
 }
 
 function load() {

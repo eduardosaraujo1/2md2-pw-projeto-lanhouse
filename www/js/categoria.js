@@ -24,7 +24,9 @@ async function cadastrarCategoria(event) {
     );
 
     // limpar form quando subject sucesso
-    form.reset();
+    if (result['status'] === 'success') {
+        form.reset();
+    }
 }
 
 function load() {

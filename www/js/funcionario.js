@@ -1,26 +1,17 @@
 import InputUtils from './common/input-utils.js';
 import CadastroUtils from './common/cadastro.js';
 
-// Filtro de input: moeda
-const salario = document.querySelector('#salario');
-salario.addEventListener('input', InputUtils.currency.hook);
-
-// Elementos cadastro
-const cadastroResult = document.querySelector('.cadastro__result');
-
-// Criar form subject (observers)
-const form = document.querySelector('form.cadastro__form');
-const formSubject = CadastroUtils.createFormSubmitSubject(form);
-
 async function cadastrarFuncionario(event) {
+    // Dados form
+    const form = event.target;
     const formdata = new FormData(form);
+    const senha = form.querySelector('#senha');
+    const confirmSenha = form.querySelector('#confirmSenha');
 
     // cancelar envio em caso de invalidez
-    const senha = form.querySelector('#senha').value;
-    const confirmSenha = form.querySelector('#confirmSenha').value;
     if (
         !form.checkValidity() ||
-        !InputUtils.password.isvalid(senha, confirmSenha)
+        !InputUtils.password.isvalid(senha.value, confirmSenha.value)
     ) {
         return;
     }
@@ -37,25 +28,27 @@ async function cadastrarFuncionario(event) {
     );
 
     // exibir resposta para o usuário
+    const cadastroResult = document.querySelector('.cadastro__result');
     CadastroUtils.displayResponseResult(
         cadastroResult,
         result['status'] === 'success'
     );
 }
 
-/**
- * @param {SubmitEvent} event
- */
 function passwordSubmitHook(event) {
-    const password = form.querySelector('#senha');
-    const confirm = form.querySelector('#confirmSenha');
-    const result = InputUtils.password.isvalid(password.value, confirm.value);
+    // Propriedades do formulario enviado
+    const form = event.target;
+    const senha = form.querySelector('#senha');
+    const confirmSenha = form.querySelector('#confirmSenha');
 
-    if (!result) {
-        if (password.value.length < 8) {
-            password.setCustomValidity('Senha deve ter 8 ou mais caracteres');
+    // Validar senha utilizando InputUtils
+    const valid = InputUtils.password.isvalid(senha.value, confirmSenha.value);
+
+    if (!valid) {
+        if (senha.value.length < 8) {
+            senha.setCustomValidity('Senha deve ter 8 ou mais caracteres');
         } else {
-            password.setCustomValidity('Senhas não coincidem');
+            senha.setCustomValidity('Senhas não coincidem');
         }
     }
 
@@ -63,9 +56,19 @@ function passwordSubmitHook(event) {
     form.reportValidity();
 
     // Redefinir validity para permitir proximos envios
-    password.setCustomValidity('');
+    senha.setCustomValidity('');
 }
 
-// subscribes
-formSubject.subscribe(passwordSubmitHook);
-formSubject.subscribe(cadastrarFuncionario);
+function load() {
+    // Filtros de entrada de texto
+    const form = document.querySelector('form.cadastro__form');
+    const salario = form.querySelector('#salario');
+    salario.addEventListener('input', InputUtils.currency.hook);
+
+    // Conectar funções ao evento "form submit"
+    const formSubject = CadastroUtils.createFormSubmitSubject(form);
+    formSubject.subscribe(passwordSubmitHook);
+    formSubject.subscribe(cadastrarFuncionario);
+}
+
+load();

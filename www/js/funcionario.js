@@ -17,12 +17,14 @@ const formSubject = CadastroUtils.createFormSubmitSubject(form);
  *
  * @param {SubmitEvent} event
  */
-function passwordCheck(event) {
+function passwordValidationHandler(event) {
     const password = form.querySelector('#senha');
-    const confirmPassword = form.querySelector('#confirmSenha');
+    const result = validatePassword();
 
-    if (password.value !== confirmPassword.value) {
+    if (result === 'SENHA_DIFERENTE') {
         password.setCustomValidity('Senhas não coincidem');
+    } else if (result === 'SENHA_PEQUENA') {
+        password.setCustomValidity('Senha deve ter 8 ou mais caracteres');
     }
 
     // Exibir problema caso exista
@@ -32,11 +34,27 @@ function passwordCheck(event) {
     password.setCustomValidity('');
 }
 
+function validatePassword() {
+    const password = form.querySelector('#senha');
+    const confirmPassword = form.querySelector('#confirmSenha');
+
+    // verifica se confirmação está correta
+    if (password.value !== confirmPassword.value) {
+        return 'SENHA_DIFERENTE';
+    }
+    // limite de tamanho
+    else if (password.value.length < 8) {
+        return 'SENHA_PEQUENA';
+    }
+
+    return 'SUCESSO';
+}
+
 async function cadastrarFuncionario(event) {
     const formdata = new FormData(form);
 
     // cancelar envio em caso de invalidez
-    if (!form.checkValidity() || !validatePassword()) {
+    if (!form.checkValidity() || validatePassword() != 'SUCESSO') {
         return;
     }
 
@@ -53,14 +71,8 @@ async function cadastrarFuncionario(event) {
     );
 
     cadastroResult.innerHTML = JSON.stringify(result);
-
-    function validatePassword() {
-        const passwordValue = form.querySelector('#senha').value;
-        const confirmValue = form.querySelector('#confirmSenha').value;
-        return passwordValue === confirmValue;
-    }
 }
 
 // subscribes
-formSubject.subscribe(passwordCheck);
+formSubject.subscribe(passwordValidationHandler);
 formSubject.subscribe(cadastrarFuncionario);

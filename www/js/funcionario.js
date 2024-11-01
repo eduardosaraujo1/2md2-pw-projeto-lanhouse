@@ -5,14 +5,9 @@ async function cadastrarFuncionario(event) {
     // Dados form
     const form = event.target;
     const formdata = new FormData(form);
-    const senha = form.querySelector('#senha');
-    const confirmSenha = form.querySelector('#confirmSenha');
 
     // cancelar envio em caso de invalidez
-    if (
-        !form.checkValidity() ||
-        !InputUtils.password.isvalid(senha.value, confirmSenha.value)
-    ) {
+    if (formValidate(form)) {
         return;
     }
 
@@ -41,21 +36,27 @@ async function cadastrarFuncionario(event) {
     CadastroUtils.setSubmitButtonState(form, true);
 }
 
-function passwordSubmitHook(event) {
-    // Propriedades do formulario enviado
-    const form = event.target;
+/**
+ *
+ * @param {HTMLFormElement} form
+ */
+function formValidate(form) {
+    let valid = true;
     const senha = form.querySelector('#senha');
     const confirmSenha = form.querySelector('#confirmSenha');
 
-    // Validar senha utilizando InputUtils
-    const valid = InputUtils.password.isvalid(senha.value, confirmSenha.value);
+    if (senha.value.length < 8) {
+        valid = false;
+        senha.setCustomValidity('Senha deve ter 8 ou mais caracteres');
+    }
 
-    if (!valid) {
-        if (senha.value.length < 8) {
-            senha.setCustomValidity('Senha deve ter 8 ou mais caracteres');
-        } else {
-            senha.setCustomValidity('Senhas não coincidem');
-        }
+    if (senha.value !== confirmSenha.value) {
+        valid = false;
+        senha.setCustomValidity('Senhas não coincidem');
+    }
+
+    if (!form.checkValidity()) {
+        valid = false;
     }
 
     // Exibir problema caso exista
@@ -63,6 +64,9 @@ function passwordSubmitHook(event) {
 
     // Redefinir validity para permitir proximos envios
     senha.setCustomValidity('');
+
+    // Retornar se é valido ou não
+    return valid;
 }
 
 function load() {
@@ -73,7 +77,6 @@ function load() {
 
     // Conectar funções ao evento "form submit"
     const formSubject = CadastroUtils.createFormSubmitSubject(form);
-    formSubject.subscribe(passwordSubmitHook);
     formSubject.subscribe(cadastrarFuncionario);
 }
 

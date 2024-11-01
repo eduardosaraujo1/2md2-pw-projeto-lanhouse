@@ -6,7 +6,7 @@ async function cadastrarCliente(event) {
     const formdata = new FormData(form);
 
     // cancelar envio em caso de invalidez
-    if (!form.checkValidity()) {
+    if (formValidate(form)) {
         return;
     }
 
@@ -33,6 +33,29 @@ async function cadastrarCliente(event) {
         form.reset();
     }
     CadastroUtils.setSubmitButtonState(form, true);
+}
+
+function formValidate(form) {
+    let valid = true;
+    const telefone = form.querySelector('#telefone');
+
+    if (InputUtils.phone.isvalid(telefone.value)) {
+        telefone.setCustomValidity('Telefone incompleto.');
+        valid = false;
+    }
+
+    if (!form.checkValidity()) {
+        valid = false;
+    }
+
+    // Exibir problema caso exista
+    form.reportValidity();
+
+    // Remover customvalidity para permitir proximos submits
+    telefone.setCustomValidity('');
+
+    // Retornar se é valido ou não
+    return valid;
 }
 
 function load() {

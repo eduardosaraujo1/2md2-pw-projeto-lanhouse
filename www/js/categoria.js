@@ -6,7 +6,7 @@ async function cadastrarCategoria(event) {
     const formdata = new FormData(form);
 
     // cancelar envio em caso de invalidez
-    if (!form.checkValidity()) {
+    if (formValidate(form)) {
         return;
     }
 
@@ -29,6 +29,20 @@ async function cadastrarCategoria(event) {
         form.reset();
     }
     CadastroUtils.setSubmitButtonState(form, true);
+}
+
+function formValidate(form) {
+    let valid = true;
+
+    if (!form.checkValidity()) {
+        valid = false;
+    }
+
+    // Exibir problema caso exista
+    form.reportValidity();
+
+    // Retornar se é valido ou não
+    return valid;
 }
 
 function load() {

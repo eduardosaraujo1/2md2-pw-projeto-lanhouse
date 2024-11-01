@@ -7,7 +7,7 @@
     <title>Cadastrar Categoria - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/categoria.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
@@ -58,7 +58,7 @@
                 return;
             }
 
-            await cadastroFormSubmit(form, endpointName)
+            await cadastroFormSubmit(form, endpointName);
         });
     </script>
 </body>

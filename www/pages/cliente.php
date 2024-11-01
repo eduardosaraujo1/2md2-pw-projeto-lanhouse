@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Cliente - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/cliente.css" />
-
     <script>
-        0
+        0;
     </script>
 </head>
 
@@ -97,7 +96,7 @@
                 return;
             }
 
-            await cadastroFormSubmit(form, endpointName)
+            await cadastroFormSubmit(form, endpointName);
         });
     </script>
 </body>

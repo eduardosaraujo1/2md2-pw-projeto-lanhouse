@@ -7,7 +7,7 @@
     <title>Cadastrar Fornecedor - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/fornecedor.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
@@ -72,7 +72,10 @@
                         name="endereco" />
                 </div>
             </div>
-            <button type="submit" class="btn btn--primary" id="cadastro__button">
+            <button
+                type="submit"
+                class="btn btn--primary"
+                id="cadastro__button">
                 Cadastrar
             </button>
         </form>

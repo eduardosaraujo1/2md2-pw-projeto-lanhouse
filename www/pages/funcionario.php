@@ -7,7 +7,7 @@
     <title>Cadastrar Funcionário - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/funcionario.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
@@ -21,17 +21,34 @@
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label class="input__label" for="nome">Nome</label>
-                        <input type="text" class="input__box" id="nome" name="nome" maxlength="30" required />
+                        <input
+                            type="text"
+                            class="input__box"
+                            id="nome"
+                            name="nome"
+                            maxlength="30"
+                            required />
                     </div>
                     <div class="input-group">
                         <label for="sobrenome" class="input__label">Sobrenome</label>
-                        <input type="text" class="input__box" id="sobrenome" name="sobrenome" maxlength="30" required />
+                        <input
+                            type="text"
+                            class="input__box"
+                            id="sobrenome"
+                            name="sobrenome"
+                            maxlength="30"
+                            required />
                     </div>
                 </div>
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label for="dt_nascimento" class="input__label">Data de Nascimento</label>
-                        <input required class="input__box" type="date" id="dt_nascimento" name="dt_nascimento" />
+                        <input
+                            required
+                            class="input__box"
+                            type="date"
+                            id="dt_nascimento"
+                            name="dt_nascimento" />
                     </div>
                     <div class="input-group">
                         <label for="email" class="input__label">E-mail</label>
@@ -57,7 +74,8 @@
                             name="cargo" />
                     </div>
                     <div class="input-group">
-                        <label for="salario" class="input__label">Salário </label>
+                        <label for="salario" class="input__label">Salário
+                        </label>
                         <input
                             required
                             placeholder="R$ 99999,99"
@@ -88,7 +106,10 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn--primary" id="cadastro__button">
+            <button
+                type="submit"
+                class="btn btn--primary"
+                id="cadastro__button">
                 Cadastrar
             </button>
         </form>

@@ -7,7 +7,7 @@
     <title>Home - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/home.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
@@ -15,9 +15,10 @@
     <?php include '../components/navbar.php' ?>
     <div class="container">
         <div class="welcome">
-            <h1 class="font-headline">Bem-vindo Usuário! </h1>
+            <h1 class="font-headline">Bem-vindo Usuário!</h1>
             <p class="font-regular">
-                Para começar, porque não cadastrar um lançamento? Clique em <b>Cadastros</b> na barra de navegação para começar.
+                Para começar, porque não cadastrar um lançamento? Clique em
+                <b>Cadastros</b> na barra de navegação para começar.
             </p>
         </div>
     </div>

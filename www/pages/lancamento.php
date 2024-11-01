@@ -7,7 +7,7 @@
     <title>Cadastrar Lançamento - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/lancamento.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
@@ -29,7 +29,9 @@
                                 id="lucro"
                                 value="lucro"
                                 checked />
-                            <label for="lucro" class="radio__label"> Lucro </label>
+                            <label for="lucro" class="radio__label">
+                                Lucro
+                            </label>
                         </div>
                         <div>
                             <input
@@ -38,7 +40,9 @@
                                 name="tipoLanc"
                                 id="despeza"
                                 value="despeza" />
-                            <label for="despeza" class="input__label"> Despeza </label>
+                            <label for="despeza" class="input__label">
+                                Despeza
+                            </label>
                         </div>
                     </div>
                 </div>

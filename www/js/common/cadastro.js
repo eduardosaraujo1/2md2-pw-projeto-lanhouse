@@ -2,7 +2,6 @@ import PHP from './database.js';
 /**
  * Factory para um subject que chama funções para seremm executadas, em ordem, quando FORM receber o evento 'submit'
  * @param {HTMLFormElement} form Formulário que será escutado quando enviado
- * @returns {object} Subject que possui método de inscrever-se
  */
 function createFormSubmitSubject(form) {
     const observers = [];

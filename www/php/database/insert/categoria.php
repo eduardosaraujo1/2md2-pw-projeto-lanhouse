@@ -3,12 +3,10 @@ require '../header.php';
 require '../utilities.php';
 require '../connection.php';
 
-$response = array('status' => 'success', 'content' => '');
-
 try {
     // validar tipo de request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        throw new Exception("Invalid request method - Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
+        raiseInvalidRequestMethod();
     }
 
     // dados
@@ -17,16 +15,12 @@ try {
 
     // validação de entrada
     if (!isset($nome)) {
-        throw new Exception("Missing required parameter - received '" .  assocArrayStringify($_POST) . "'");
-    } else {
-        $nome = truncate($nome, 50);
+        raiseMissingParameters();
     }
 
-    if (empty($descricao)) {
-        $descricao = null;
-    } else {
-        $descricao = truncate($descricao, 120);
-    }
+    $nome = truncate($nome, 50);
+    $descricao = sanitizarNullable($descricao);
+    $descricao = truncate($descricao, 120);
 
     // conexão
     $conn = criarConexao("../../../../database.json");
@@ -39,8 +33,8 @@ try {
     // executar query
     executarQuery($conn, $query, $types, $params);
 
-
     // montar resposta
+    $response['status'] = "success";
     $response['content'] = "Successful Insert";
 } catch (Throwable $err) {
     $response['status'] = 'error';

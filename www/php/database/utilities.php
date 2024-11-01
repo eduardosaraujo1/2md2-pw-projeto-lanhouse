@@ -15,69 +15,102 @@ function assocArrayStringify($array)
     return implode("; ", $result);
 }
 
-// validation utils
-function validarTelefone($phone_number)
+// input sanitize utils
+function sanitizarTelefone($telefone)
 {
-    $phone_number = preg_replace("/\D/", '', $phone_number);
-    if (strlen($phone_number) >= 3 && $phone_number[2] === '9') {
-        return strlen($phone_number) === 11;
-    } else {
-        return strlen($phone_number) === 10;
+    // Formatar: remover valores não numericos
+    $telefone = preg_replace("/\D/", '', $telefone);
+    // Validate: Se o terceiro digito for 9, tamanho deve ser 11 digitos, se não, tamanho deve ser 10
+    if (strlen($telefone) < 10 || strlen($telefone) > 11) {
+        return false;
     }
+
+    $expectedLength = $telefone[2] === '9' ? 11 : 10;
+    if (strlen($telefone) !== $expectedLength) {
+        return false;
+    }
+
+    // Retorne a string dos 10 ou 11 digitos não formatados
+    return $telefone;
 }
 
-function validarData($date)
+function sanitizarData($date)
 {
+    // Transformar data em objeto
     $format = 'Y-m-d'; // yyyy-mm-dd format
-    $d = DateTime::createFromFormat($format, $date);
-    return $d && $d->format($format) === $date;
+    $dateObject = DateTime::createFromFormat($format, $date);
+
+    // Se a conversão falhar, data invalida
+    if (!$dateObject) {
+        return false;
+    }
+
+    // Transforma o objeto de volta em data, e verifica se esse novo objeto é igual a data inserida
+    $newDate = $dateObject->format($format);
+    return $newDate;
 }
 
-function validarDecimal($str)
+function sanitizarDecimal($num, $size, $precision)
 {
-    // Se houver caractere não numerico, declarar invalido
-    return !preg_match("/[^\d.,]/i", $str);
-}
+    // Validate: Não possui caracteres não numericos (0-9,.)
+    if (preg_match("/[^\d.,]/", $num)) {
+        return false;
+    }
 
-function isUnsignedInt($str)
-{
-    return (is_string($str) && preg_match("/^\d+$/", $str));
-}
+    // Format: transformar virgula em ponto
+    $num = str_replace(',', '.', $num);
 
-/**
- * Aplica a restrição que o tipo de dado MySQL DECIMAL(size, precision) colocaria em um número,
- * truncando a parte inteira e a decimal conforme necessário.
- *
- * @param float $num O número a ser ajustado conforme a constraint do tipo DECIMAL.
- * @param int $size O tamanho total permitido, incluindo a parte inteira e decimal.
- * @param int $precision A quantidade de casas decimais permitidas.
- *
- * @return float O número ajustado, respeitando as restrições de tamanho e precisão.
- */
-function sqlDecimalConstraint($num, $size, $precision)
-{
-    // Formata o número de forma padronizada, ao mesmo tempo truncando a parte decimal
-    $num = number_format($num, $precision, '.', '');
+    // Format: transformar em float
+    $num = (float) $num;
 
-    // Separar parte inteira da parte decimal
-    list($inteira, $decimal) = explode('.', $num);
+    // Format: arrendodar número
+    $num = round($num, $precision);
 
-    // Trunca o número da parte inteira para encaixar na constraint
-    $inteira = truncate($inteira, $size - $precision);
-
-    // Junta os dois valores novamente e converte em float
-    $num = (float) "$inteira.$decimal";
+    // Validate: Constraint do decimal
+    [$inteira] = explode('.', $num);
+    if (strlen($inteira) > $size - $precision) {
+        return false;
+    }
 
     return $num;
 }
 
-// formatters
-function formatarTelefone($telefone)
+function sanitizarInt($num)
 {
-    return truncate(preg_replace("/\D/", '', $telefone), 11);
+    return preg_match("/^\d+$/", $num) ? (int) $num : false;
 }
 
-function formatarDecimal($decimal)
+/**
+ * Se campo for vazio ou indefinido, transformar variavel em "null", se não mante-la
+ * 
+ * @return mixed|null
+ */
+function sanitizarNullable($campo)
 {
-    return (float) str_replace(',', '.', $decimal);
+    if (isset($campo) && !empty($campo)) {
+        return $campo;
+    }
+    return null;
+}
+
+// Error messages
+function raiseInvalidRequestMethod()
+{
+    throw new Exception("Invalid request method. Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
+}
+
+function raiseMissingParameters()
+{
+    throw new Exception("Missing Fields. Fields: '" .  assocArrayStringify($_POST) . "'");
+}
+
+function raiseInvalidParameter($fieldname, $extra = "")
+{
+    $extra = empty($extra) ? $extra : ". $extra";
+    throw new Exception("Invalid Parameter. Field '$fieldname' is not in a valid format$extra");
+}
+
+function raiseQueryError($error)
+{
+    throw new Exception("SQL query error. " . $error);
 }

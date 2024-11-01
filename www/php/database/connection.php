@@ -28,7 +28,7 @@ function criarConexao($path)
     );
 
     if ($conn->connect_error) {
-        throw new Exception("Error: Connection failed -> " . $conn->connect_error);
+        throw new Exception("Connection failed. Error:" . $conn->connect_error);
     }
 
     return $conn;
@@ -50,24 +50,24 @@ function executarQuery($conn, $query, $types = null, $params = null)
 {
     // Certifica que ambos ou nenhum dos parâmetros $types e $params estão definidos
     if (($types && !$params) || (!$types && $params)) {
-        throw new Exception("Query error - " . $conn->error);
+        raiseQueryError($conn->error);
     }
 
     // Prepara a declaração e retorna false em caso de falha
     if (!$stmt = $conn->prepare($query)) {
-        throw new Exception("Query error - " . $conn->error);
+        raiseQueryError($conn->error);
     }
 
     // Vincula parâmetros, se fornecidos
     if ($types && $params) {
         if (!$stmt->bind_param($types, ...$params)) {
-            throw new Exception("Query error - " . $conn->error);
+            raiseQueryError($conn->error);
         }
     }
 
     // Executa a declaração e retorna o resultado ou false em caso de erro
     if (!$stmt->execute()) {
-        throw new Exception("Query error - " . $conn->error);
+        raiseQueryError($conn->error);
     }
 
     // Se tudo correr bem, retorne verdadeiro

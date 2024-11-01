@@ -3,12 +3,11 @@ require '../header.php';
 require '../utilities.php';
 require '../connection.php';
 
-$response = array('status' => 'success', 'content' => '');
-
 try {
     // validar tipo de request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        throw new Exception("Invalid request method - Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
+        raiseInvalidRequestMethod();
+        // $_POST = $_GET;
     }
 
     // dados
@@ -23,22 +22,18 @@ try {
 
     // validação de entrada
     if (!isset($nome, $sobrenome, $dt_nascimento, $cargo, $salario, $email, $senha)) {
-        throw new Exception("Missing required parameter - received '" .  assocArrayStringify($_POST) . "'");
+        raiseMissingParameters();
     }
-
-    if (!validarData($dt_nascimento)) {
-        throw new Exception("Invalid Parameter - dt_nascimento is not in a valid format");
+    if (!$dt_nascimento = sanitizarData($dt_nascimento)) {
+        raiseInvalidParameter('dt_nascimento', 'Hint: format yyyy-mm-dd');
     }
-
-    if (!validarDecimal($salario)) {
-        throw new Exception("Invalid Parameter - salario is not a valid decimal");
+    if (!$salario = sanitizarDecimal($salario, 7, 2)) {
+        raiseInvalidParameter('salario');
     }
 
     $nome = truncate($nome, 30);
     $sobrenome = truncate($sobrenome, 30);
     $cargo = truncate($cargo, 30);
-    $salario = formatarDecimal($salario);
-    $salario = sqlDecimalConstraint($salario, 7, 2);
     $email = truncate($email, 100);
     $senha = password_hash($senha, PASSWORD_BCRYPT, array("cost" => 14));
 
@@ -63,8 +58,8 @@ try {
     // executar query
     executarQuery($conn, $query, $types, $params);
 
-
     // montar resposta
+    $response['status'] = "success";
     $response['content'] = "Successful Insert";
 } catch (Throwable $err) {
     $response['status'] = 'error';

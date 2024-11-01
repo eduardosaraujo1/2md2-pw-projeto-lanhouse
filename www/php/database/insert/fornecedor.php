@@ -3,12 +3,10 @@ require '../header.php';
 require '../utilities.php';
 require '../connection.php';
 
-$response = array('status' => 'success', 'content' => '');
-
 try {
     // validar tipo de request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        throw new Exception("Invalid request method - Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");
+        raiseInvalidRequestMethod();
     }
 
     // dados
@@ -20,19 +18,18 @@ try {
 
     // validação de entrada
     if (!isset($nome, $contato, $email, $telefone, $endereco)) {
-        throw new Exception("Missing required parameter - received '" .  assocArrayStringify($_POST) . "'");
+        raiseMissingParameters();
     }
 
+    if (!$telefone = sanitizarTelefone($telefone)) {
+        raiseInvalidParameter('telefone');
+    }
 
     $nome = truncate($nome, 50);
     $contato = truncate($contato, 30);
     $email = truncate($email, 50);
-    $telefone = formatarTelefone($telefone);
     $endereco = truncate($endereco, 100);
 
-    if (!validarTelefone($telefone)) {
-        throw new Exception("Invalid Parameter - $telefone is not a valid phone number");
-    }
 
     // conexão
     $conn = criarConexao("../../../../database.json");
@@ -53,6 +50,7 @@ try {
     executarQuery($conn, $query, $types, $params);
 
     // montar resposta
+    $response['status'] = "success";
     $response['content'] = "Successful Insert";
 } catch (Throwable $err) {
     $response['status'] = 'error';

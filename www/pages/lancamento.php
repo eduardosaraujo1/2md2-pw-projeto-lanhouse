@@ -49,30 +49,30 @@
                 <div class="input-group">
                     <label for="categoria" class="input__label">Categoria</label>
                     <select
+                        class="input__box"
                         name="categoria"
-                        id="categoria"
-                        class="input__box">
+                        id="categoria">
                         <option value="selecione">Selecione</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label class="input__label" for="valor">Valor</label>
                     <input
-                        class="input__box"
                         type="text"
+                        class="input__box"
                         id="valor"
                         name="valor"
                         placeholder="R$ 999999,99"
-                        data-maxlength="6" />
+                        data-maxlength="8" />
                 </div>
                 <div class="input-group">
                     <label class="input__label" for="nome">Descrição</label>
                     <textarea
-                        maxlength="300"
-                        rows="8"
                         class="input__box"
+                        id="descricao"
                         name="descricao"
-                        id="descricao"></textarea>
+                        maxlength="300"
+                        rows="8"></textarea>
                 </div>
             </div>
             <button

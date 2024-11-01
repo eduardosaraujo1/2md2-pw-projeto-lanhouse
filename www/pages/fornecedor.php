@@ -21,55 +21,55 @@
                 <div class="input-group">
                     <label class="input__label" for="nome">Nome</label>
                     <input
-                        required
-                        maxlength="50"
-                        class="input__box"
                         type="text"
+                        class="input__box"
                         id="nome"
-                        name="nome" />
+                        name="nome"
+                        required
+                        maxlength="50" />
                 </div>
                 <div class="input-group">
                     <label for="email" class="input__label">E-mail</label>
                     <input
+                        type="email"
+                        class="input__box"
+                        id="email"
+                        name="email"
                         required
                         placeholder="name@example.com"
-                        maxlength="50"
-                        class="input__box"
-                        type="email"
-                        id="email"
-                        name="email" />
+                        maxlength="50" />
                 </div>
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label for="telefone" class="input__label">Telefone</label>
                         <input
-                            required
-                            placeholder="(00) 00000-0000"
-                            class="input__box"
                             type="tel"
+                            class="input__box"
                             id="telefone"
-                            name="telefone" />
+                            name="telefone"
+                            required
+                            placeholder="(00) 00000-0000" />
                     </div>
                     <div class="input-group">
                         <label for="contato" class="input__label">Contato</label>
                         <input
-                            required
-                            maxlength="30"
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="contato"
-                            name="contato" />
+                            name="contato"
+                            required
+                            maxlength="30" />
                     </div>
                 </div>
                 <div class="input-group">
                     <label for="endereco" class="input__label">Endereco</label>
                     <input
-                        required
-                        maxlength="100"
-                        class="input__box"
                         type="text"
+                        class="input__box"
                         id="endereco"
-                        name="endereco" />
+                        name="endereco"
+                        required
+                        maxlength="100" />
                 </div>
             </div>
             <button

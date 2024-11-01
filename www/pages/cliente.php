@@ -22,55 +22,55 @@
                     <div class="input-group">
                         <label for="nome" class="input__label">Nome</label>
                         <input
-                            required
-                            maxlength="30"
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="nome"
-                            name="nome" />
+                            name="nome"
+                            required
+                            maxlength="30" />
                     </div>
                     <div class="input-group">
                         <label for="sobrenome" class="input__label" for="">Sobrenome</label>
                         <input
-                            required
-                            maxlength="30"
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="sobrenome"
-                            name="sobrenome" />
+                            name="sobrenome"
+                            required
+                            maxlength="30" />
                     </div>
                 </div>
                 <div class="input-group">
                     <label for="email" class="input__label">E-mail</label>
                     <input
+                        type="text"
+                        class="input__box"
+                        id="email"
+                        name="email"
                         placeholder="name@example.com"
                         required
-                        maxlength="100"
-                        class="input__box"
-                        type="text"
-                        id="email"
-                        name="email" />
+                        maxlength="100" />
                 </div>
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label for="telefone" class="input__label">Telefone</label>
                         <input
-                            placeholder="(00) 00000-0000"
-                            required
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="telefone"
-                            name="telefone" />
+                            name="telefone"
+                            placeholder="(00) 00000-0000"
+                            required />
                     </div>
                     <div class="input-group">
                         <label for="endereco" class="input__label">Endereço</label>
                         <input
-                            required
-                            maxlength="100"
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="endereco"
-                            name="endereco" />
+                            name="endereco"
+                            required
+                            maxlength="100" />
                     </div>
                 </div>
             </div>

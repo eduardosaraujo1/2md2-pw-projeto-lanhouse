@@ -21,21 +21,21 @@
                 <div class="input-group">
                     <label class="input__label" for="nome">Nome</label>
                     <input
-                        required
-                        maxlength="50"
-                        class="input__box"
                         type="text"
+                        class="input__box"
                         id="nome"
-                        name="nome" />
+                        name="nome"
+                        required
+                        maxlength="50" />
                 </div>
                 <div class="input-group">
                     <label class="input__label" for="nome">Descrição</label>
                     <textarea
-                        maxlength="120"
-                        rows="8"
                         class="input__box"
+                        id="descricao"
                         name="descricao"
-                        id="descricao"></textarea>
+                        maxlength="120"
+                        rows="8"></textarea>
                 </div>
             </div>
             <button

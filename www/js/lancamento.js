@@ -1,6 +1,47 @@
 import InputUtils from './common/input-utils.js';
 import CadastroUtils from './common/cadastro.js';
 
-// Filtro de input: moeda
-const valor = document.querySelector('#valor');
-valor.addEventListener('input', InputUtils.currency.hook);
+async function cadastrarFuncionario(event) {
+    // Dados form
+    const form = event.target;
+    const formdata = new FormData(form);
+
+    // cancelar envio em caso de invalidez
+    if (!form.checkValidity()) {
+        return;
+    }
+
+    // sanitização - remover caracteres decorativos do campo "valor"
+    const valor = formdata.get('valor');
+    const valorSanitized = valor.replace(/[^\d,.]/g, '');
+    formdata.set('valor', valorSanitized);
+
+    // DEBUGGING: Adicionar parametros que ativam o modo debug
+    // formdata.set('debug', '1');
+
+    // submit
+    const result = await CadastroUtils.cadastrar(
+        '../php/database/insert/lancamento.php',
+        formdata
+    );
+
+    // exibir resposta para o usuário
+    const cadastroResult = document.querySelector('.cadastro__result');
+    CadastroUtils.displayResponseResult(
+        cadastroResult,
+        result['status'] === 'success'
+    );
+}
+
+function load() {
+    // Filtro de input: moeda
+    const form = document.querySelector('form.cadastro__form');
+    const valor = form.querySelector('#valor');
+    valor.addEventListener('input', InputUtils.currency.hook);
+
+    // Submit subject
+    const subject = CadastroUtils.createFormSubmitSubject(form);
+    subject.subscribe(cadastrarFuncionario);
+}
+
+load();

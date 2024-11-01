@@ -37,4 +37,4 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [x] Função para fazer requisição a API tomando como entrada
 -   [x] Fazer função que da hook no form submit para pegar os dados do form, trata-los, envia-los
 -   [x] Formatar resposta de forma normal
--   [ ] Replicar nos outros forms, não apenas em funcionario.js
+-   [x] Replicar nos outros forms, não apenas em funcionario.js

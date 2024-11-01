@@ -29,7 +29,7 @@
                         maxlength="50" />
                 </div>
                 <div class="input-group">
-                    <label class="input__label" for="nome">Descrição</label>
+                    <label class="input__label" for="descricao">Descrição</label>
                     <textarea
                         class="input__box"
                         id="descricao"

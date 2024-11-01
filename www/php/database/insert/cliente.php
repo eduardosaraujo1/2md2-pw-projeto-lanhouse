@@ -18,8 +18,10 @@ try {
     $endereco = $_POST["endereco"];
 
     // sanitização de entrada
-    if (!isset($nome, $sobrenome, $email, $telefone, $endereco)) {
-        raiseMissingParameters();
+    $required_fields = $_POST;
+    $missing_fields = verificarCamposIndefinidos($required_fields);
+    if (!empty($missing_fields)) {
+        raiseMissingParameters($missing_fields);
     }
 
     if (!$telefone = sanitizarTelefone($telefone)) {

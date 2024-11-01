@@ -16,9 +16,6 @@ async function cadastrarFuncionario(event) {
     const valorSanitized = valor.replace(/[^\d,.]/g, '');
     formdata.set('valor', valorSanitized);
 
-    // DEBUGGING: Adicionar parametros que ativam o modo debug
-    // formdata.set('debug', '1');
-
     // submit
     const result = await CadastroUtils.cadastrar(
         '../php/database/insert/lancamento.php',

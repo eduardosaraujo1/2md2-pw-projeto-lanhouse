@@ -11,17 +11,29 @@ try {
     }
 
     // dados
+    if (!empty($_POST['debug'])) {
+        $fk_funcionario = 1;
+    }
     $valor = $_POST["valor"];
     $tipo_lanc = $_POST["tipoLanc"];
     $data_lanc = date('Y-m-d');
     $descricao = $_POST["descricao"];
     $fk_categoria = $_POST["categoria"];
-    // $fk_funcionario = null || $_POST["debug"]; // O FUNCIONARIO SERÁ OBTIDO ATRAVÉS DA SESSÃO DE LOGIN ATUAL QUANDO FOR IMPLEMENTADO.
-    // $fk_funcionario = (int) $fk_funcionario; // debug
+
+
+    // validar sessão e propriedades enviadas
+    if (empty($fk_funcionario)) {
+        raiseInvalidSession();
+    }
+
+    // obter campos faltantes
+    $required_fields = $_POST;
+    unset($required_fields['descricao']);
+    $missing_fields = verificarCamposIndefinidos($required_fields);
 
     // sanitização de entrada
-    if (!isset($tipo_lanc, $fk_categoria, $valor, $fk_funcionario)) {
-        raiseMissingParameters();
+    if (!empty($missing_fields)) {
+        raiseMissingParameters($missing_fields);
     }
 
     if (!$valor = sanitizarDecimal($valor, 8, 2)) {

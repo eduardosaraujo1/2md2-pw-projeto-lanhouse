@@ -52,7 +52,7 @@
                         class="input__box"
                         name="categoria"
                         id="categoria">
-                        <option value="selecione">Selecione</option>
+                        <option value="">Selecione</option>
                     </select>
                 </div>
                 <div class="input-group">
@@ -67,7 +67,7 @@
                         data-maxlength="8" />
                 </div>
                 <div class="input-group">
-                    <label class="input__label" for="nome">Descrição</label>
+                    <label class="input__label" for="descricao">Descrição</label>
                     <textarea
                         class="input__box"
                         id="descricao"

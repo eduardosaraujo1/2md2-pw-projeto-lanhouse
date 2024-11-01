@@ -17,6 +17,7 @@ async function cadastrarFuncionario(event) {
     formdata.set('valor', valorSanitized);
 
     // submit
+    CadastroUtils.setSubmitButtonState(form, false);
     const result = await CadastroUtils.cadastrar(
         '../php/database/insert/lancamento.php',
         formdata
@@ -28,10 +29,14 @@ async function cadastrarFuncionario(event) {
         cadastroResult,
         result['status'] === 'success'
     );
+
     // limpar form quando subject sucesso
     if (result['status'] === 'success') {
         form.reset();
     }
+
+    // reativar formButton
+    CadastroUtils.setSubmitButtonState(form, true);
 }
 
 function load() {

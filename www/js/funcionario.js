@@ -22,6 +22,7 @@ async function cadastrarFuncionario(event) {
     formdata.set('salario', salarioSanitized);
 
     // submit
+    CadastroUtils.setSubmitButtonState(form, false);
     const result = await CadastroUtils.cadastrar(
         '../php/database/insert/funcionario.php',
         formdata
@@ -37,6 +38,7 @@ async function cadastrarFuncionario(event) {
     if (result['status'] === 'success') {
         form.reset();
     }
+    CadastroUtils.setSubmitButtonState(form, true);
 }
 
 function passwordSubmitHook(event) {

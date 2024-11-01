@@ -11,6 +11,7 @@ async function cadastrarFornecedor(event) {
     }
 
     // sanitização - remover caracteres decorativos do campo "telefone"
+    CadastroUtils.setSubmitButtonState(form, false);
     const telefone = formdata.get('telefone');
     const telefoneFiltrado = telefone.replace(/\D/g, '');
     formdata.set('telefone', telefoneFiltrado);
@@ -31,6 +32,7 @@ async function cadastrarFornecedor(event) {
     if (result['status'] === 'success') {
         form.reset();
     }
+    CadastroUtils.setSubmitButtonState(form, true);
 }
 
 function load() {

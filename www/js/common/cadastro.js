@@ -100,10 +100,20 @@ function displayResponseResult(cadastroResult, success) {
     }, state.timeout_duration);
 }
 
+function setSubmitButtonState(form, enabled) {
+    const submitButton = form.querySelector('button#cadastro__button');
+    if (enabled) {
+        submitButton.removeAttribute('disabled');
+    } else {
+        submitButton.setAttribute('disabled', 'true');
+    }
+}
+
 const CadastroUtils = {
     createFormSubmitSubject,
     cadastrar,
     displayResponseResult,
+    setSubmitButtonState,
 };
 
 export default CadastroUtils;

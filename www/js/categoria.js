@@ -11,6 +11,7 @@ async function cadastrarCategoria(event) {
     }
 
     // submit
+    CadastroUtils.setSubmitButtonState(form, false);
     const result = await CadastroUtils.cadastrar(
         '../php/database/insert/categoria.php',
         formdata
@@ -27,6 +28,7 @@ async function cadastrarCategoria(event) {
     if (result['status'] === 'success') {
         form.reset();
     }
+    CadastroUtils.setSubmitButtonState(form, true);
 }
 
 function load() {

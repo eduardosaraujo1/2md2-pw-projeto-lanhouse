@@ -38,5 +38,5 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [x] Fazer função que da hook no form submit para pegar os dados do form, trata-los, envia-los
 -   [x] Formatar resposta de forma normal
 -   [x] Replicar nos outros forms, não apenas em funcionario.js
--   [ ] BLOQUEAR BOTÃO "submit" quando o form estiver no processo de envio
+-   [x] BLOQUEAR BOTÃO "submit" quando o form estiver no processo de envio
 -   [ ] VALIDAÇÃO DE TELEFONE QUANDO ENVIAR EU ESQUECI!!!

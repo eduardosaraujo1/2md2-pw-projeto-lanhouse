@@ -16,6 +16,7 @@ async function cadastrarCliente(event) {
     formdata.set('telefone', telefoneFiltrado);
 
     // submit
+    CadastroUtils.setSubmitButtonState(form, false);
     const result = await CadastroUtils.cadastrar(
         '../php/database/insert/cliente.php',
         formdata
@@ -31,6 +32,7 @@ async function cadastrarCliente(event) {
     if (result['status'] === 'success') {
         form.reset();
     }
+    CadastroUtils.setSubmitButtonState(form, true);
 }
 
 function load() {

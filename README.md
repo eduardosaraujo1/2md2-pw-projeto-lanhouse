@@ -29,3 +29,9 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [ ] (N/A) #3 A tela lancamentos.php não foi conectada ao banco pois:
     -   [ ] #3.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script. (prestes a resolver)
     -   [ ] #3.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo. (prestes a resolver)
+
+# Branch Roadmap
+
+-   [x] Validação senha e confirmar senha funcionario
+-   [ ] Função para fazer requisição a API tomando como entrada
+-   [ ] Fazer função que da hook no form submit para pegar os dados do form, trata-los, envia-los e exibir resultado no span correto

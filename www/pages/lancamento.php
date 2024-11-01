@@ -16,7 +16,7 @@
     <div class="cadastro">
         <h1 class="cadastro__title">Registrar Lançamento</h1>
         <span class="cadastro__result"></span>
-        <form class="cadastro__form" method="POST">
+        <form class="cadastro__form">
             <div class="cadastro__inputs">
                 <div class="input">
                     <label class="input__label" for="tipoLanc">Tipo de lançamento</label>
@@ -63,6 +63,7 @@
                         id="valor"
                         name="valor"
                         placeholder="R$ 999999,99"
+                        required
                         data-maxlength="8" />
                 </div>
                 <div class="input-group">

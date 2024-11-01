@@ -8,9 +8,8 @@ function createFormSubmitSubject(form) {
     const observers = [];
 
     /**
-     *
      * @param {Function} callback Função para chamar quando o Subject pedir
-     * @returns
+     * @returns {observer} Objeto 'observer' com metodo de remover a si mesmo
      */
     function subscribe(callback) {
         observers.push(callback);
@@ -31,7 +30,6 @@ function createFormSubmitSubject(form) {
     }
 
     /**
-     *
      * @param {SubmitEvent} event
      */
     function formSubmitHandler(event) {
@@ -50,7 +48,6 @@ function createFormSubmitSubject(form) {
 }
 
 /**
- *
  * @param {string} endpointPath
  * @param {FormData} formdata
  */
@@ -73,7 +70,6 @@ async function cadastrar(endpointPath, formdata) {
 }
 
 /**
- *
  * @param {HTMLSpanElement} cadastroResult
  * @param {boolean} success
  */

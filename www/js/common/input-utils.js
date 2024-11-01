@@ -91,6 +91,21 @@ function currencyValidate(str) {
     return regex.test(str);
 }
 
+// Validar senhas
+function passwordValidate(password, confirm) {
+    // verifica se confirmação está correta
+    if (password !== confirm) {
+        return false;
+    }
+
+    // tammanho da senha < 8
+    if (password.length < 8) {
+        return false;
+    }
+
+    return true;
+}
+
 /**
  * Utilidades para inputs de formulários. Funcionalidade para formatar e validar telefone e moeda
  * @param hook - Utilizado para conectar no evento "input" da caixa de texto para validar a entrada do usuário
@@ -104,6 +119,9 @@ const InputUtils = {
     currency: {
         hook: currencyInputHook,
         isvalid: currencyValidate,
+    },
+    password: {
+        isvalid: passwordValidate,
     },
 };
 

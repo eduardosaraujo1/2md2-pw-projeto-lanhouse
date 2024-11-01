@@ -1,3 +1,4 @@
+import InputUtils from './common/input-utils.js';
 const form = document.querySelector('form');
 
 form.addEventListener('submit', (event) => {

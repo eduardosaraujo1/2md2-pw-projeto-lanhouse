@@ -14,7 +14,7 @@
 <body>
     <?php include '../components/navbar.php' ?>
     <div class="cadastro">
-        <h1 class="cadastro__title">Cadastro de Cliente</h1>
+        <h1 class="cadastro__title">Cadastro de cliente</h1>
         <span class="cadastro__title"></span>
         <form class="cadastro__form">
             <div class="cadastro__inputs">

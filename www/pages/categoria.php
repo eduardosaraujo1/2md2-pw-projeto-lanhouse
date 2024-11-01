@@ -14,7 +14,7 @@
 <body>
     <?php include '../components/navbar.php' ?>
     <div class="cadastro">
-        <h1 class="cadastro__title">Cadastro de Categoria</h1>
+        <h1 class="cadastro__title">Cadastro de categoria</h1>
         <span class="cadastro__result"></span>
         <form class="cadastro__form">
             <div class="cadastro__inputs">
@@ -46,7 +46,7 @@
             </button>
         </form>
     </div>
-    <script src="../js/categoria.js"></script>
+    <script type="module" src="../js/categoria.js"></script>
 </body>
 
 </html>

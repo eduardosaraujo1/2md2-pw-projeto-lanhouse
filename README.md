@@ -33,5 +33,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 # Branch Roadmap
 
 -   [x] Validação senha e confirmar senha funcionario
--   [ ] Função para fazer requisição a API tomando como entrada
--   [ ] Fazer função que da hook no form submit para pegar os dados do form, trata-los, envia-los e exibir resultado no span correto
+-   [x] Função para fazer requisição a API tomando como entrada
+-   [x] Fazer função que da hook no form submit para pegar os dados do form, trata-los, envia-los
+-   [ ] Exibir resultado no span apropriado
+-   [ ] Replicar nos outros forms, não apenas em funcionario.js

@@ -1,9 +1,12 @@
+import PHP from './database.js';
 /**
  *
  * @param {HTMLFormElement} form
  * @returns
  */
 function createFormSubmitSubject(form) {
+    const observers = [];
+
     /**
      *
      * @param {Function} callback Função para chamar quando o Subject pedir
@@ -46,18 +49,25 @@ function createFormSubmitSubject(form) {
         notifyAll(event);
     }
 
-    const observers = [];
-    const subject = {
-        subscribe,
-    };
-
     form.addEventListener('submit', formSubmitHandler);
 
-    return subject;
+    return {
+        subscribe,
+    };
+}
+
+/**
+ *
+ * @param {string} endpointPath
+ * @param {FormData} formdata
+ */
+async function cadastrar(endpointPath, formdata) {
+    return await PHP.sendDatabaseRequest(endpointPath, formdata);
 }
 
 const CadastroUtils = {
     createFormSubmitSubject,
+    cadastrar,
 };
 
 export default CadastroUtils;

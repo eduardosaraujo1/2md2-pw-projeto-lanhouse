@@ -64,13 +64,16 @@ async function cadastrarFuncionario(event) {
     formdata.set('salario', salarioSanitized);
 
     // submit
-    console.log(formdata);
     const result = await CadastroUtils.cadastrar(
         '../php/database/insert/funcionario.php',
         formdata
     );
 
-    cadastroResult.innerHTML = JSON.stringify(result);
+    // exibir resposta para o usuário
+    CadastroUtils.displayResponseResult(
+        cadastroResult,
+        result['status'] === 'success'
+    );
 }
 
 // subscribes

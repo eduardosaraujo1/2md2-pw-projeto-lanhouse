@@ -26,14 +26,15 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [ ] (GIAN) #1 Fazer uma tela de home.php melhorada
 -   [ ] (EDUARDO) #2 Refatorar JS utilizando [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) para separar funcionalidades como validação de formulario. (50% progresso)
 -   [ ] (EDUARDO) #3 Implementar sistema login utilizando $SESSION
--   [ ] (N/A) #3 A tela lancamentos.php não foi conectada ao banco pois:
-    -   [ ] #3.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script. (prestes a resolver)
-    -   [ ] #3.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo. (prestes a resolver)
+-   [ ] (EDUARDO) #4 Fazer botão de visualizar senha
+-   [ ] (N/A) #5 A tela lancamentos.php não foi conectada ao banco pois:
+    -   [ ] #5.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script. (prestes a resolver)
+    -   [ ] #5.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo. (prestes a resolver)
 
 # Branch Roadmap
 
 -   [x] Validação senha e confirmar senha funcionario
 -   [x] Função para fazer requisição a API tomando como entrada
 -   [x] Fazer função que da hook no form submit para pegar os dados do form, trata-los, envia-los
--   [ ] Exibir resultado no span apropriado
+-   [x] Formatar resposta de forma normal
 -   [ ] Replicar nos outros forms, não apenas em funcionario.js

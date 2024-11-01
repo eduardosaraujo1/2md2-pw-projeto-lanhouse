@@ -62,12 +62,60 @@ function createFormSubmitSubject(form) {
  * @param {FormData} formdata
  */
 async function cadastrar(endpointPath, formdata) {
-    return await PHP.sendDatabaseRequest(endpointPath, formdata);
+    const result = await PHP.sendDatabaseRequest(endpointPath, formdata);
+
+    // exibir resultado no console
+    const resultString = JSON.stringify(result);
+    const now = new Date().toLocaleString();
+    const message = `=== RESULTADO DO ENVIO ${now} === 
+    ${resultString}
+    `;
+    if (result['status'] === 'success') {
+        console.info(message);
+    } else {
+        console.error(message);
+    }
+
+    return result;
+}
+
+/**
+ *
+ * @param {HTMLSpanElement} cadastroResult
+ * @param {boolean} success
+ */
+let timeout;
+function displayResponseResult(cadastroResult, success) {
+    const ON_SUCCESS = {
+        text: 'Cadastro concluido com sucesso!',
+        color: 'var(--color-success)',
+        timeout_duration: 7500,
+    };
+    const ON_ERROR = {
+        text: 'Ocorreu um erro, tente novamente mais tarde',
+        color: 'var(--color-error)',
+        timeout_duration: 30000,
+    };
+    const state = success ? ON_SUCCESS : ON_ERROR;
+
+    // Exibir resposta no span
+    cadastroResult.innerHTML = state.text;
+    cadastroResult.style.color = state.color;
+
+    // Redefinir timeout anterior
+    clearTimeout(timeout);
+
+    // Definir timeout até a mensagem desaparecer
+    timeout = setTimeout(() => {
+        cadastroResult.innerHTML = '';
+        cadastroResult.style.color = '';
+    }, state.timeout_duration);
 }
 
 const CadastroUtils = {
     createFormSubmitSubject,
     cadastrar,
+    displayResponseResult,
 };
 
 export default CadastroUtils;

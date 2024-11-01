@@ -44,65 +44,65 @@
                     <div class="input-group">
                         <label for="dt_nascimento" class="input__label">Data de Nascimento</label>
                         <input
-                            required
-                            class="input__box"
                             type="date"
+                            class="input__box"
                             id="dt_nascimento"
-                            name="dt_nascimento" />
+                            name="dt_nascimento"
+                            required />
                     </div>
                     <div class="input-group">
                         <label for="email" class="input__label">E-mail</label>
                         <input
+                            type="email"
+                            class="input__box"
+                            id="email"
+                            name="email"
                             required
                             placeholder="name@example.com"
-                            maxlength="100"
-                            class="input__box"
-                            type="email"
-                            id="email"
-                            name="email" />
+                            maxlength="100" />
                     </div>
                 </div>
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label for="cargo" class="input__label">Cargo</label>
                         <input
-                            maxlength="30"
-                            required
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="cargo"
-                            name="cargo" />
+                            name="cargo"
+                            maxlength="30"
+                            required />
                     </div>
                     <div class="input-group">
                         <label for="salario" class="input__label">Salário
                         </label>
                         <input
+                            type="text"
+                            class="input__box"
+                            id="salario"
+                            name="salario"
                             required
                             placeholder="R$ 99999,99"
-                            data-currency-limit="5"
-                            class="input__box"
-                            type="text"
-                            id="salario"
-                            name="salario" />
+                            data-maxlength="7" />
                     </div>
                 </div>
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label for="senha" class="input__label">Senha</label>
                         <input
-                            required
-                            class="input__box"
                             type="password"
+                            class="input__box"
                             id="senha"
-                            name="senha" />
+                            name="senha"
+                            required />
                     </div>
                     <div class="input-group">
                         <label for="confirmSenha" class="input__label">Confirmar senha</label>
                         <input
-                            required
-                            class="input__box"
                             type="password"
-                            id="confirmSenha" />
+                            class="input__box"
+                            id="confirmSenha"
+                            required />
                     </div>
                 </div>
             </div>

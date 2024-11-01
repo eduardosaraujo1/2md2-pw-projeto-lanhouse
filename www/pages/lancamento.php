@@ -63,7 +63,7 @@
                         id="valor"
                         name="valor"
                         placeholder="R$ 999999,99"
-                        data-currency-limit="6" />
+                        data-maxlength="6" />
                 </div>
                 <div class="input-group">
                     <label class="input__label" for="nome">Descrição</label>

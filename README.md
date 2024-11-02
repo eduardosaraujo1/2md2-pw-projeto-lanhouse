@@ -24,10 +24,8 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 # Roadmap
 
 -   [ ] (GIAN) #1 Fazer uma tela de home.php melhorada
--   [ ] (EDUARDO) #2 Refatorar JS utilizando [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) para separar funcionalidades como validação de formulario. (50% progresso)
--   [ ] (EDUARDO) #3 Implementar sistema login utilizando $SESSION
--   [ ] (EDUARDO) #4 Fazer botão de visualizar senha
--   [ ] (N/A) #5 A tela lancamentos.php não foi conectada ao banco pois:
-    -   [ ] #5.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script. (prestes a resolver)
-    -   [ ] #5.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo. (prestes a resolver)
--   [ ] (EDUARDO OPCIONAL) Repensar na estrutura do frontend para form submit depois de ver algumas tecnicas do Filipe Deschamps: SEPARATION OF CONCERNS
+-   [ ] (EDUARDO) #2 Implementar sistema login utilizando $SESSION
+-   [ ] (EDUARDO) #3 Fazer botão de visualizar senha
+-   [ ] (N/A) #4 A tela lancamentos.php não foi conectada ao banco pois:
+    -   [ ] #4.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script. (prestes a resolver)
+    -   [ ] #4.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo. (prestes a resolver)

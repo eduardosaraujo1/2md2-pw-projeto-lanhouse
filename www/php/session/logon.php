@@ -2,6 +2,7 @@
 require '../database/header.php';
 require '../database/connection.php';
 
+
 function getUserByEmail($email, $conn)
 {
     // Efetuar query a partir do email
@@ -38,6 +39,7 @@ function startLoginSession($user)
     ];
 }
 
+$response = array('status' => 'undefined', 'content' => '');
 try {
     // Validar metodo de requisição
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {

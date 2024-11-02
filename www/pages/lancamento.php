@@ -49,11 +49,8 @@
                 </div>
                 <div class="input-group">
                     <label for="categoria" class="input__label">Categoria</label>
-                    <select
-                        class="input__box"
-                        name="categoria"
-                        id="categoria">
-                        <option value="">Selecione</option>
+                    <select class="input__box" name="categoria" id="categoria">
+                        <option value="" default>Selecione</option>
                     </select>
                 </div>
                 <div class="input-group">

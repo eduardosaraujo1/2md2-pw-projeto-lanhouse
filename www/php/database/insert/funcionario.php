@@ -1,7 +1,9 @@
 <?php
 require '../header.php';
-require '../utilities.php';
+require '../../utilities/generic.php';
 require '../connection.php';
+
+$response = array('status' => 'undefined', 'content' => '');
 
 try {
     // Iniciar sessão (para obter usuário atual)

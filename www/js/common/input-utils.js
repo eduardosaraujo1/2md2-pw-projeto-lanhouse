@@ -111,7 +111,7 @@ function passwordValidate(password, confirm) {
  * @param hook - Utilizado para conectar no evento "input" da caixa de texto para validar a entrada do usuário
  * @param isvalid - Valida se a entrada pode ser enviada ou não
  */
-const InputUtils = {
+export const InputUtils = {
     phone: {
         hook: phoneInputHook,
         isvalid: phoneValidateString,
@@ -124,5 +124,3 @@ const InputUtils = {
         isvalid: passwordValidate,
     },
 };
-
-export default InputUtils;

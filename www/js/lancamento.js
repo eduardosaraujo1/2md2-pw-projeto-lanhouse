@@ -1,5 +1,5 @@
-import InputUtils from './common/input-utils.js';
-import CadastroUtils from './common/cadastro.js';
+import { InputUtils } from './common/input-utils.js';
+import Cadastro from './common/cadastro.js';
 
 async function cadastrarFuncionario(event) {
     // Dados form
@@ -17,15 +17,15 @@ async function cadastrarFuncionario(event) {
     formdata.set('valor', valorSanitized);
 
     // submit
-    CadastroUtils.setSubmitButtonState(form, false);
-    const result = await CadastroUtils.cadastrar(
+    Cadastro.setSubmitButtonState(form, false);
+    const result = await Cadastro.cadastrar(
         '../php/database/insert/lancamento.php',
         formdata
     );
 
     // exibir resposta para o usuário
     const cadastroResult = document.querySelector('.cadastro__result');
-    CadastroUtils.displayResponseResult(
+    Cadastro.displayResponseResult(
         cadastroResult,
         result['status'] === 'success'
     );
@@ -36,7 +36,7 @@ async function cadastrarFuncionario(event) {
     }
 
     // reativar formButton
-    CadastroUtils.setSubmitButtonState(form, true);
+    Cadastro.setSubmitButtonState(form, true);
 }
 
 function formValidate(form) {
@@ -60,7 +60,7 @@ function load() {
     valor.addEventListener('input', InputUtils.currency.hook);
 
     // Submit subject
-    const subject = CadastroUtils.createFormSubmitSubject(form);
+    const subject = Cadastro.createFormSubmitSubject(form);
     subject.subscribe(cadastrarFuncionario);
 }
 

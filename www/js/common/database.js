@@ -4,7 +4,7 @@
  * @param {formdata} formdata Dados para enviar no corpo
  * @returns {object} Retorna o objeto JSON da resposta ou um objeto de erro com o conteúdo da resposta em caso de falha na conversão para JSON
  */
-async function sendDatabaseRequest(url, formdata) {
+async function sendPost(url, formdata) {
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -32,8 +32,8 @@ async function sendDatabaseRequest(url, formdata) {
     }
 }
 
-const PHP = {
-    sendDatabaseRequest,
+const Database = {
+    sendPost,
 };
 
-export default PHP;
+export default Database;

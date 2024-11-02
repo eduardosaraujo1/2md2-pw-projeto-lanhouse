@@ -1,79 +1,84 @@
-import PHP from './database.js';
+import Database from './database.js';
+
 /**
- * Factory para um subject que chama funções para seremm executadas, em ordem, quando FORM receber o evento 'submit'
- * @param {HTMLFormElement} form Formulário que será escutado quando enviado
+ * Handles the form submittion process when submit is called
+ * @param {HTMLFormElement} form Form used for submittion
+ * @param {function(HTMLFormElement): bool} [validate] Validate the current form state, refuse submittion if returns 'false'
+ * @param {function(HTMLFormElement): FormData} [getFormData] Gets the form data for submittion.
+ * @returns {FormSender} Object to call form submit event
  */
-function createFormSubmitSubject(form) {
-    const observers = [];
-
+export function FormSenderFactory(form, validate, getFormData) {
     /**
-     * @param {Function} callback Função para chamar quando o Subject pedir
-     * @returns {observer} Objeto 'observer' com metodo de remover a si mesmo
+     * @returns {Promise<EndpointResponse|null>} Result from the form call or null
      */
-    function subscribe(callback) {
-        observers.push(callback);
-        return { remove: () => unsubscribe(callback) };
-    }
-
-    function unsubscribe(callback) {
-        const index = observers.indexOf(callback);
-        if (index !== -1) {
-            observers.splice(index, 1);
+    async function submit() {
+        // validate
+        if (!formValidate()) {
+            return null;
         }
-    }
 
-    function notifyAll(event) {
-        for (const cb of observers) {
-            cb(event);
-        }
+        // get endpoint and data
+        const endpoint = form.action;
+        const formdata = readForm();
+
+        // send data to endpoint
+        const response = await sendRequest(endpoint, formdata);
+
+        // return response
+        return response;
     }
 
     /**
-     * @param {SubmitEvent} event
+     * @param {string} endpoint Path to endpoint
+     * @param {FormData} data Data to send to endpoint
+     * @returns {Promise<EndpointResponse>} Form response
      */
-    function formSubmitHandler(event) {
-        // Prevent submit
-        event.preventDefault();
+    async function sendRequest(endpoint, data) {
+        const result = await Database.sendPost(endpoint, data);
 
-        // Notifica os observers que houve um submit
-        notifyAll(event);
+        // exibir resultado no console
+        const resultString = JSON.stringify(result);
+        const now = new Date().toLocaleString();
+        const message = `=== RESULTADO DO ENVIO '${now}' === \n` + `${resultString}`;
+
+        if (result['status'] === 'success') {
+            console.info(message);
+        } else {
+            console.error(message);
+        }
+
+        // retornar resultado normalmente
+        return result;
     }
 
-    form.addEventListener('submit', formSubmitHandler);
+    function formValidate() {
+        // require 'action' attribute
+        if (!form.getAttribute('action')) {
+            console.warn("Missing 'action' attribute from form. Submit cannot continue without a specified endpoint.");
+            return false;
+        }
 
+        // If the custom method is provided, run it, otherwise run a basic validity check
+        return validate ? validate() : form.reportValidity();
+    }
+
+    function readForm() {
+        return getFormData ? getFormData() : new FormData(form);
+    }
+
+    // Return the 'FormSender' object
     return {
-        subscribe,
+        submit,
     };
 }
 
+// Possivelmente não pertence a cadastro.js
+let timeout;
 /**
- * @param {string} endpointPath
- * @param {FormData} formdata
- */
-async function cadastrar(endpointPath, formdata) {
-    const result = await PHP.sendDatabaseRequest(endpointPath, formdata);
-
-    // exibir resultado no console
-    const resultString = JSON.stringify(result);
-    const now = new Date().toLocaleString();
-    const message = `=== RESULTADO DO ENVIO ${now} === 
-    ${resultString}
-    `;
-    if (result['status'] === 'success') {
-        console.info(message);
-    } else {
-        console.error(message);
-    }
-
-    return result;
-}
-
-/**
- * @param {HTMLSpanElement} cadastroResult
+ * @param {HTMLElement} display
  * @param {boolean} success
  */
-let timeout;
-function displayResponseResult(cadastroResult, success) {
+function displayResult(display, success) {
     const ON_SUCCESS = {
         text: 'Cadastro concluido com sucesso!',
         color: 'var(--color-success)',
@@ -84,36 +89,47 @@ function displayResponseResult(cadastroResult, success) {
         color: 'var(--color-error)',
         timeout_duration: 30000,
     };
+
+    // Determinar cores a partir do estado de sucesso ou falha
     const state = success ? ON_SUCCESS : ON_ERROR;
 
     // Exibir resposta no span
-    cadastroResult.innerHTML = state.text;
-    cadastroResult.style.color = state.color;
+    display.innerHTML = state.text;
+    display.style.color = state.color;
 
     // Redefinir timeout anterior
     clearTimeout(timeout);
 
-    // Definir timeout até a mensagem desaparecer
+    // Definir timeout para a mensagem desaparecer
     timeout = setTimeout(() => {
-        cadastroResult.innerHTML = '';
-        cadastroResult.style.color = '';
+        display.innerHTML = '';
+        display.style.color = '';
     }, state.timeout_duration);
 }
 
-function setSubmitButtonState(form, enabled) {
-    const submitButton = form.querySelector('button#cadastro__button');
-    if (enabled) {
-        submitButton.removeAttribute('disabled');
-    } else {
-        submitButton.setAttribute('disabled', 'true');
-    }
+function disableSubmitButton(button) {
+    return button.setAttribute('disabled', 'true');
 }
 
-const CadastroUtils = {
-    createFormSubmitSubject,
-    cadastrar,
-    displayResponseResult,
-    setSubmitButtonState,
+function enableSubmitButton(button) {
+    return button.removeAttribute('disabled');
+}
+
+export const CadastroUtils = {
+    displayResult,
+    submitButton: {
+        disable: disableSubmitButton,
+        enable: enableSubmitButton,
+    },
 };
 
-export default CadastroUtils;
+/**
+ * @typedef {Object} FormSender
+ * @property {function(): Promise<EndpointResponse|null>} submit
+ */
+
+/**
+ * @typedef {Object} EndpointResponse
+ * @property {string} status
+ * @property {string} content
+ */

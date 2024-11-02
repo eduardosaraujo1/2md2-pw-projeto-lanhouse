@@ -1,5 +1,5 @@
-import InputUtils from './common/input-utils.js';
-import CadastroUtils from './common/cadastro.js';
+import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
+import { InputUtils } from './common/input-utils.js';
 
 async function cadastrarFornecedor(event) {
     const form = event.target;

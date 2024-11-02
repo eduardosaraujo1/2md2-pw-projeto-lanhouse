@@ -6,72 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Cliente - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/cliente.css" />
-
     <script>
-        0
+        0;
     </script>
 </head>
 
 <body>
-    <?php include '../components/navbar.php' ?>
+    <?php include '../templates/navbar.html' ?>
     <div class="cadastro">
-        <h1 class="cadastro__title">Cadastro de Cliente</h1>
-        <span class="cadastro__title"></span>
-        <form class="cadastro__form">
+        <h1 class="cadastro__title">Cadastro de cliente</h1>
+        <span class="cadastro__result"></span>
+        <form class="cadastro__form" action="../php/database/insert/cliente.php">
             <div class="cadastro__inputs">
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label for="nome" class="input__label">Nome</label>
                         <input
-                            required
-                            maxlength="30"
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="nome"
-                            name="nome" />
+                            name="nome"
+                            required
+                            maxlength="30" />
                     </div>
                     <div class="input-group">
                         <label for="sobrenome" class="input__label" for="">Sobrenome</label>
                         <input
-                            required
-                            maxlength="30"
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="sobrenome"
-                            name="sobrenome" />
+                            name="sobrenome"
+                            required
+                            maxlength="30" />
                     </div>
                 </div>
                 <div class="input-group">
                     <label for="email" class="input__label">E-mail</label>
                     <input
+                        type="text"
+                        class="input__box"
+                        id="email"
+                        name="email"
                         placeholder="name@example.com"
                         required
-                        maxlength="100"
-                        class="input__box"
-                        type="text"
-                        id="email"
-                        name="email" />
+                        maxlength="100" />
                 </div>
                 <div class="cadastro__row">
                     <div class="input-group">
                         <label for="telefone" class="input__label">Telefone</label>
                         <input
-                            placeholder="(00) 00000-0000"
-                            required
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="telefone"
-                            name="telefone" />
+                            name="telefone"
+                            placeholder="(00) 00000-0000"
+                            required />
                     </div>
                     <div class="input-group">
                         <label for="endereco" class="input__label">Endereço</label>
                         <input
-                            required
-                            maxlength="100"
-                            class="input__box"
                             type="text"
+                            class="input__box"
                             id="endereco"
-                            name="endereco" />
+                            name="endereco"
+                            required
+                            maxlength="100" />
                     </div>
                 </div>
             </div>
@@ -84,22 +83,6 @@
         </form>
     </div>
     <script type="module" src="../js/cliente.js"></script>
-    <!-- <script src="../js/cadastro.js"></script>
-    <script src="../js/validate.js"></script> -->
-    <script>
-        const form = document.querySelector('form');
-        const endpointName = '<?php echo basename(__FILE__) ?>';
-        // Form submit handle
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            if (!form.reportValidity()) {
-                return;
-            }
-
-            await cadastroFormSubmit(form, endpointName)
-        });
-    </script>
 </body>
 
 </html>

@@ -7,35 +7,35 @@
     <title>Cadastrar Categoria - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/categoria.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
 <body>
-    <?php include '../components/navbar.php' ?>
+    <?php include '../templates/navbar.html' ?>
     <div class="cadastro">
-        <h1 class="cadastro__title">Cadastro de Categoria</h1>
+        <h1 class="cadastro__title">Cadastro de categoria</h1>
         <span class="cadastro__result"></span>
-        <form class="cadastro__form">
+        <form class="cadastro__form" action="../php/database/insert/categoria.php">
             <div class="cadastro__inputs">
                 <div class="input-group">
                     <label class="input__label" for="nome">Nome</label>
                     <input
-                        required
-                        maxlength="50"
-                        class="input__box"
                         type="text"
+                        class="input__box"
                         id="nome"
-                        name="nome" />
+                        name="nome"
+                        required
+                        maxlength="50" />
                 </div>
                 <div class="input-group">
-                    <label class="input__label" for="nome">Descrição</label>
+                    <label class="input__label" for="descricao">Descrição</label>
                     <textarea
-                        maxlength="120"
-                        rows="8"
                         class="input__box"
+                        id="descricao"
                         name="descricao"
-                        id="descricao"></textarea>
+                        maxlength="120"
+                        rows="8"></textarea>
                 </div>
             </div>
             <button
@@ -46,21 +46,7 @@
             </button>
         </form>
     </div>
-    <script src="../js/cadastro.js"></script>
-    <script>
-        const form = document.querySelector('form');
-        const endpointName = '<?php echo basename(__FILE__) ?>';
-        // Form submit handle
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            if (!form.reportValidity()) {
-                return;
-            }
-
-            await cadastroFormSubmit(form, endpointName)
-        });
-    </script>
+    <script type="module" src="../js/categoria.js"></script>
 </body>
 
 </html>

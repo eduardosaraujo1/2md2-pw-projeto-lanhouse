@@ -7,16 +7,16 @@
     <title>Cadastrar Lançamento - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/cadastro/lancamento.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
 <body>
-    <?php include '../components/navbar.php' ?>
+    <?php include '../templates/navbar.html' ?>
     <div class="cadastro">
-        <h1 class="cadastro__title">Registrar Lançamento</h1>
+        <h1 class="cadastro__title">Registrar lançamento</h1>
         <span class="cadastro__result"></span>
-        <form class="cadastro__form">
+        <form class="cadastro__form" action="../php/database/insert/lancamento.php">
             <div class="cadastro__inputs">
                 <div class="input">
                     <label class="input__label" for="tipoLanc">Tipo de lançamento</label>
@@ -29,7 +29,9 @@
                                 id="lucro"
                                 value="lucro"
                                 checked />
-                            <label for="lucro" class="radio__label"> Lucro </label>
+                            <label for="lucro" class="radio__label">
+                                Lucro
+                            </label>
                         </div>
                         <div>
                             <input
@@ -38,44 +40,46 @@
                                 name="tipoLanc"
                                 id="despeza"
                                 value="despeza" />
-                            <label for="despeza" class="input__label"> Despeza </label>
+                            <label for="despeza" class="input__label">
+                                Despeza
+                            </label>
                         </div>
                     </div>
                 </div>
                 <div class="input-group">
                     <label for="categoria" class="input__label">Categoria</label>
                     <select
+                        class="input__box"
                         name="categoria"
-                        id="categoria"
-                        class="input__box">
-                        <option value="selecione">Selecione</option>
+                        id="categoria">
+                        <option value="">Selecione</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label class="input__label" for="valor">Valor</label>
                     <input
-                        class="input__box"
                         type="text"
+                        class="input__box"
                         id="valor"
                         name="valor"
                         placeholder="R$ 999999,99"
-                        data-currency-limit="6" />
+                        required
+                        data-maxlength="8" />
                 </div>
                 <div class="input-group">
-                    <label class="input__label" for="nome">Descrição</label>
+                    <label class="input__label" for="descricao">Descrição</label>
                     <textarea
-                        maxlength="300"
-                        rows="8"
                         class="input__box"
+                        id="descricao"
                         name="descricao"
-                        id="descricao"></textarea>
+                        maxlength="300"
+                        rows="8"></textarea>
                 </div>
             </div>
             <button
-                type="button"
+                type="submit"
                 class="btn btn--primary"
-                id="cadastro__button"
-                onclick="location.href = './home.php'">
+                id="cadastro__button">
                 Cadastrar
             </button>
         </form>

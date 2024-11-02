@@ -14,8 +14,11 @@ try {
     $descricao = $_POST['descricao'];
 
     // validação de entrada
-    if (!isset($nome)) {
-        raiseMissingParameters();
+    $required_fields = $_POST;
+    unset($required_fields['descricao']);
+    $missing_fields = verificarCamposIndefinidos($required_fields);
+    if (!empty($missing_fields)) {
+        raiseMissingParameters($missing_fields);
     }
 
     $nome = truncate($nome, 50);

@@ -7,7 +7,7 @@
     <title>Login - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/login.css" />
     <script>
-        0
+        0;
     </script>
 </head>
 
@@ -33,15 +33,12 @@
                 name="txtSenha"
                 placeholder="Senha"
                 required />
-            <button
-                type="submit"
-                class="btn btn--primary"
-                id="btn-login">
+            <button type="submit" class="btn btn--primary" id="btn-login">
                 Entrar
             </button>
         </form>
     </div>
-    <script src="../js/login.js"></script>
+    <script type="module" src="../js/login.js"></script>
 </body>
 
 </html>

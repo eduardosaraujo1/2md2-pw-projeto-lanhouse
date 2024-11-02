@@ -55,13 +55,7 @@ function currencyInputHook(event) {
     const str = input.value;
 
     // Parametro: tamanho máximo do valor
-    const PARAM_CURRENCY_LIMIT = input.getAttribute('data-currency-limit');
-
-    if (!parseInt(PARAM_CURRENCY_LIMIT)) {
-        throw Error(
-            `Attributo 'data-currency-limit' não encontrado: esperado número, encontrado ${PARAM_CURRENCY_LIMIT}`
-        );
-    }
+    let numSize = input.dataset?.maxlength ?? 14;
 
     // Simplificar
     const value = str.replace('.', ',').replace(/[^\d,]/g, '');
@@ -75,10 +69,11 @@ function currencyInputHook(event) {
     // Divide a parte inteira e a decimal usando a vírgula
     let [inteira, decimal] = value.split(',');
 
-    // Trunca a parte inteira para o limite de 5 dígitos
-    if (inteira.length > PARAM_CURRENCY_LIMIT) {
-        decimal = decimal ?? '' + inteira.slice(PARAM_CURRENCY_LIMIT); // Junta a parte cortada do numero ao decimal
-        inteira = inteira.slice(0, PARAM_CURRENCY_LIMIT);
+    // Trunca a parte inteira para o limite de n dígitos
+    const inteiraSize = numSize - 2;
+    if (inteira.length > inteiraSize) {
+        decimal = decimal ?? '' + inteira.slice(inteiraSize); // Junta a parte cortada do numero ao decimal
+        inteira = inteira.slice(0, inteiraSize);
     }
 
     // Verifica se tem parte decimal, mesmo que vazia ("") e inclui a virgula
@@ -96,6 +91,21 @@ function currencyValidate(str) {
     return regex.test(str);
 }
 
+// Validar senhas
+function passwordValidate(password, confirm) {
+    // verifica se confirmação está correta
+    if (password !== confirm) {
+        return false;
+    }
+
+    // tammanho da senha < 8
+    if (password.length < 8) {
+        return false;
+    }
+
+    return true;
+}
+
 /**
  * Utilidades para inputs de formulários. Funcionalidade para formatar e validar telefone e moeda
  * @param hook - Utilizado para conectar no evento "input" da caixa de texto para validar a entrada do usuário
@@ -110,6 +120,9 @@ const InputUtils = {
         hook: currencyInputHook,
         isvalid: currencyValidate,
     },
+    password: {
+        isvalid: passwordValidate,
+    },
 };
 
-export default InputUtils;
+export { InputUtils };

@@ -17,8 +17,10 @@ try {
     $endereco = $_POST["endereco"];
 
     // validação de entrada
-    if (!isset($nome, $contato, $email, $telefone, $endereco)) {
-        raiseMissingParameters();
+    $required_fields = $_POST;
+    $missing_fields = verificarCamposIndefinidos($required_fields);
+    if (!empty($missing_fields)) {
+        raiseMissingParameters($missing_fields);
     }
 
     if (!$telefone = sanitizarTelefone($telefone)) {

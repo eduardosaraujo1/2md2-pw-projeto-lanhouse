@@ -21,8 +21,10 @@ try {
     $senha = $_POST["senha"];
 
     // validação de entrada
-    if (!isset($nome, $sobrenome, $dt_nascimento, $cargo, $salario, $email, $senha)) {
-        raiseMissingParameters();
+    $required_fields = $_POST;
+    $missing_fields = verificarCamposIndefinidos($required_fields);
+    if (!empty($missing_fields)) {
+        raiseMissingParameters($missing_fields);
     }
     if (!$dt_nascimento = sanitizarData($dt_nascimento)) {
         raiseInvalidParameter('dt_nascimento', 'Hint: format yyyy-mm-dd');

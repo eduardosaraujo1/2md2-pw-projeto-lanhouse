@@ -1,4 +1,4 @@
-import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
+import { FormSenderFactory, CadastroUtils } from './common/cadastro.mjs';
 
 function load() {
     // Form data

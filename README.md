@@ -29,3 +29,23 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [ ] (N/A) #4 A tela lancamentos.php não foi conectada ao banco pois:
     -   [ ] #4.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script. (prestes a resolver)
     -   [ ] #4.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo. (prestes a resolver)
+
+# Branch Roadmap
+
+ARQUITETURA
+
+```
+SESSION VARIABLE
+current_user = {id: int, name: string}
+
+LOGIN PAGE
+On login button: logon.php ([Fetch with cookies](http://stackoverflow.com/questions/34558264/ddg#34592377))
+-> Get user with submitted name and password
+-> If exists then start session, save data, and return status sucess content ''
+-> If not exists then return status error content 'credenciais invalidas'
+If response is error, display error message (REQUIRES HTML AND CSS CHANGE).
+If response is success, redirect to home
+
+ON EACH PAGE
+In the head tag, include session-validate.php that sees if SESSION[current_user] is defined and if not go to login.php
+```

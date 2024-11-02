@@ -7,14 +7,14 @@
     <title>Login - Sistema Lanhouse</title>
     <link rel="stylesheet" href="../css/login.css" />
     <script>
-        0;
+        0
     </script>
 </head>
 
 <body>
     <div class="decorator-image"></div>
     <div class="form-container">
-        <form class="form" method="post" novalidate>
+        <form class="form" method="post">
             <div class="title">
                 <h1 class="font-heading">Entrar</h1>
                 <span class="font-regular">Digite suas credenciais para continuar</span>
@@ -22,15 +22,15 @@
             <input
                 type="email"
                 class="input__box"
-                id="txtEmail"
-                name="txtEmail"
+                id="email"
+                name="email"
                 placeholder="E-mail"
                 required />
             <input
                 type="password"
                 class="input__box"
-                id="txtSenha"
-                name="txtSenha"
+                id="senha"
+                name="senha"
                 placeholder="Senha"
                 required />
             <button type="submit" class="btn btn--primary" id="btn-login">

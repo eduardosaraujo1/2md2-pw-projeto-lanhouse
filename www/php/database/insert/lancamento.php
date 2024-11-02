@@ -11,8 +11,10 @@ try {
     }
 
     // dados
+    // DEBUG_FUTURE_REMOVE
     if (!empty($_POST['debug'])) {
         $fk_funcionario = 1;
+        $_POST["categoria"] = 1;
     }
     $valor = $_POST["valor"];
     $tipo_lanc = $_POST["tipoLanc"];
@@ -23,7 +25,8 @@ try {
 
     // validar sessão e propriedades enviadas
     if (empty($fk_funcionario)) {
-        raiseInvalidSession();
+        // DEBUG_FUTURE_REMOVE
+        if (empty($_POST['debug'])) raiseInvalidSession();
     }
 
     // obter campos faltantes

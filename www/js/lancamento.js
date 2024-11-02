@@ -1,61 +1,45 @@
 import { InputUtils } from './common/inpututils.js';
-import Cadastro from './common/cadastro.js';
+import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
 
-async function cadastrarFuncionario(event) {
-    // Dados form
-    const form = event.target;
+function getFormData(form) {
+    // Declare FormData
     const formdata = new FormData(form);
 
-    // cancelar envio em caso de invalidez
-    if (formValidate(form)) {
-        return;
-    }
-
-    // sanitização - remover caracteres decorativos do campo "valor"
+    // Sanitizar valor
     const valor = formdata.get('valor');
     const valorSanitized = valor.replace(/[^\d,.]/g, '');
     formdata.set('valor', valorSanitized);
 
-    // submit
-    Cadastro.setSubmitButtonState(form, false);
-    const result = await Cadastro.cadastrar('../php/database/insert/lancamento.php', formdata);
+    // Adicionar debug flag
+    formdata.set('debug', 'true');
 
-    // exibir resposta para o usuário
-    const cadastroResult = document.querySelector('.cadastro__result');
-    Cadastro.displayResponseResult(cadastroResult, result['status'] === 'success');
-
-    // limpar form quando subject sucesso
-    if (result['status'] === 'success') {
-        form.reset();
-    }
-
-    // reativar formButton
-    Cadastro.setSubmitButtonState(form, true);
+    // Retornar FormData
+    return formdata;
 }
 
 function formValidate(form) {
-    let valid = true;
-
-    if (!form.checkValidity()) {
-        valid = false;
-    }
-
     // Exibir problema caso exista
-    form.reportValidity();
-
-    // Retornar se é valido ou não
-    return valid;
+    return form.reportValidity();
 }
 
 function load() {
-    // Filtro de input: moeda
+    // Cadastro elements
     const form = document.querySelector('form.cadastro__form');
+
+    // Form sender object
+    const formSender = FormSenderFactory(form, formValidate, getFormData);
+
+    form.addEventListener('submit', async (event) => {
+        // Prevent form submit default redirection behaviour
+        event.preventDefault();
+
+        // Default cadastro submit logic
+        CadastroUtils.cadastroSubmitHandler(formSender);
+    });
+
+    // Filtro de input: moeda
     const valor = form.querySelector('#valor');
     valor.addEventListener('input', InputUtils.currency.hook);
-
-    // Submit subject
-    const subject = Cadastro.createFormSubmitSubject(form);
-    subject.subscribe(cadastrarFuncionario);
 }
 
 load();

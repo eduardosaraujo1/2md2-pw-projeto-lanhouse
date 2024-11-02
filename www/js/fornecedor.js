@@ -39,10 +39,7 @@ function formValidate(form) {
 
 function load() {
     // Cadastro elements
-    const cadastro = document.querySelector('.cadastro');
-    const form = cadastro.querySelector('form.cadastro__form');
-    const submitButton = form.querySelector('#cadastro__button');
-    const resultDisplay = cadastro.querySelector('.cadastro__result');
+    const form = document.querySelector('form.cadastro__form');
 
     // Form sender object
     const formSender = FormSenderFactory(form, formValidate, getFormData);

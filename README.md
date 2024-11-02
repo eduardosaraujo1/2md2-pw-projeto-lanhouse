@@ -41,16 +41,4 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [x] Replicar nos outros forms, não apenas em funcionario.js
 -   [x] BLOQUEAR BOTÃO "submit" quando o form estiver no processo de envio
 -   [x] VALIDAÇÃO DE TELEFONE QUANDO ENVIAR EU ESQUECI!!!
--   [ ] Refactor: arquitetura FormSubmit object
-
-```
-Form Submit Object (takes HTMLFormElement as paramter)
-(Função "submit" no lugar de um event listener):
-Validar formulario (formValidate function on parameter), retorna falso se não for valido
-Obter dados do formulario (getFormData function on parameter)
-Submit dados para endpoint (ler atributo 'action' do form para obter endpoint)
-Retornar resposta ao caller.
-
-CALLER
-Ao iniciar, o FormSubmitObject é criado. Dentro de um submit event listener no arquivo do formulario, rode o preventDefault() e faça um submit ao FormSubmitObject. Desative o botão ou faça qualquer logica necessaria antes e depois do submit (limpeza de form)
-```
+-   [x] Refactor: arquitetura FormSubmit object

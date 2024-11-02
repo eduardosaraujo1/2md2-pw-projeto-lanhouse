@@ -106,6 +106,38 @@ function displayResult(display, success) {
     }, state.timeout_duration);
 }
 
+/**
+ * @param {FormSender} formSender
+ */
+async function cadastroSubmitHandler(formSender) {
+    // Form data
+    const form = document.querySelector('form.cadastro__form');
+    const submitButton = form.querySelector('#cadastro__button');
+    const resultDisplay = document.querySelector('.cadastro__result');
+
+    // Desativar botão enquanto envio não houver finalizado
+    CadastroUtils.submitButton.disable(submitButton);
+
+    // Enviar formulario utilizando endpoint especificado em 'action'
+    const response = await formSender.submit();
+
+    if (response) {
+        // Verificar se requisição obteve êxito em seu proposito
+        const success = response['status'] === 'success';
+
+        // Exibir resposta ao usuário
+        CadastroUtils.displayResult(resultDisplay, success);
+
+        // Por fim, limpar formulário dos dados se bem sucedido
+        if (success) {
+            form.reset();
+        }
+    }
+
+    // Reativar botão após finalização do envio
+    CadastroUtils.submitButton.enable(submitButton);
+}
+
 function disableSubmitButton(button) {
     return button.setAttribute('disabled', 'true');
 }
@@ -116,6 +148,7 @@ function enableSubmitButton(button) {
 
 export const CadastroUtils = {
     displayResult,
+    cadastroSubmitHandler,
     submitButton: {
         disable: disableSubmitButton,
         enable: enableSubmitButton,

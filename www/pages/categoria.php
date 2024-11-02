@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include '../components/navbar.php' ?>
+    <?php include '../templates/navbar.html' ?>
     <div class="cadastro">
         <h1 class="cadastro__title">Cadastro de categoria</h1>
         <span class="cadastro__result"></span>

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include '../components/navbar.php' ?>
+    <?php include '../templates/navbar.html' ?>
     <div class="container">
         <div class="welcome">
             <h1 class="font-headline">Bem-vindo Usuário!</h1>

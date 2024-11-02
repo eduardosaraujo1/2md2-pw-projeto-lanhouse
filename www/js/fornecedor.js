@@ -1,38 +1,17 @@
 import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
-import { InputUtils } from './common/input-utils.js';
+import { InputUtils } from './common/inpututils.js';
 
-async function cadastrarFornecedor(event) {
-    const form = event.target;
+function getFormData(form) {
+    // Declare FormData
     const formdata = new FormData(form);
 
-    // cancelar envio em caso de invalidez
-    if (formValidate(form)) {
-        return;
-    }
-
-    // sanitização - remover caracteres decorativos do campo "telefone"
-    CadastroUtils.setSubmitButtonState(form, false);
+    // Sanitizar Telefone
     const telefone = formdata.get('telefone');
     const telefoneFiltrado = telefone.replace(/\D/g, '');
     formdata.set('telefone', telefoneFiltrado);
 
-    // submit
-    const result = await CadastroUtils.cadastrar(
-        '../php/database/insert/fornecedor.php',
-        formdata
-    );
-
-    // exibir resposta para o usuário
-    const cadastroResult = document.querySelector('.cadastro__result');
-    CadastroUtils.displayResponseResult(
-        cadastroResult,
-        result['status'] === 'success'
-    );
-    // limpar form quando subject sucesso
-    if (result['status'] === 'success') {
-        form.reset();
-    }
-    CadastroUtils.setSubmitButtonState(form, true);
+    // Retornar FormData
+    return formdata;
 }
 
 function formValidate(form) {
@@ -43,7 +22,7 @@ function formValidate(form) {
         valid = false;
     }
 
-    if (InputUtils.phone.isvalid(telefone.value)) {
+    if (!InputUtils.phone.isvalid(telefone.value)) {
         telefone.setCustomValidity('Telefone incompleto.');
         valid = false;
     }
@@ -59,14 +38,45 @@ function formValidate(form) {
 }
 
 function load() {
+    // Cadastro elements
+    const cadastro = document.querySelector('.cadastro');
+    const form = cadastro.querySelector('form.cadastro__form');
+    const submitButton = form.querySelector('#cadastro__button');
+    const resultDisplay = cadastro.querySelector('.cadastro__result');
+
+    // Form sender object
+    const formSender = FormSenderFactory(form, formValidate, getFormData);
+
+    form.addEventListener('submit', async (event) => {
+        // Prevent form submit default redirection behaviour
+        event.preventDefault();
+
+        // Desativar botão enquanto envio não houver finalizado
+        CadastroUtils.submitButton.disable(submitButton);
+
+        // Enviar formulario utilizando endpoint especificado em 'action'
+        const response = await formSender.submit();
+
+        if (response) {
+            // Verificar se requisição obteve êxito em seu proposito
+            const success = response['status'] === 'success';
+
+            // Exibir resposta ao usuário
+            CadastroUtils.displayResult(resultDisplay, success);
+
+            // Por fim, limpar formulário dos dados se bem sucedido
+            if (success) {
+                form.reset();
+            }
+        }
+
+        // Reativar botão após finalização do envio
+        CadastroUtils.submitButton.enable(submitButton);
+    });
+
     // Filtros de input
-    const form = document.querySelector('form.cadastro__form');
     const telefone = form.querySelector('#telefone');
     telefone.addEventListener('input', InputUtils.phone.hook);
-
-    // Evento submit
-    const formSubject = CadastroUtils.createFormSubmitSubject(form);
-    formSubject.subscribe(cadastrarFornecedor);
 }
 
 load();

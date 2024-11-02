@@ -1,4 +1,4 @@
-import { InputUtils } from './common/input-utils.js';
+import { InputUtils } from './common/inpututils.js';
 import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
 
 async function cadastrarCliente(event) {
@@ -17,17 +17,11 @@ async function cadastrarCliente(event) {
 
     // submit
     CadastroUtils.setSubmitButtonState(form, false);
-    const result = await CadastroUtils.cadastrar(
-        '../php/database/insert/cliente.php',
-        formdata
-    );
+    const result = await CadastroUtils.cadastrar('../php/database/insert/cliente.php', formdata);
 
     // exibir resposta para o usuário
     const cadastroResult = document.querySelector('.cadastro__result');
-    CadastroUtils.displayResponseResult(
-        cadastroResult,
-        result['status'] === 'success'
-    );
+    CadastroUtils.displayResponseResult(cadastroResult, result['status'] === 'success');
     // limpar form quando subject sucesso
     if (result['status'] === 'success') {
         form.reset();

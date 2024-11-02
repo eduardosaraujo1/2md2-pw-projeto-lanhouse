@@ -61,3 +61,19 @@ CREATE TABLE
         FOREIGN KEY (`fk_id_funcionario`) REFERENCES `bd_empresa`.`tb_funcionario` (`id_funcionario`),
         FOREIGN KEY (`fk_id_categoria`) REFERENCES `bd_empresa`.`tb_categoria` (`id_categoria`)
     );
+
+-- Senha: admin01
+INSERT INTO
+    `bd_empresa`.`tb_funcionario`
+VALUES
+    (
+        null,
+        'Administrador',
+        '',
+        '2008-01-06',
+        'Administrador',
+        0.00,
+        CURRENT_DATE(),
+        'admin@lanhouse.org',
+        '$2a$14$UWRPtR4yNR..WlENyyzbhOd6jtGy23rI6A7xe.CnTk.pECHws0O8i'
+    );

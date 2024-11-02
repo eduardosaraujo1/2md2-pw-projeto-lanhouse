@@ -1,5 +1,13 @@
 import Database from './common/database.mjs';
 
+function disableSubmitButton(button) {
+    return button.setAttribute('disabled', 'true');
+}
+
+function enableSubmitButton(button) {
+    return button.removeAttribute('disabled');
+}
+
 /**
  *
  * @param {HTMLFormElement} form
@@ -22,13 +30,37 @@ function formValidate(form) {
     return form.reportValidity();
 }
 
+let timeout;
 function displayError(code) {
-    // TEMPORARIO: exibir resposta ao span
-    document.querySelector('.title span').innerHTML = code;
+    // Exibir mensagem
+    let message = '';
+
+    switch (code) {
+        case 'USER_NOT_FOUND':
+            message = 'Usuário não cadastrado.';
+            break;
+        case 'INCORRECT_PASSWORD':
+            message = 'Senha incorreta.';
+            break;
+        default:
+            console.error('Login Error: ' + code);
+            message = 'Ocorreu um erro inesperado. Tente novamente mais tarde.';
+            break;
+    }
+
+    const result = document.querySelector('.login__result');
+    result.innerHTML = message;
+
+    // Limpar depois de alguns segundos
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        result.innerHTML = '';
+    }, 30000);
 }
 
 function load() {
     const form = document.querySelector('form');
+    const submitButton = form.querySelector('#btn-login');
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -36,13 +68,21 @@ function load() {
             return;
         }
 
+        // Desativar botão submit para evitar spam
+        disableSubmitButton(submitButton);
+
+        // Attempt login
         const loginResponse = await requestLogin(form);
 
+        // If successful then redirect else display error
         if (loginResponse.status === 'success') {
             location.href = './home.php';
         } else {
             displayError(loginResponse.content);
         }
+
+        // Habilitar botão para submit
+        enableSubmitButton(submitButton);
     });
 }
 
@@ -53,8 +93,6 @@ On form submit:
 preventDefault
 Validate
 RequestLogin
-If successful then redirect
-else display error
 */
 
 /**

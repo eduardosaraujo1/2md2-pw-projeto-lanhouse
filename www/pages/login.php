@@ -33,6 +33,7 @@
                 name="senha"
                 placeholder="Senha"
                 required />
+            <span class="login__result"></span>
             <button type="submit" class="btn btn--primary" id="btn-login">
                 Entrar
             </button>

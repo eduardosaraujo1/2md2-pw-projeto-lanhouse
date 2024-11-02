@@ -83,7 +83,7 @@ try {
 
     // Enviar resposta de sucesso
     $response['status'] = 'success';
-    $response['content'] = 'Successfully logged in as ' . $user['nm_funcionario'];
+    $response['content'] = 'LOGIN_SUCCESS';
 } catch (Throwable $err) {
     $response['status'] = 'error';
     $response['content'] = $err->getMessage();

@@ -35,9 +35,6 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 ARQUITETURA
 
 ```
-SESSION VARIABLE
-current_user = {id: int, name: string}
-
 LOGIN PAGE
 On login button: logon.php ([Fetch with cookies](http://stackoverflow.com/questions/34558264/ddg#34592377))
 -> Get user with submitted name and password
@@ -45,7 +42,4 @@ On login button: logon.php ([Fetch with cookies](http://stackoverflow.com/questi
 -> If not exists then return status error content 'credenciais invalidas'
 If response is error, display error message (REQUIRES HTML AND CSS CHANGE).
 If response is success, redirect to home
-
-ON EACH PAGE
-In the head tag, include session-validate.php that sees if SESSION[current_user] is defined and if not go to login.php
 ```

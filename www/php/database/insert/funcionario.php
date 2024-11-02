@@ -4,6 +4,9 @@ require '../utilities.php';
 require '../connection.php';
 
 try {
+    // Iniciar sessão (para obter usuário atual)
+    session_start();
+
     // validar tipo de request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         raiseInvalidRequestMethod();
@@ -19,6 +22,11 @@ try {
     $dt_admissao = date('Y-m-d');
     $email = $_POST["email"];
     $senha = $_POST["senha"];
+
+    // validar sessão
+    if (!$_SESSION['current_user']) {
+        raiseInvalidSession();
+    }
 
     // validação de entrada
     $required_fields = $_POST;

@@ -16,7 +16,7 @@
     <?php include '../templates/navbar.html' ?>
     <div class="container">
         <div class="welcome">
-            <h1 class="font-headline">Bem-vindo Usuário!</h1>
+            <h1 class="font-headline">Bem-vindo <?php echo ($_SESSION['current_user']['name']) ?></h1>
             <p class="font-regular">
                 Para começar, porque não cadastrar um lançamento? Clique em
                 <b>Cadastros</b> na barra de navegação para começar.

@@ -4,6 +4,9 @@ require '../utilities.php';
 require '../connection.php';
 
 try {
+    // Iniciar sessão (para obter usuário atual)
+    session_start();
+
     // validar tipo de request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         raiseInvalidRequestMethod();
@@ -16,6 +19,11 @@ try {
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];
     $endereco = $_POST["endereco"];
+
+    // validar sessão
+    if (!$_SESSION['current_user']) {
+        raiseInvalidSession();
+    }
 
     // sanitização de entrada
     $required_fields = $_POST;

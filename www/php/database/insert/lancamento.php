@@ -4,6 +4,9 @@ require '../utilities.php';
 require '../connection.php';
 
 try {
+    // Iniciar sessão (para obter usuário atual)
+    session_start();
+
     // validar tipo de request
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         raiseInvalidRequestMethod();
@@ -13,20 +16,19 @@ try {
     // dados
     // DEBUG_FUTURE_REMOVE
     if (!empty($_POST['debug'])) {
-        $fk_funcionario = 1;
         $_POST["categoria"] = 1;
     }
     $valor = $_POST["valor"];
     $tipo_lanc = $_POST["tipoLanc"];
     $data_lanc = date('Y-m-d');
+    $fk_funcionario = 1;
     $descricao = $_POST["descricao"];
     $fk_categoria = $_POST["categoria"];
+    $fk_funcionario = $_SESSION['current_user']['id'];
 
-
-    // validar sessão e propriedades enviadas
-    if (empty($fk_funcionario)) {
-        // DEBUG_FUTURE_REMOVE
-        if (empty($_POST['debug'])) raiseInvalidSession();
+    // validar sessão
+    if (!$_SESSION['current_user'] || empty($fk_funcionario)) {
+        raiseInvalidSession();
     }
 
     // obter campos faltantes

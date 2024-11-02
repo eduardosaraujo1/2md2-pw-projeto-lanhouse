@@ -11,7 +11,7 @@ function getFormData(form) {
     formdata.set('valor', valorSanitized);
 
     // Adicionar debug flag
-    // formdata.set('debug', 'true');
+    formdata.set('debug', 'true');
 
     // Retornar FormData
     return formdata;

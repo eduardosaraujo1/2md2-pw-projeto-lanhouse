@@ -41,3 +41,9 @@ body {
 .input__box {
     width: 320px;
 }
+
+.login__result {
+    margin-top: -0.25rem;
+    font-size: 0.75em;
+    color: var(--color-error);
+}

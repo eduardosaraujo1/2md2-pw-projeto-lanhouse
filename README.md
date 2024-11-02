@@ -10,6 +10,9 @@
 3.  Clone o projeto na pasta utilizando `git clone https://github.com/eduardosaraujo1/2md2-pw-projeto-lanhouse`.
 4.  Inicie o Apache Server pelo XAMPP Control
 5.  O projeto deve estar disponivel em http://localhost:80/2md2-pw-projeto-lanhouse/www
+6.  Para fazer login, o usuário administrador possui as seguintes credenciais:
+    -   E-mail: admin@lanhouse.org
+    -   Senha: admin01
 
 # Sobre o Projeto
 
@@ -24,8 +27,8 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 # Roadmap
 
 -   [ ] (GIAN) #1 Fazer uma tela de home.php melhorada
--   [ ] (EDUARDO) #2 Implementar sistema login utilizando $SESSION
+-   [x] (EDUARDO) #2 Implementar sistema login utilizando $SESSION
 -   [ ] (EDUARDO) #3 Fazer botão de visualizar senha
--   [ ] (N/A) #4 A tela lancamentos.php não foi conectada ao banco pois:
-    -   [ ] #4.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script. (prestes a resolver)
-    -   [ ] #4.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo. (prestes a resolver)
+-   [ ] (EDUARDO) #4 A tela lancamentos.php não foi conectada ao banco pois:
+    -   [ ] #4.1 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script.
+    -   [x] #4.2 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo.

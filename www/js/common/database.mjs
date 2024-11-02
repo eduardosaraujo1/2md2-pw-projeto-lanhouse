@@ -9,6 +9,7 @@ async function sendPost(url, formdata) {
         const response = await fetch(url, {
             method: 'POST',
             body: formdata,
+            credentials: 'same-origin',
         });
 
         // Tenta converter para JSON

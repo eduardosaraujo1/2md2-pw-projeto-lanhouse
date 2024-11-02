@@ -16,10 +16,6 @@ try {
     }
 
     // dados
-    // DEBUG_FUTURE_REMOVE
-    if (!empty($_POST['debug'])) {
-        $_POST["categoria"] = 1;
-    }
     $valor = $_POST["valor"];
     $tipo_lanc = $_POST["tipoLanc"];
     $data_lanc = date('Y-m-d');
@@ -96,5 +92,3 @@ try {
 }
 
 echo json_encode($response);
-
-// ! TODO: Finalizar mecanismo de login com session e criar uma query para lista de categorias

@@ -33,8 +33,40 @@ async function sendPost(url, formdata) {
     }
 }
 
+async function sendGet(url) {
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            credentials: 'same-origin',
+        });
+
+        // Attempt to parse as JSON, catching any errors
+        try {
+            const data = await response.json();
+            return {
+                status: 'success',
+                content: data,
+            };
+        } catch (jsonError) {
+            // Fall back to plain text if JSON parsing fails
+            const content = await response.text();
+            return {
+                status: 'error',
+                content: content,
+            };
+        }
+    } catch (networkError) {
+        // Handle network error
+        return {
+            status: 'error',
+            content: `Network error: ${networkError.message}`,
+        };
+    }
+}
+
 const Database = {
     sendPost,
+    sendGet,
 };
 
 export default Database;

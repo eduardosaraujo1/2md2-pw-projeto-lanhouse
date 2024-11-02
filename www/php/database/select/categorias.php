@@ -26,6 +26,4 @@ try {
     $response = array();
 }
 
-if (__FILE__ === $_SERVER['SCRIPT_FILENAME']) {
-    echo json_encode($response);
-}
+echo json_encode($response);

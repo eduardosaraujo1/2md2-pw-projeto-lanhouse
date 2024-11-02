@@ -1,5 +1,17 @@
 import { InputUtils } from './common/inpututils.mjs';
 import { FormSenderFactory, CadastroUtils } from './common/cadastro.mjs';
+import Database from './common/database.mjs';
+
+async function getCategorias() {
+    const endpoint = '../php/database/select/categorias.php';
+    const response = await Database.sendGet(endpoint);
+
+    if (response.status !== 'success') {
+        return {};
+    }
+
+    return response.content;
+}
 
 function getFormData(form) {
     // Declare FormData
@@ -11,7 +23,7 @@ function getFormData(form) {
     formdata.set('valor', valorSanitized);
 
     // Adicionar debug flag
-    formdata.set('debug', 'true');
+    // formdata.set('debug', 'true');
 
     // Retornar FormData
     return formdata;
@@ -19,10 +31,23 @@ function getFormData(form) {
 
 function formValidate(form) {
     // Exibir problema caso exista
-    return form.reportValidity();
+    let valid = true;
+    const select = form.querySelector('#categoria');
+    if (select.value === '') {
+        select.setCustomValidity('Selecione uma categoria.');
+        valid = false;
+    }
+
+    if (!form.reportValidity()) {
+        valid = false;
+    }
+
+    select.setCustomValidity('');
+
+    return valid;
 }
 
-function load() {
+async function load() {
     // Cadastro elements
     const form = document.querySelector('form.cadastro__form');
 
@@ -40,6 +65,16 @@ function load() {
     // Filtro de input: moeda
     const valor = form.querySelector('#valor');
     valor.addEventListener('input', InputUtils.currency.hook);
+
+    // Alimentar select de categorias
+    const categoriaSelect = form.querySelector('#categoria');
+    const categorias = await getCategorias();
+    for (const key in categorias) {
+        const option = document.createElement('option');
+        option.value = key;
+        option.innerHTML = categorias[key];
+        categoriaSelect.appendChild(option);
+    }
 }
 
 load();

@@ -1,43 +1,20 @@
 import { InputUtils } from './common/input-utils.js';
 import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
 
-async function cadastrarFuncionario(event) {
+function getFormData(form) {
     // Dados form
-    const form = event.target;
     const formdata = new FormData(form);
 
-    // cancelar envio em caso de invalidez
-    if (formValidate(form)) {
-        return;
-    }
-
-    // sanitização - remover caracteres decorativos do campo "salario"
+    // Sanitizar salario
     const salario = formdata.get('salario');
     const salarioSanitized = salario.replace(/[^\d,.]/g, '');
     formdata.set('salario', salarioSanitized);
 
-    // submit
-    CadastroUtils.setSubmitButtonState(form, false);
-    const result = await CadastroUtils.cadastrar(
-        '../php/database/insert/funcionario.php',
-        formdata
-    );
-
-    // exibir resposta para o usuário
-    const cadastroResult = document.querySelector('.cadastro__result');
-    CadastroUtils.displayResponseResult(
-        cadastroResult,
-        result['status'] === 'success'
-    );
-    // limpar form quando subject sucesso
-    if (result['status'] === 'success') {
-        form.reset();
-    }
-    CadastroUtils.setSubmitButtonState(form, true);
+    // Retornar FormData
+    return formdata;
 }
 
 /**
- *
  * @param {HTMLFormElement} form
  */
 function formValidate(form) {
@@ -70,14 +47,41 @@ function formValidate(form) {
 }
 
 function load() {
+    // Cadastro elements
+    const cadastro = document.querySelector('.cadastro');
+    const form = cadastro.querySelector('form.cadastro__form');
+    const submitButton = form.querySelector('#cadastro__button');
+    const resultDisplay = cadastro.querySelector('.cadastro__result');
+
+    // Form sender object
+    const formSender = FormSenderFactory(form, formValidate, getFormData);
+
+    form.addEventListener('submit', async (event) => {
+        // Prevent form submit default redirection behaviour
+        event.preventDefault();
+
+        // Desativar botão enquanto envio não houver finalizado
+        CadastroUtils.submitButton.disable(submitButton);
+
+        // Enviar formulario utilizando endpoint especificado em 'action'
+        const response = await formSender.submit();
+        const success = response?.['status'] === 'success';
+
+        // Exibir resposta ao usuário
+        CadastroUtils.displayResult(resultDisplay, success);
+
+        // Reativar botão após finalização do envio
+        CadastroUtils.submitButton.enable(submitButton);
+
+        // Por fim, limpar formulário dos dados se bem sucedido
+        if (success) {
+            form.reset();
+        }
+    });
+
     // Filtros de entrada de texto
-    const form = document.querySelector('form.cadastro__form');
     const salario = form.querySelector('#salario');
     salario.addEventListener('input', InputUtils.currency.hook);
-
-    // Conectar funções ao evento "form submit"
-    const formSubject = CadastroUtils.createFormSubmitSubject(form);
-    formSubject.subscribe(cadastrarFuncionario);
 }
 
 load();

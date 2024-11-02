@@ -59,11 +59,11 @@ export function FormSenderFactory(form, validate, getFormData) {
         }
 
         // If the custom method is provided, run it, otherwise run a basic validity check
-        return validate ? validate() : form.reportValidity();
+        return validate ? validate(form) : form.reportValidity();
     }
 
     function readForm() {
-        return getFormData ? getFormData() : new FormData(form);
+        return getFormData ? getFormData(form) : new FormData(form);
     }
 
     // Return the 'FormSender' object
@@ -72,7 +72,6 @@ export function FormSenderFactory(form, validate, getFormData) {
     };
 }
 
-// Possivelmente não pertence a cadastro.js
 let timeout;
 /**
  * @param {HTMLElement} display

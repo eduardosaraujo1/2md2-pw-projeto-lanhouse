@@ -16,7 +16,7 @@
     <div class="cadastro">
         <h1 class="cadastro__title">Cadastro de funcionário</h1>
         <span class="cadastro__result"></span>
-        <form class="cadastro__form">
+        <form class="cadastro__form" action="../php/database/insert/funcionario.php">
             <div class="cadastro__inputs">
                 <div class="cadastro__row">
                     <div class="input-group">

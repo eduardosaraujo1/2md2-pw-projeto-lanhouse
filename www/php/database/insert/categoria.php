@@ -36,6 +36,9 @@ try {
     // executar query
     executarQuery($conn, $query, $types, $params);
 
+    // fechar conexão
+    $conn->close();
+
     // montar resposta
     $response['status'] = "success";
     $response['content'] = "Successful Insert";

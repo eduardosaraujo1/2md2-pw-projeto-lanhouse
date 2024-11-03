@@ -28,6 +28,6 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
 -   [x] (GIAN) #1 Fazer uma tela de home.php melhorada
 -   [x] (EDUARDO) #2 Implementar sistema login utilizando $SESSION
--   [ ] (EDUARDO) #3 Passar design home do figma para home.php
+-   [x] (EDUARDO) #3 Passar design home do figma para home.php
 -   [x] #4 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo.
 -   [x] #5 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script.

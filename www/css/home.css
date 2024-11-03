@@ -1,5 +1,56 @@
 @import url(common/common.css);
 
-.welcome {
-    max-width: clamp(200px, 40%, 100%);
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    gap: 2px;
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.brand-image {
+    min-width: fit-content;
+}
+
+.brand-image img {
+    height: 100%;
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.page-text {
+    padding-top: 5%;
+}
+
+.page-text * {
+    text-wrap: balance;
+    text-align: center;
+}
+
+.title {
+    font-size: var(--font-size-heading);
+    line-height: 100%;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: var(--font-size-uitext);
+    line-height: 130%;
+}
+
+@media screen and (width < 888px) {
+    .brand-image {
+        display: none;
+    }
+
+    .page-text {
+        width: 100%;
+    }
+}
+.title {
+    /* font-size: var(--font-size-headline); */
 }

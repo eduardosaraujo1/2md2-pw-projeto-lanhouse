@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include '../templates/navbar.html' ?>
+    <?php include '../templates/navbar.php' ?>
     <div class="container">
         <div class="page-text">
             <h1 class="title">SEJA MUITO BEM-VINDO AO SISTEMA EMPRESARIAL!</h1>

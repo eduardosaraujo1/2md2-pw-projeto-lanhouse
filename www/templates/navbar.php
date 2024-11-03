@@ -1,3 +1,10 @@
+<?php
+$username = "Convidado";
+if (isset($_SESSION, $_SESSION['current_user'], $_SESSION['current_user']['name'])) {
+    $username = $_SESSION['current_user']['name'];
+}
+?>
+
 <nav class="navbar">
     <a class="navbar__brand" href="home.php">
         <img src="../assets/images/LogoSimplificada_cropped.png" alt="" />
@@ -34,7 +41,7 @@
         <div class="currentuser__menu" id="currentuser__menu" tabindex="-1">
             <div class="currentuser__info">
                 <img class="currentuser__avatar" src="../assets/images/UserProfile.png" alt="" />
-                <span class="currentuser_name">Usuário</span>
+                <span class="currentuser_name"><?php echo $username ?></span>
             </div>
             <ul class="currentuser__actions dropdown">
                 <li class="dropdown-item">

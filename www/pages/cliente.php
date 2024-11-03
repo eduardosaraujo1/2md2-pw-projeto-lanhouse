@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include '../templates/navbar.html' ?>
+    <?php include '../templates/navbar.php' ?>
     <div class="cadastro">
         <h1 class="cadastro__title">Cadastro de cliente</h1>
         <span class="cadastro__result"></span>

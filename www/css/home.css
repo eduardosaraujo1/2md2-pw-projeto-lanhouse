@@ -51,6 +51,8 @@ body {
         width: 100%;
     }
 }
-.title {
-    /* font-size: var(--font-size-headline); */
+@media screen and (width < 476px) {
+    .title {
+        font-size: var(--font-size-headline);
+    }
 }

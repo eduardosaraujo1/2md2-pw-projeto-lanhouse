@@ -17,7 +17,7 @@
     <div class="container">
         <div class="page-text">
             <h1 class="title">SEJA MUITO BEM-VINDO AO SISTEMA EMPRESARIAL!</h1>
-            <p class="subtitle">Aqui você terá acesso á todo o sistema de gerenciamento da LanHouse.</p>
+            <p class="subtitle">Aqui você terá acesso a todo o sistema de gerenciamento da LanHouse.</p>
         </div>
         <div class="brand-image">
             <img src="../assets/images/LogoLightBG.png" alt="">

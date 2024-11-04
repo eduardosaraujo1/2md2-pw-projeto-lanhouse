@@ -22,11 +22,6 @@ function formValidate(form) {
     const senha = form.querySelector('#senha');
     const confirmSenha = form.querySelector('#confirmSenha');
 
-    if (senha.value.length < 8) {
-        valid = false;
-        senha.setCustomValidity('Senha deve ter 8 ou mais caracteres');
-    }
-
     if (senha.value !== confirmSenha.value) {
         valid = false;
         senha.setCustomValidity('Senhas não coincidem');

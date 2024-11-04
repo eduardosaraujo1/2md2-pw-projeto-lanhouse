@@ -12,20 +12,22 @@ async function sendPost(url, formdata) {
             credentials: 'same-origin',
         });
 
-        // Tenta converter para JSON
+        // Read the response as text first
+        const text = await response.text();
+
+        // Attempt to parse the text as JSON
         try {
-            const data = await response.json();
+            const data = JSON.parse(text);
             return data;
         } catch (jsonError) {
-            // Em caso de erro ao converter para JSON, retorne o conteúdo como texto
-            const content = await response.text();
+            // If parsing fails, return the raw text content
             return {
                 status: 'error',
-                content: content,
+                content: text,
             };
         }
     } catch (networkError) {
-        // Caso ocorra um erro na própria requisição
+        // If there's a network error
         return {
             status: 'error',
             content: `Network error: ${networkError.message}`,

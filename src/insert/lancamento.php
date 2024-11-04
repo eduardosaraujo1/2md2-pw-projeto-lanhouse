@@ -60,7 +60,7 @@ function insertLancamento()
     $descricao =  truncate($descricao, 300);
 
     // conexão
-    $conn = criarConexao("../../../../database.json");
+    $conn = criarConexao(__DIR__ . "../../config/database.json");
 
     // montar query
     $query =

@@ -14,7 +14,7 @@
 <body>
     <div class="decorator-image"></div>
     <div class="form-container">
-        <form class="form" method="post" action="../php/session/logon.php">
+        <form class="form" method="post" action="../src/session/logon.php">
             <div class="title">
                 <h1 class="font-heading">Entrar</h1>
                 <span class="font-regular">Digite suas credenciais para continuar</span>

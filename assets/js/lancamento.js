@@ -67,14 +67,14 @@ async function load() {
     valor.addEventListener('input', InputUtils.currency.hook);
 
     // Alimentar select de categorias
-    const categoriaSelect = form.querySelector('#categoria');
-    const categorias = await getCategorias();
-    for (const key in categorias) {
-        const option = document.createElement('option');
-        option.value = key;
-        option.innerHTML = categorias[key];
-        categoriaSelect.appendChild(option);
-    }
+    // const categoriaSelect = form.querySelector('#categoria');
+    // const categorias = await getCategorias();
+    // for (const key in categorias) {
+    //     const option = document.createElement('option');
+    //     option.value = key;
+    //     option.innerHTML = categorias[key];
+    //     categoriaSelect.appendChild(option);
+    // }
 }
 
 load();

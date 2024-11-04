@@ -115,7 +115,7 @@
             </button>
         </form>
     </div>
-    <script type="module" src="../js/funcionario.js"></script>
+    <script type="module" src="../assets/js/funcionario.js"></script>
 </body>
 
 </html>

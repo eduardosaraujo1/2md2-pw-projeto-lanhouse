@@ -35,7 +35,7 @@ function insertCategoria()
     $descricao = truncate($descricao, 120);
 
     // conexão
-    $conn = criarConexao("../../../../database.json");
+    $conn = criarConexao("../../../database.json");
 
     // montar query
     $query = 'INSERT INTO tb_categoria (nome, descricao) VALUES (?, ?)';

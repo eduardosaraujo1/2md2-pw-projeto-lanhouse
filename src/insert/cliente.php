@@ -42,7 +42,7 @@ function insertCliente()
     $endereco = truncate($endereco, 100);
 
     // conexão
-    $conn = criarConexao("../../../../database.json");
+    $conn = criarConexao(__DIR__ . "../../config/database.json");
 
     // montar query
     $query =

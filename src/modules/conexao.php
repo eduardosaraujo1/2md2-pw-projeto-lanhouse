@@ -10,13 +10,13 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == basename(__FILE__)) {
  * @return \mysqli Objeto de conexão MySQL
  * @link https://github.com/eduardosaraujo1/2md2-pw-projeto-lanhouse/blob/main/database.json
  */
-function criarConexao($path)
+function criarConexao()
 {
-    $raw_credentials = file_get_contents($path);
+    $raw_credentials = file_get_contents(__DIR__ . '/../../config/database.json');
     $credentials = json_decode($raw_credentials, true);
 
     if (!isset($credentials["host"], $credentials["username"], $credentials["password"], $credentials["database"], $credentials["port"])) {
-        throw new Exception("Error: Missing credentials.");
+        throw new Exception("Connection Error: Missing credentials.");
     }
 
     $conn = new mysqli(
@@ -28,7 +28,7 @@ function criarConexao($path)
     );
 
     if ($conn->connect_error) {
-        throw new Exception("Connection failed. Error:" . $conn->connect_error);
+        throw new Exception("Connection Error:" . $conn->connect_error);
     }
 
     return $conn;

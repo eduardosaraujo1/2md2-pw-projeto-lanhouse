@@ -7,7 +7,7 @@ function getCategorias()
     $response = array();
 
     // conexão
-    $conn = criarConexao("../../config/database.json");
+    $conn = criarConexao(__DIR__ . "../../config/database.json");
 
     // montar query
     $query = "SELECT id_categoria 'id', nome FROM tb_categoria";

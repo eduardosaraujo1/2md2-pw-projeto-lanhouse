@@ -51,6 +51,35 @@
                     <label for="categoria" class="input__label">Categoria</label>
                     <select class="input__box" name="categoria" id="categoria">
                         <option value="" default>Selecione</option>
+                        <?php
+                        require '../src/get/categorias.php';
+
+                        function viewCategoria($categorias)
+                        {
+                            // Initialize an empty string for the <option> tags
+                            $options = '';
+
+                            // Loop through each item in the array
+                            foreach ($categorias as $item) {
+                                // Ensure 'id' and 'name' keys exist in each item
+                                if (isset($item['id']) && isset($item['nome'])) {
+                                    // Append an <option> tag with the appropriate value and innerHTML
+                                    $options .= '<option value="' . htmlspecialchars($item['id']) . '">'
+                                        . htmlspecialchars($item['nome'])
+                                        . '</option>\n';
+                                }
+                            }
+
+                            // Displays option tags
+                            echo $options;
+                        }
+                        try {
+                            $categorias = getCategorias();
+                            viewCategoria($categorias);
+                        } catch (Throwable $err) {
+                            echo $err->getMessage();
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="input-group">
@@ -82,7 +111,7 @@
             </button>
         </form>
     </div>
-    <script type="module" src="../js/lancamento.js"></script>
+    <script type="module" src="../assets/js/lancamento.js"></script>
 </body>
 
 </html>

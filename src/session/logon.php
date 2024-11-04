@@ -1,7 +1,6 @@
 <?php
-require '../database/header.php';
-require '../database/connection.php';
-
+require __DIR__ . '/../response.php';
+require __DIR__ . '/../modules/conexao.php';
 
 function getUserByEmail($email, $conn)
 {
@@ -39,13 +38,12 @@ function startLoginSession($user)
     ];
 }
 
-$response = array('status' => 'undefined', 'content' => '');
-try {
+function logon()
+{
     // Validar metodo de requisição
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        // throw new Exception("Request method must be 'POST'. Received " . $_SERVER["REQUEST_METHOD"]);
-        // FOR DEBUG
-        $_POST = $_GET;
+        throw new Exception("Request method must be 'POST'. Received " . $_SERVER["REQUEST_METHOD"]);
+        // $_POST = $_GET;
     }
 
     // dados
@@ -58,7 +56,7 @@ try {
     }
 
     // Conectar ao banco de dados para procurar usuário
-    $conn = criarConexao("../../../database.json");
+    $conn = criarConexao("../../config/database.json");
 
     // Obter usuário
     $user = getUserByEmail($email, $conn);
@@ -84,11 +82,9 @@ try {
     startLoginSession($user);
 
     // Enviar resposta de sucesso
-    $response['status'] = 'success';
-    $response['content'] = 'LOGIN_SUCCESS';
-} catch (Throwable $err) {
-    $response['status'] = 'error';
-    $response['content'] = $err->getMessage();
+    return 'LOGIN_SUCCESS';
 }
 
-echo json_encode($response);
+if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+    echo json_encode(setupResponse('logon'));
+}

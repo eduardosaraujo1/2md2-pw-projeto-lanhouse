@@ -48,7 +48,7 @@ function insertFuncionario()
     $senha = password_hash($senha, PASSWORD_BCRYPT, array("cost" => 14));
 
     // conexão
-    $conn = criarConexao("../../../../database.json");
+    $conn = criarConexao(__DIR__ . "../../config/database.json");
 
     // montar query
     $query =

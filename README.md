@@ -20,16 +20,18 @@
 
 Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcionarios, clientes, fornecedores e as receitas da loja.
 
-## Especificações
+## Referências
 
 -   [Design Figma do projeto](https://www.figma.com/design/PGKnYiHtQ5wEX7GWklSsVg/Projeto-LanHouse?node-id=0-1&t=JGkDWUHh2upO3IXY-1)
+-   [Canva da Logo](https://www.canva.com/design/DAGL5--3MWw/aEQKmSfDH_Kinom0rT7OPQ/edit)
 
 # Roadmap
 
 -   [ ] (EDUARDO) OPCIONAL - Implementar nixpacks no projeto para deploy em Railway
 -   [ ] (EDUARDO) OPCIONAL - Estrutura de aquivos & comando `composer build`
-    - https://stackoverflow.com/questions/31401495/directory-structure-for-a-php-website-using-composer-gulp-and-travis
-    - https://docs.php.earth/faq/misc/structure/
+    -   https://stackoverflow.com/questions/31401495/directory-structure-for-a-php-website-using-composer-gulp-and-travis
+    -   https://docs.php.earth/faq/misc/structure/
+
 ```
 project-root/
   .git/            # Git configuration and source directory
@@ -57,3 +59,8 @@ project-root/
   .gitignore       # Ignored files and dirs in Git (vendor...)
   composer.json    # Composer dependencies file
 ```
+
+# Branch Roadmap
+
+-   Corrigir erros de referencia de arquivos
+-   Fazer tudo em `src` tanto chamavel para retornar JSON quanto requirable para obter acesso a uma função que chama a API

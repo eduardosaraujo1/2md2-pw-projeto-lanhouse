@@ -1,0 +1,52 @@
+/* Non-layout */
+@import url(common/common.css);
+.decorator-image {
+    background-image: url('../images/full.png');
+    background-color: #020f1f;
+    background-position: 50% center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.form-container {
+    display: grid;
+    align-content: center;
+    margin-left: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.input__box {
+    width: 320px;
+}
+
+.login__result {
+    margin-top: -0.25rem;
+    font-size: 0.75em;
+    color: var(--color-error);
+}
+
+@media only screen and (width < 768px) {
+    body {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .decorator-image {
+        display: none;
+    }
+
+    .form-container {
+        margin-left: 0;
+    }
+}

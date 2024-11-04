@@ -1,11 +1,9 @@
 <?php
-require '../header.php';
-require '../../utilities/generic.php';
-require '../connection.php';
+require __DIR__ . '/../response.php';
+require __DIR__ . '/../modules/autoload.php';
 
-$response = array('status' => 'undefined', 'content' => '');
-
-try {
+function insertFornecedor()
+{
     // Iniciar sessão (para obter usuário atual)
     session_start();
 
@@ -65,11 +63,9 @@ try {
     $conn->close();
 
     // montar resposta
-    $response['status'] = "success";
-    $response['content'] = "Successful Insert";
-} catch (Throwable $err) {
-    $response['status'] = 'error';
-    $response['content'] = $err->getMessage();
+    return 'INSERT_SUCCESS';
 }
 
-echo json_encode($response);
+if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+    echo json_encode(setupResponse('insertFuncionario'));
+}

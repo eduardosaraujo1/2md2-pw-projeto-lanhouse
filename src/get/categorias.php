@@ -1,11 +1,13 @@
 <?php
-require '../header.php';
-require '../connection.php';
+require __DIR__ . '/../response.php';
+require __DIR__ . '/../modules/autoload.php';
 
-$response = array();
-try {
+function getCategorias()
+{
+    $response = array();
+
     // conexão
-    $conn = criarConexao("../../../../database.json");
+    $conn = criarConexao("../../config/database.json");
 
     // montar query
     $query = "SELECT id_categoria 'id', nome FROM tb_categoria";
@@ -18,12 +20,15 @@ try {
 
     // montar resposta
     while ($row = $result->fetch_assoc()) {
-        $id = $row['id'];
-        $nome = $row['nome'];
-        $response[$id] = $nome;
+        $response[] = [
+            'id' => $row['id'],
+            'nome' => $row['nome']
+        ];
     }
-} catch (Throwable) {
-    $response = array();
+
+    return $response;
 }
 
-echo json_encode($response);
+if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+    echo json_encode(setupResponse('getCategorias'));
+}

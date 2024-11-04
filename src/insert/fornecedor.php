@@ -67,5 +67,5 @@ function insertFornecedor()
 }
 
 if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
-    echo json_encode(setupResponse('insertFuncionario'));
+    echo json_encode(setupResponse('insertFornecedor'));
 }

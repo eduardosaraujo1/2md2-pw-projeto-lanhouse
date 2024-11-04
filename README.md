@@ -12,7 +12,7 @@
     -   No caso de um erro no comando build, tente o alternativo `composer build-global`.
     -   Para alterar os parametros do banco de dados, veja o arquivo [database.json](./config/database.json);
 4.  Inicie o Apache Server pelo XAMPP Control
-5.  O projeto deve estar disponivel em http://localhost:80/2md2-pw-projeto-lanhouse/www
+5.  O projeto deve estar disponivel em http://localhost:80/2md2-pw-projeto-lanhouse
 6.  Para fazer login, o usuário administrador possui as seguintes credenciais:
     -   E-mail: admin@lanhouse.org
     -   Senha: admin01
@@ -30,10 +30,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
 # Roadmap
 
--   [x] (EDUARDO) OPCIONAL - Implementar nixpacks no projeto para deploy em Railway
--   [x] (EDUARDO) OPCIONAL - Estrutura de aquivos & comando `composer build`
-    -   https://stackoverflow.com/questions/31401495/directory-structure-for-a-php-website-using-composer-gulp-and-travis
-    -   https://docs.php.earth/faq/misc/structure/
+-   [ ] (EDUARDO) OPCIONAL - Implementar nixpacks no projeto para deploy em Railway
 
 # Documentação (dev)
 

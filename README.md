@@ -46,23 +46,24 @@ project-root/
   config/          # App config
   database/        # Arquivos de banco de dados
       php/
-          deploy.php # Database deploy using composer build or build-global
+          deploy.php # Deploy do banco de dados utilizando PHP e Composer
       script.sql
       model.sql
-  public/          # Website Root
-      index.php    # Main entry point - front controller
+  public/          # Páginas front-end
+      index.php
       ...
-  api/             # PHP API for database connection (main app)
+  src/             # API banco de dados
       insert/...
-      select/...
+      get/...
       modules/
           conexao.php
           erros.php
           sanitizar.php
           utils.php # String utils & Array utils
-      response.php # Functions for consistent website response
-  templates/       # Template files (navbar.php)
-  vendor/          # 3rd party packages and components with Composer
-  .gitignore       # Ignored files and dirs in Git (vendor...)
-  composer.json    # Composer dependencies file
+      session/...
+      response.php # Garante resposta consistente da API
+  templates/       # Arquivos padrões para paginas (navbar.php)
+  vendor/          # Pacotes PHP
+  .gitignore       # Arquivos ignorados pelo versionamento git
+  composer.json    # Configurações de composer
 ```

@@ -1,6 +1,6 @@
 <?php
 if (basename($_SERVER['SCRIPT_FILENAME']) == basename(__FILE__)) {
-    die('Direct access not permitted');
+    die('ACESSO_NEGADO');
 }
 
 /**

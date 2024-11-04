@@ -1,4 +1,8 @@
 <?php
+if (basename($_SERVER['SCRIPT_FILENAME']) == basename(__FILE__)) {
+    die('ACESSO_NEGADO');
+}
+
 function raiseInvalidRequestMethod()
 {
     throw new Exception("Invalid request method. Expected 'POST' received '" . $_SERVER["REQUEST_METHOD"] . "'");

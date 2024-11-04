@@ -1,4 +1,7 @@
 <?php
+if (basename($_SERVER['SCRIPT_FILENAME']) == basename(__FILE__)) {
+    die('ACESSO_NEGADO');
+}
 
 // string utils
 function truncate($str, $length = 1)

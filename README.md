@@ -30,8 +30,8 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
 # Roadmap
 
--   [ ] (EDUARDO) OPCIONAL - Implementar nixpacks no projeto para deploy em Railway
--   [ ] (EDUARDO) OPCIONAL - Estrutura de aquivos & comando `composer build`
+-   [x] (EDUARDO) OPCIONAL - Implementar nixpacks no projeto para deploy em Railway
+-   [x] (EDUARDO) OPCIONAL - Estrutura de aquivos & comando `composer build`
     -   https://stackoverflow.com/questions/31401495/directory-structure-for-a-php-website-using-composer-gulp-and-travis
     -   https://docs.php.earth/faq/misc/structure/
 

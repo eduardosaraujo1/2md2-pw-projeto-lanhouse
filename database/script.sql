@@ -35,7 +35,7 @@ CREATE TABLE
         `nm_cargo` VARCHAR(30) NOT NULL,
         `nr_salario` DECIMAL(7, 2) NOT NULL,
         `dt_admissao` DATE NOT NULL,
-        `email` VARCHAR(100) NOT NULL,
+        `email` VARCHAR(100) UNIQUE NOT NULL,
         `nm_senha` TEXT NOT NULL,
         PRIMARY KEY (`id_funcionario`)
     );

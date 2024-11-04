@@ -26,8 +26,34 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
 # Roadmap
 
--   [x] (GIAN) #1 Fazer uma tela de home.php melhorada
--   [x] (EDUARDO) #2 Implementar sistema login utilizando $SESSION
--   [x] (EDUARDO) #3 Passar design home do figma para home.php
--   [x] #4 O campo fk_id_funcionário obtem o usuário que está atualmente logado. Como não temos um sistema de login ainda, não é possível preencher esse campo.
--   [x] #5 O endpoint não está estruturado para exibir as categorias que estão no banco de dados no banco e retornar ao usuário esse script.
+-   [ ] (EDUARDO) OPCIONAL - Implementar nixpacks no projeto para deploy em Railway
+-   [ ] (EDUARDO) OPCIONAL - Estrutura de aquivos & comando `composer build`
+    - https://stackoverflow.com/questions/31401495/directory-structure-for-a-php-website-using-composer-gulp-and-travis
+    - https://docs.php.earth/faq/misc/structure/
+    - ```
+project-root/
+  .git/            # Git configuration and source directory
+  assets/          # CSS, JavaScript, images, fonts
+  config/          # Application configuration
+  database/        # MySQL .sql files
+      php/
+          deploy.php # Database deploy using composer build or build-global
+      script.sql
+      model.sql
+  public/          # Website Root
+      index.php    # Main entry point - front controller
+      ...
+  api/             # PHP API for database connection (main app)
+      insert/...
+      select/...
+      modules/
+          conexao.php
+          erros.php
+          sanitizar.php
+          utils.php # String utils & Array utils
+      response.php # Functions for consistent website response
+  templates/       # Template files (navbar.php)
+  vendor/          # 3rd party packages and components with Composer
+  .gitignore       # Ignored files and dirs in Git (vendor...)
+  composer.json    # Composer dependencies file
+      ```

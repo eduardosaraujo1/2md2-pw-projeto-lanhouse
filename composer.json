@@ -7,5 +7,13 @@
             "email": "eduardo.araujo109@etec.sp.gov.br"
         }
     ],
-    "require": {}
+    "require": {},
+    "scripts": {
+        "build": [
+            "\"C:\\xampp\\php\\php.exe\" database/php/deploy.php"
+        ],
+        "build-global": [
+            "php database/php/deploy.php"
+        ]
+    }
 }

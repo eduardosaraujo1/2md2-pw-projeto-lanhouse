@@ -61,7 +61,6 @@
 
                             // Loop through each item in the array
                             foreach ($categorias as $item) {
-                                // Ensure 'id' and 'name' keys exist in each item
                                 if (isset($item['id']) && isset($item['nome'])) {
                                     // Append an <option> tag with the appropriate value and innerHTML
                                     $options .= '<option value="' . htmlspecialchars($item['id']) . '">'

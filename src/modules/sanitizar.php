@@ -62,16 +62,3 @@ function sanitizarInt($num)
 {
     return preg_match("/^\d+$/", $num) ? (int) $num : false;
 }
-
-/**
- * Se campo for vazio ou indefinido, transformar variavel em "null", se não mante-la
- * 
- * @return mixed|null
- */
-function sanitizarNullable($campo)
-{
-    if (isset($campo) && !empty($campo)) {
-        return $campo;
-    }
-    return null;
-}

@@ -17,7 +17,7 @@
     <div class="cadastro">
         <h1 class="cadastro__title">Registrar lançamento</h1>
         <span class="cadastro__result"></span>
-        <form class="cadastro__form" action="../php/database/insert/lancamento.php">
+        <form class="cadastro__form" action="../src/insert/lancamento.php">
             <div class="cadastro__inputs">
                 <div class="input">
                     <label class="input__label" for="tipoLanc">Tipo de lançamento</label>

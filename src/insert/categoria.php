@@ -31,11 +31,11 @@ function insertCategoria()
 
     // sanitize
     $nome = truncate($nome, 50);
-    $descricao = sanitizarNullable($descricao);
     $descricao = truncate($descricao, 120);
+    $descricao = empty($descricao) ? null : $descricao;
 
     // conexão
-    $conn = criarConexao("../../../database.json");
+    $conn = criarConexao();
 
     // montar query
     $query = 'INSERT INTO tb_categoria (nome, descricao) VALUES (?, ?)';

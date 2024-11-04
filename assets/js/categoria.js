@@ -3,8 +3,6 @@ import { FormSenderFactory, CadastroUtils } from './common/cadastro.mjs';
 function load() {
     // Form data
     const form = document.querySelector('form.cadastro__form');
-    const submitButton = form.querySelector('#cadastro__button');
-    const resultDisplay = document.querySelector('.cadastro__result');
 
     // Instanciação form sender
     const formSender = FormSenderFactory(form);

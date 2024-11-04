@@ -56,7 +56,7 @@ function logon()
     }
 
     // Conectar ao banco de dados para procurar usuário
-    $conn = criarConexao("../../config/database.json");
+    $conn = criarConexao();
 
     // Obter usuário
     $user = getUserByEmail($email, $conn);

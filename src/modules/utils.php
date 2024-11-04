@@ -1,8 +1,9 @@
 <?php
 
 // string utils
-function truncate($str, $length)
+function truncate($str, $length = 1)
 {
+    $str = $str ?? "";
     return mb_substr($str, 0, $length);
 }
 

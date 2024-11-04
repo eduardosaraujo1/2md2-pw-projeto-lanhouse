@@ -17,7 +17,7 @@
     <div class="cadastro">
         <h1 class="cadastro__title">Cadastro de cliente</h1>
         <span class="cadastro__result"></span>
-        <form class="cadastro__form" action="../php/database/insert/cliente.php">
+        <form class="cadastro__form" action="../src/insert/cliente.php">
             <div class="cadastro__inputs">
                 <div class="cadastro__row">
                     <div class="input-group">

@@ -56,8 +56,8 @@ function insertLancamento()
             raiseInvalidParameter("tipoLanc", "Field must be either 'lucro' or 'despeza'");
     }
 
-    $descricao = sanitizarNullable($descricao);
     $descricao =  truncate($descricao, 300);
+    $descricao = empty($descricao) ? null : $descricao;
 
     // conexão
     $conn = criarConexao(__DIR__ . "../../config/database.json");

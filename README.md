@@ -30,7 +30,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 -   [ ] (EDUARDO) OPCIONAL - Estrutura de aquivos & comando `composer build`
     - https://stackoverflow.com/questions/31401495/directory-structure-for-a-php-website-using-composer-gulp-and-travis
     - https://docs.php.earth/faq/misc/structure/
-    - ```
+```
 project-root/
   .git/            # Git configuration and source directory
   assets/          # CSS, JavaScript, images, fonts
@@ -56,4 +56,4 @@ project-root/
   vendor/          # 3rd party packages and components with Composer
   .gitignore       # Ignored files and dirs in Git (vendor...)
   composer.json    # Composer dependencies file
-      ```
+```

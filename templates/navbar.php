@@ -45,7 +45,7 @@ if (isset($_SESSION, $_SESSION['current_user'], $_SESSION['current_user']['name'
             </div>
             <ul class="currentuser__actions dropdown">
                 <li class="dropdown-item">
-                    <button class="currentuser__action dropdown-link" id="action__sair" onclick="location.href = '../php/session/sair.php'">
+                    <button class="currentuser__action dropdown-link" id="action__sair" onclick="location.href = '../src/session/sair.php'">
                         <img src="../assets/icons/sair.svg" alt="" class="currentuser__action-icon" />
                         <span class="currentuser__action-text">Sair</span>
                     </button>

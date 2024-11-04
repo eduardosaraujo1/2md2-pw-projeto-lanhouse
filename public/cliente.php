@@ -83,7 +83,7 @@
             </button>
         </form>
     </div>
-    <script type="module" src="../js/cliente.js"></script>
+    <script type="module" src="../assets/js/cliente.js"></script>
 </body>
 
 </html>

@@ -47,7 +47,7 @@
             </button>
         </form>
     </div>
-    <script type="module" src="../js/categoria.js"></script>
+    <script type="module" src="../assets/js/categoria.js"></script>
 </body>
 
 </html>

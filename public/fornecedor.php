@@ -81,7 +81,7 @@
             </button>
         </form>
     </div>
-    <script type="module" src="../js/fornecedor.js"></script>
+    <script type="module" src="../assets/js/fornecedor.js"></script>
 </body>
 
 </html>

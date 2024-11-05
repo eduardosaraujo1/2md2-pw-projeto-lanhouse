@@ -7,13 +7,14 @@
 
 1.  Acesse a pasta onde seu website se encontra (Windows: `C:\xampp\htdocs`) através do terminal (Recomendado Git Bash)
 2.  Clone o projeto na pasta utilizando `git clone https://github.com/eduardosaraujo1/2md2-pw-projeto-lanhouse`.
-3.  Caso tenha [composer](https://getcomposer.org/) instalado, utilize o comando `composer build` para fazer o deploy do banco de dados
-    -   Se preferir por um deploy manual, utilize o arquivo [script.sql](database/script.sql)
-    -   No caso de um erro no comando build, tente o alternativo `composer build-global`.
+3.  Utilize o comando `composer build` para redefinir o banco de dados.
+4.  Caso tenha instalado, utilize o comando `composer build` para fazer o deploy do banco de dados
+    -   Caso não tenha [composer](https://getcomposer.org/) e preferir configurar manualmente, utilize o arquivo [script.sql](database/script.sql)
+    -   Uma alternativa para o comando existe: `composer build-global`.
     -   Para alterar os parametros do banco de dados, veja o arquivo [database.json](./config/database.json);
-4.  Inicie o Apache Server pelo XAMPP Control
-5.  O projeto deve estar disponivel em http://localhost:80/2md2-pw-projeto-lanhouse
-6.  Para fazer login, o usuário administrador possui as seguintes credenciais:
+5.  Inicie o Apache Server pelo XAMPP Control
+6.  O projeto deve estar disponivel em http://localhost:80/2md2-pw-projeto-lanhouse/
+7.  Para fazer login, o usuário administrador possui as seguintes credenciais:
     -   E-mail: admin@lanhouse.org
     -   Senha: admin01
 
@@ -30,7 +31,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
 # Roadmap
 
--   [ ] (EDUARDO) OPCIONAL - Implementar nixpacks no projeto para deploy em Railway
+-   Vazio
 
 # Documentação (dev)
 
@@ -40,6 +41,7 @@ ESTRUTURA DE ARQUIVOS
 project-root/
   .git/            # Git config
   assets/          # CSS, JavaScript, imagens, fonts
+  build/           # Arquivos para deploy
   config/          # App config
   database/        # Arquivos de banco de dados
       php/

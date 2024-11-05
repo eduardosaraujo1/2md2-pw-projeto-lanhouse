@@ -1,5 +1,5 @@
 <?php
 session_start();
-session_destroy();
+unset($_SESSION['current_user']);
 header("Location: ../../public/login.php");
 die();

@@ -7,7 +7,7 @@ $session_valid = isset($_SESSION['current_user']);
 
 if (!$direct_request) {
     if (!$session_valid) {
-        session_destroy();
+        unset($_SESSION['current_user']);
         header('Location: login.php');
     }
 } else {

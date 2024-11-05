@@ -38,7 +38,7 @@ function startLoginSession($user)
     ];
 }
 
-function logon()
+function attemptLogin()
 {
     // Validar metodo de requisição
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -74,17 +74,16 @@ function logon()
     $password_matches = password_verify($senha, $correct_password);
 
     // Se a senha não for valida, trazer erro
-    if (!$password_matches) {
+    if ($password_matches) {
+        startLoginSession($user);
+    } else {
         throw new Exception("INCORRECT_PASSWORD");
     }
-
-    // Iniciar sessão
-    startLoginSession($user);
 
     // Enviar resposta de sucesso
     return 'LOGIN_SUCCESS';
 }
 
 if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
-    echo json_encode(setupResponse('logon'));
+    echo json_encode(setupResponse('attemptLogin'));
 }

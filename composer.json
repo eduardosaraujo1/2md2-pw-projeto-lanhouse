@@ -10,10 +10,7 @@
     "require": {},
     "scripts": {
         "build": [
-            "\"C:\\xampp\\php\\php.exe\" build/deploy.php"
-        ],
-        "build-global": [
-            "php build/deploy.php"
+            "bin/build.bat"
         ]
     }
 }

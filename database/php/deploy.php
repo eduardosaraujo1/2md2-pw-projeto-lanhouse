@@ -1,9 +1,9 @@
 <?php
-require __DIR__ . '/../src/modules/conexao.php';
+require __DIR__ . '/../../src/modules/conexao.php';
 
 $conn = criarConexao();
 
-$script = file_get_contents(__DIR__ . '/../database/script.sql');
+$script = file_get_contents(__DIR__ . '/../script.sql');
 
 // Execute the script using multi_query
 if ($conn->multi_query($script)) {

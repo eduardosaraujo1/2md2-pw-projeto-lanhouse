@@ -7,14 +7,13 @@
 
 1.  Acesse a pasta onde seu website se encontra (Windows: `C:\xampp\htdocs`) através do terminal (Recomendado Git Bash)
 2.  Clone o projeto na pasta utilizando `git clone https://github.com/eduardosaraujo1/2md2-pw-projeto-lanhouse`.
-3.  Utilize o comando `composer build` para redefinir o banco de dados.
-4.  Caso tenha instalado, utilize o comando `composer build` para fazer o deploy do banco de dados
-    -   Caso não tenha [composer](https://getcomposer.org/) e preferir configurar manualmente, utilize o arquivo [script.sql](database/script.sql)
-    -   Uma alternativa para o comando existe: `composer build-global`.
-    -   Para alterar os parametros do banco de dados, veja o arquivo [database.json](./config/database.json);
-5.  Inicie o Apache Server pelo XAMPP Control
-6.  O projeto deve estar disponivel em http://localhost:80/2md2-pw-projeto-lanhouse/
-7.  Para fazer login, o usuário administrador possui as seguintes credenciais:
+3.  Utilize o comando `composer build` para fazer o deploy do banco de dados. **AVISO: O COMANDO VAI APAGAR O BANCO DE DADOS PRÉ-EXISTENTE CASO EXISTA**
+    -   As credenciais de acesso do banco de dados podem ser alteradas em [database.json](config/database.json)
+    -   Se [composer](https://getcomposer.org/) não estiver instalado, digite `bin/build.bat` para fazer o deploy
+    -   Se preferir fazer o deploy manualmente, utilize [script.sql](database/script.sql)
+4.  Inicie o Apache Server pelo XAMPP Control
+5.  O projeto deve estar disponivel em http://localhost:80/2md2-pw-projeto-lanhouse/
+6.  Para fazer login, o usuário administrador possui as seguintes credenciais:
     -   E-mail: admin@lanhouse.org
     -   Senha: admin01
 

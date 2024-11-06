@@ -1,18 +1,20 @@
 <?php
-require __DIR__ . '/../../src/modules/conexao.php';
+require __DIR__ . '/conn.php';
 
-$conn = criarConexao();
-
+// Obter script de build
 $script = file_get_contents(__DIR__ . '/../script.sql');
 
-// Execute the script using multi_query
+// Conectar ao banco de dados sem especificar o schema
+$conn = criarConexaoNoSchema();
+
+// Executar build usando multi_query
 if ($conn->multi_query($script)) {
     do {
-        // Store any result set to clear results and allow the next query to run
+        // Limpar qualquer retorno para permitir a proxima query
         if ($result = $conn->store_result()) {
             $result->free();
         }
-    } while ($conn->next_result()); // Move to the next result set
+    } while ($conn->next_result());
 } else {
     echo "Error executing SQL script: " . $conn->error;
 }

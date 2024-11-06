@@ -1,4 +1,4 @@
-import Database from './database.mjs';
+import Database from './database.js';
 
 /**
  * Handles the form submittion process when submit is called

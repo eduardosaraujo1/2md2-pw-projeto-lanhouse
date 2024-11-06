@@ -1,5 +1,5 @@
-import { FormSenderFactory, CadastroUtils } from './common/cadastro.mjs';
-import { InputUtils } from './common/inpututils.mjs';
+import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
+import { InputUtils } from './common/inpututils.js';
 
 function getFormData(form) {
     // Dados form

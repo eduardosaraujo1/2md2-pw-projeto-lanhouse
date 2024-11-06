@@ -30,7 +30,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
 # Roadmap
 
--   Vazio
+-   [ ] Optional: categoria.php deveria utilizar fetch para pegar lista de categorias. Mesmo que o fetch falhe, é o mesmo que não tivesse cadastrado nenhuma categoria
 
 # Documentação (dev)
 

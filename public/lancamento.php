@@ -1,8 +1,8 @@
+<?php require '../src/session/check.php' ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <?php require '../src/session/check.php' ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Lançamento - Sistema Lanhouse</title>

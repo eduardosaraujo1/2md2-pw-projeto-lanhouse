@@ -9,6 +9,7 @@ if (!$direct_request) {
     if (!$session_valid) {
         unset($_SESSION['current_user']);
         header('Location: login.php');
+        die();
     }
 } else {
     echo json_encode([

@@ -1,13 +1,14 @@
+<?php
+session_start();
+
+if (isset($_SESSION['current_user'])) {
+    header('Location: home.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <?php
-    session_start();
-    if (isset($_SESSION['current_user'])) {
-        header('Location: home.php');
-    }
-    ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Sistema Lanhouse</title>

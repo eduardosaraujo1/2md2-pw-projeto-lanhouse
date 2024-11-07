@@ -1,6 +1,6 @@
-import { InputUtils } from './common/inpututils.mjs';
-import { FormSenderFactory, CadastroUtils } from './common/cadastro.mjs';
-import Database from './common/database.mjs';
+import { InputUtils } from './common/inpututils.js';
+import { FormSenderFactory, CadastroUtils } from './common/cadastro.js';
+import Database from './common/database.js';
 
 async function getCategorias() {
     const endpoint = '../php/database/select/categorias.php';

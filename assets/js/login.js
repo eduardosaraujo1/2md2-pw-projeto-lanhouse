@@ -1,4 +1,4 @@
-import Database from './common/database.mjs';
+import Database from './common/database.js';
 
 function disableSubmitButton(button) {
     return button.setAttribute('disabled', 'true');
@@ -96,5 +96,5 @@ RequestLogin
 */
 
 /**
- * @typedef {import('./common/cadastro.mjs').EndpointResponse} EndpointResponse
+ * @typedef {import('./common/cadastro.js').EndpointResponse} EndpointResponse
  */

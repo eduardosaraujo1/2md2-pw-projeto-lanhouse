@@ -1,5 +1,8 @@
 <?php
+// Anular sessão
 session_start();
-unset($_SESSION['current_user']);
+session_destroy();
+
+// Redirecionar para login
 header("Location: ../../public/login.php");
 die();

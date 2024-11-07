@@ -74,11 +74,12 @@ function attemptLogin()
     $password_matches = password_verify($senha, $correct_password);
 
     // Se a senha não for valida, trazer erro
-    if ($password_matches) {
-        startLoginSession($user);
-    } else {
+    if (!$password_matches) {
         throw new Exception("INCORRECT_PASSWORD");
     }
+
+    // Iniciar sessão se tudo correr bem
+    startLoginSession($user);
 
     // Enviar resposta de sucesso
     return 'LOGIN_SUCCESS';

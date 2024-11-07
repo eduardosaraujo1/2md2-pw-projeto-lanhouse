@@ -13,6 +13,11 @@ function insertLancamento()
         // $_POST = $_GET;
     }
 
+    // validar sessão
+    if (!$_SESSION['current_user'] || empty($fk_funcionario)) {
+        raiseInvalidSession();
+    }
+
     // dados
     $valor = $_POST["valor"];
     $tipo_lanc = $_POST["tipoLanc"];
@@ -21,11 +26,6 @@ function insertLancamento()
     $descricao = $_POST["descricao"];
     $fk_categoria = $_POST["categoria"];
     $fk_funcionario = $_SESSION['current_user']['id'];
-
-    // validar sessão
-    if (!$_SESSION['current_user'] || empty($fk_funcionario)) {
-        raiseInvalidSession();
-    }
 
     // obter campos faltantes
     $required_fields = $_POST;

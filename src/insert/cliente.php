@@ -13,17 +13,17 @@ function insertCliente()
         // $_POST = $_GET;
     }
 
+    // validar sessão
+    if (!$_SESSION['current_user']) {
+        raiseInvalidSession();
+    }
+
     // dados
     $nome = $_POST["nome"];
     $sobrenome = $_POST["sobrenome"];
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];
     $endereco = $_POST["endereco"];
-
-    // validar sessão
-    if (!$_SESSION['current_user']) {
-        raiseInvalidSession();
-    }
 
     // sanitização de entrada
     $required_fields = $_POST;

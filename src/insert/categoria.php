@@ -12,14 +12,14 @@ function insertCategoria()
         raiseInvalidRequestMethod();
     }
 
-    // dados
-    $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
-
     // validar sessão
     if (!$_SESSION['current_user']) {
         raiseInvalidSession();
     }
+
+    // dados
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
 
     // validação de entrada
     $required_fields = $_POST;

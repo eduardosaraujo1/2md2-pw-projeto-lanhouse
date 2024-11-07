@@ -12,17 +12,17 @@ function insertFornecedor()
         raiseInvalidRequestMethod();
     }
 
+    // validar sessão
+    if (!$_SESSION['current_user']) {
+        raiseInvalidSession();
+    }
+
     // dados
     $nome = $_POST['nome'];
     $contato = $_POST['contato'];
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];
     $endereco = $_POST["endereco"];
-
-    // validar sessão
-    if (!$_SESSION['current_user']) {
-        raiseInvalidSession();
-    }
 
     // validação de entrada
     $required_fields = $_POST;

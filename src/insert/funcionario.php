@@ -13,6 +13,11 @@ function insertFuncionario()
         // $_POST = $_GET;
     }
 
+    // validar sessão
+    if (!$_SESSION['current_user']) {
+        raiseInvalidSession();
+    }
+
     // dados
     $nome = $_POST['nome'];
     $sobrenome = $_POST["sobrenome"];
@@ -22,11 +27,6 @@ function insertFuncionario()
     $dt_admissao = date('Y-m-d');
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-
-    // validar sessão
-    if (!$_SESSION['current_user']) {
-        raiseInvalidSession();
-    }
 
     // validação de entrada
     $required_fields = $_POST;

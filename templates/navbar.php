@@ -1,8 +1,5 @@
 <?php
-$username = "Convidado";
-if (isset($_SESSION, $_SESSION['current_user'], $_SESSION['current_user']['name'])) {
-    $username = $_SESSION['current_user']['name'];
-}
+$username = $_SESSION['current_user']['name'] ?? "Convidado";
 ?>
 
 <nav class="navbar">

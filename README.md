@@ -31,6 +31,8 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 # Roadmap
 
 -   [ ] Optional: categoria.php deveria utilizar fetch para pegar lista de categorias. Mesmo que o fetch falhe, é o mesmo que não tivesse cadastrado nenhuma categoria
+-   [ ] (EDUARDO) Por todo o projeto, utilizei caminhos relativos ('../../login.php') para encontrar arquivos do aplicativo. Entretanto, seria interessante um modulo que, conhecendo sua localização atual e a URL atual, leia dinamicamente onde está a raiz do projeto. Permitindo o uso de um prefixo (basepath) para a raiz do projeto.
+-   [ ] (EDUARDO) Em session, logon.php faz um require diretamente em conexao.php e response.php. Entretanto, é ideal separar a interação com o banco de dados desse arquivo, criando uma API (ou um funcionarios.php requirable) que possa ler os funcionarios a partir de seu email. Então, src deveria conter uma pasta separada para interações com o banco de dados (contendo insert, get e response.php), e o session (contendo check.php, logon.php e sair.php)
 
 # Documentação (dev)
 

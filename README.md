@@ -30,6 +30,7 @@ Trata-se de um sistema para uma Lan House fictícia onde é controlado os funcio
 
 # Roadmap
 
+1.  [ ] (EDUARDO) Criar form do repositório e utilizar Laravel
 1.  [ ] (EDUARDO) Em session, logon.php faz um require diretamente em conexao.php e response.php. É ideal separar a interação com o banco de dados desse arquivo, criando uma API (funcionarios.php requirable) para fazer tal validação. Estrutura nova:
 2.  [ ] (EDUARDO) Colocar um autoload.php em src, para adicionar mais lógica além de "check.php" no inicio de cada página. ex: revalidar root do projeto. Autoload terá apenas funções que cada app terá que chamar manualmente. Exemplo: função validateSession() para fazer o require do check.php e sair se for falso (para separar a lógica de redirect do check.php). Lembre-se de atualizar a estrutura de arquivos na seção DEV :\)
 3.  [ ] (EDUARDO) Validação campos nulos (errors.php): a função deve receber assoc array de campos e throw error falando os que estão faltando

@@ -14,7 +14,7 @@ function insertLancamento()
     }
 
     // validar sessão
-    if (!$_SESSION['current_user'] || empty($fk_funcionario)) {
+    if (!$_SESSION['current_user']) {
         raiseInvalidSession();
     }
 
@@ -22,7 +22,6 @@ function insertLancamento()
     $valor = $_POST["valor"];
     $tipo_lanc = $_POST["tipoLanc"];
     $data_lanc = date('Y-m-d');
-    $fk_funcionario = 1;
     $descricao = $_POST["descricao"];
     $fk_categoria = $_POST["categoria"];
     $fk_funcionario = $_SESSION['current_user']['id'];
